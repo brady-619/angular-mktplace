@@ -43,6 +43,9 @@ export class PerfilPage implements OnInit {
 
   }
 
+  home() {
+    this.router.navigate(['/home']);
+  }
 
 
 

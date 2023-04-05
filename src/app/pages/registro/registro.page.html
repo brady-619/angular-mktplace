@@ -68,6 +68,25 @@
               </div>
               <br>
 
+
+              <ion-input
+              label="Celular"
+              label-placement="floating"
+              type="tel"
+              placeholder="Ingresa tu número de celular"
+              [(ngModel)]="celular"
+            ></ion-input>
+            
+      
+              <div *ngIf="celular!=undefined && celular.length<=9">
+                <ion-label color="danger"
+                  >*Debe contener al menos 10 digitos</ion-label
+                >
+              </div>
+              <br>
+
+ 
+
  
               <ion-input
               label="Password"
@@ -86,16 +105,18 @@
 
            
               
+              
 
               <div
                 *ngIf="nombre!=undefined && nombre.length>=5 &&
                 apellido!=undefined && apellido.length>=5 &&
                 email!=undefined && email.length>=5 &&
+                celular!=undefined && celular.length>=10 &&
                 password!=undefined && password.length>=5 
                 "
               >
                 <ion-button
-                  (click)="save(nombre, apellido, email, password)"
+                  (click)="save(nombre, apellido, email,celular, password)"
                   expand="block"
                   shape="round"
                 >

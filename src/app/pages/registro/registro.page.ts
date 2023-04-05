@@ -19,6 +19,7 @@ export class RegistroPage implements OnInit {
   apellido: any;
   email: any;
   password: any;
+  celular:any;
 
   ngOnInit() {}
 
@@ -30,7 +31,7 @@ export class RegistroPage implements OnInit {
     this.router.navigate(['/home']);
   }
 
-  save(nombre: any, apellido: any, email: any, password: any) {
+  save(nombre: any, apellido: any, email: any, celular:any,password: any) {
     console.log('params', nombre, apellido, email, password);
   }
 }
