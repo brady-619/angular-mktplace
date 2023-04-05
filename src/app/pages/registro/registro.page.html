@@ -1,0 +1,111 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item lines="none">
+      <ion-title class="ion-text-center">Registro</ion-title>
+      <ion-button (click)="perfil()">
+        <ion-icon slot="icon-only" name="arrow-undo"></ion-icon>
+      </ion-button>
+      <ion-button (click)="home()">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="10">
+        <ion-card>
+          <ion-card-content>
+
+             
+               
+                <ion-input
+                label="Nombre"
+                label-placement="floating"
+                placeholder="Ingresa tu nombre"
+                [(ngModel)]="nombre"
+              ></ion-input>
+     
+              <div *ngIf="nombre!=undefined && nombre.length<=4">
+                <ion-label color="danger"
+                  >*Debe contener al menos 5 digitos</ion-label
+                >
+              </div>
+              <br>
+
+
+
+              <ion-input
+              label="Apellido"
+              label-placement="floating"
+              placeholder="Ingresa tu apellido"
+              [(ngModel)]="apellido"
+            ></ion-input>
+    
+              <div *ngIf="apellido!=undefined && apellido.length<=4">
+                <ion-label color="danger"
+                  >*Debe contener al menos 5 digitos</ion-label
+                >
+              </div>
+              <br>
+
+     
+ 
+              <ion-input
+              label="Email"
+              label-placement="floating"
+              placeholder="Ingresa tu email"
+              [(ngModel)]="email"
+            ></ion-input>
+            
+      
+              <div *ngIf="email!=undefined && email.length<=4">
+                <ion-label color="danger"
+                  >*Debe contener al menos 5 digitos</ion-label
+                >
+              </div>
+              <br>
+
+ 
+              <ion-input
+              label="Password"
+              label-placement="floating"
+              placeholder="Ingresa tu password"
+              [(ngModel)]="password"
+            ></ion-input>
+    
+              <div *ngIf="password!=undefined && password.length<=4">
+                <ion-label color="danger"
+                  >*Debe contener al menos 5 digitos</ion-label
+                >
+              </div>
+              <br>
+
+
+           
+              
+
+              <div
+                *ngIf="nombre!=undefined && nombre.length>=5 &&
+                apellido!=undefined && apellido.length>=5 &&
+                email!=undefined && email.length>=5 &&
+                password!=undefined && password.length>=5 
+                "
+              >
+                <ion-button
+                  (click)="save(nombre, apellido, email, password)"
+                  expand="block"
+                  shape="round"
+                >
+                  Guardar
+                </ion-button>
+              </div>
+  
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

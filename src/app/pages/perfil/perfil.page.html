@@ -1,13 +1,80 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>perfil</ion-title>
+    <ion-title class="ion-text-center">Mi perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">perfil</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="10">  
+
+    <br>
+        <ion-card>
+    <ion-card-content>
+
+
+      <ion-title class="ion-text-center">Inicio de sesión</ion-title>
+
+
+      <br>
+
+      <ion-input
+      label="Email"
+      label-placement="floating"
+      placeholder="Ingresa tu email"
+      [(ngModel)]="email"
+    ></ion-input>
+
+    
+
+   
+    <br>
+
+
+    <ion-input
+    label="Contraseña"
+    label-placement="floating"
+    placeholder="Ingresa tu contraseña"
+    [(ngModel)]="password"
+    
+  ></ion-input>
+
+
+
+  <br>
+
+  <div>
+    <ion-button (click)="inicio(email,password)" expand="block" fill="clear" shape="round">
+  Ingresar
+</ion-button>
+</div>
+
+
+
+
+<div style="display: flex; justify-content: flex-end">
+<ion-card-subtitle>Aún no tienes cuenta? </ion-card-subtitle>   <a> <ion-button (click)="registro()" expand="block" fill="clear" shape="round">
+  Registrate
+</ion-button> </a>
+</div>
+
+      
+
+
+      
+
+
+    </ion-card-content>
+  </ion-card>
+</ion-col>
+      
+    </ion-row>
+  </ion-grid>
+
+  
+
+
 </ion-content>

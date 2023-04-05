@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { log } from 'console';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-perfil',
@@ -12,9 +14,36 @@ import { IonicModule } from '@ionic/angular';
 })
 export class PerfilPage implements OnInit {
 
-  constructor() { }
+
+
+  constructor(private router: Router) { }
+
+  email:any;
+  password:any;
 
   ngOnInit() {
   }
+
+
+
+
+  inicio(email:any, password:any){
+
+    console.log(email)
+
+    console.log("params", email, password);
+    
+
+
+  }
+
+
+  registro(){
+    this.router.navigate(['/registro'])
+
+  }
+
+
+
 
 }
