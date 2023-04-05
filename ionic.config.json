@@ -1,0 +1,7 @@
+{
+  "name": "angular-mktplace",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
