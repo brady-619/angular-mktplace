@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { AlertController, IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { log } from 'console';
+import { InsertClienteService } from '../../services/insert-cliente.service';
 
 @Component({
   selector: 'app-registro',
@@ -13,7 +13,7 @@ import { log } from 'console';
   imports: [IonicModule, CommonModule, FormsModule],
 })
 export class RegistroPage implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private alertController: AlertController, private insertCliente: InsertClienteService) {}
 
   nombre: any;
   apellido: any;
@@ -31,7 +31,69 @@ export class RegistroPage implements OnInit {
     this.router.navigate(['/home']);
   }
 
-  save(nombre: any, apellido: any, email: any, celular:any,password: any) {
-    console.log('params', nombre, apellido, email, password);
+  async save(nombre: any, apellido: any, email: any, celular:any,password: any) {
+    console.log('params', nombre, apellido, email,celular, password);
+
+
+
+let params = {
+      data: [{nombre: nombre, apellido: apellido, email: email, celular:celular, password:password }]
+    }
+
+    console.log("params", params)
+
+
+    await this.insertCliente.InsertCliente(params).then(async respuesta => {
+      console.log(respuesta);
+
+      if (respuesta.status = "000") {
+        const alert = await this.alertController.create({
+          header: 'Alert',
+          subHeader: 'Tu registro ha sido exitoso',
+          // message: 'This is an alert!',
+          buttons: ['OK'],
+        });
+
+        await alert.present();
+        
+
+        // this.beneficiarioForm = new FormGroup({
+        //   nombre: new FormControl('', [Validators.required, Validators.minLength(1)]),
+        //   rfc: new FormControl(''),
+        //   telefono: new FormControl(''),
+        //   cuenta: new FormControl(''),
+        //   banco: new FormControl('')
+        // });
+
+            // window.location.reload();
+    setTimeout(function(){location.reload()}, 3000);
+
+        
+    let params = {
+      data: [{nombre: "", telefono: "", password: "" }]
+    }
+
+
+
+
+      } else {
+        const alert = await this.alertController.create({
+          header: 'Alert',
+          subHeader: 'Error al cargar tu registro',
+          // message: 'This is an alert!',
+          buttons: ['OK'],
+        });
+
+        await alert.present();
+
+      }
+
+
+    });
+
+
+
+
+
   }
 }
