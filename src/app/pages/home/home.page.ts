@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonicModule, MenuController } from '@ionic/angular';
+import { AlertController, IonicModule, MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +10,16 @@ import { IonicModule, MenuController } from '@ionic/angular';
   imports: [IonicModule],
 })
 export class HomePage {
-  constructor( private route: Router, private menu:MenuController) {}
+  constructor( private route: Router,  public alertController: AlertController,private menu:MenuController) {}
+
+
+  cliente:any;
+
+
+  ionViewWillEnter(){
+    this.cliente = localStorage.getItem("cliente")
+
+  }
 
 
   miperfil(){
@@ -22,9 +31,23 @@ export class HomePage {
 
 
 
-  salir(){
-
-  }
+ async salir(){
 
 
+  localStorage.setItem("cliente","")
+
+  const alert = await this.alertController.create({
+    header: 'Alert',
+    subHeader: 'Sesión cerrada con éxito',
+    // message: 'This is an alert!',
+    buttons: ['OK'],
+  });
+
+  await alert.present();
+
+
+
+ }
+
+  
 }

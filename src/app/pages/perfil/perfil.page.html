@@ -10,7 +10,30 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" *ngIf="cliente">
+<br>
+<ion-grid fixed>
+  <ion-row>
+    <ion-col size="12">
+      <ion-card>
+        <ion-card-content>
+          Editar perfil
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    
+  </ion-row>
+</ion-grid>
+  
+
+
+</ion-content>
+
+
+
+
+
+<ion-content [fullscreen]="true" *ngIf="cliente===''">
 
 
   <ion-grid fixed>
@@ -84,3 +107,4 @@
 
 
 </ion-content>
+
