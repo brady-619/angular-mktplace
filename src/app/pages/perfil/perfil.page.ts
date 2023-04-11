@@ -5,6 +5,7 @@ import { AlertController, IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { LoginClienteService } from '../../services/login-cliente.service';
 import { GetEditClienteService } from 'src/app/services/get-edit-cliente.service';
+import { UpdateClienteService } from 'src/app/services/update-cliente.service';
 
 @Component({
   selector: 'app-perfil',
@@ -17,7 +18,7 @@ export class PerfilPage implements OnInit {
 
 
 
-  constructor(private router: Router, private alertController: AlertController, private loginCliente: LoginClienteService,private getInfoCliente: GetEditClienteService) { }
+  constructor(private router: Router, private alertController: AlertController, private loginCliente: LoginClienteService,private getInfoCliente: GetEditClienteService, private updateCliente: UpdateClienteService) { }
 
   email:any;
   password:any;
@@ -25,6 +26,15 @@ export class PerfilPage implements OnInit {
   id_cliente:any;
 nombre:any;
 data:any;
+apellido:any;
+celular:any;
+calle:any;
+numero:any;
+colonia:any;
+alcaldia:any;
+cp:any;
+instrucciones:any;
+
 
   ngOnInit() {
   }
@@ -50,6 +60,11 @@ data:any;
    this.data= respuesta.data
 
          this.nombre=this.data[0].nombre;
+         this.apellido=this.data[0].apellido;
+         this.email=this.data[0].email;
+         this.celular=this.data[0].celular;
+         this.password=this.data[0].password;
+         
        
       
       
@@ -69,8 +84,57 @@ data:any;
 
 
 
-  async save(nombre:any){
-    console.log("nom", nombre)
+  async save(nombre:any, apellido:any, email:any, celular:any, password:any, calle:any, numero:any, colonia:any,alcaldia:any,cp:any, instrucciones:any){
+    console.log("nom", nombre, apellido, email, celular, password, calle, numero, colonia,alcaldia,cp,instrucciones)
+
+
+
+    this.id_cliente
+
+    let params = {
+      data: [{nombre: nombre, apellido: apellido, email:email,celular:celular,password: password, id_cliente: this.id_cliente }]
+    }
+
+    console.log("params", params)
+
+
+    await this.updateCliente.UpdateCliente(params).then(async respuesta => {
+      console.log(respuesta);
+
+      if (respuesta.status = "000") {
+        const alert = await this.alertController.create({
+          header: 'Alert',
+          subHeader: 'Tu registro ha sido exitoso',
+          // message: 'This is an alert!',
+          buttons: ['OK'],
+        });
+
+        await alert.present();
+        
+
+
+        this.router.navigate(['/home'])
+
+
+      } else {
+        const alert = await this.alertController.create({
+          header: 'Alert',
+          subHeader: 'Error al cargar tu registro',
+          // message: 'This is an alert!',
+          buttons: ['OK'],
+        });
+
+        await alert.present();
+
+      }
+
+
+    });
+
+
+
+
+
 
   }
 
