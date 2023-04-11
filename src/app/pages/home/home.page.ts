@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, IonicModule, MenuController } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -10,14 +11,20 @@ import { AlertController, IonicModule, MenuController } from '@ionic/angular';
   imports: [IonicModule],
 })
 export class HomePage {
-  constructor( private route: Router,  public alertController: AlertController,private menu:MenuController) {}
+  constructor( private route: Router,  public alertController: AlertController,private menu:MenuController  ) {}
 
 
   cliente:any;
+  id_cliente:any;
 
 
-  ionViewWillEnter(){
+  async ionViewWillEnter(){
     this.cliente = localStorage.getItem("cliente")
+    this.id_cliente = localStorage.getItem("id_cliente")
+
+    console.log("id", this.id_cliente)
+
+
 
   }
 
@@ -34,7 +41,11 @@ export class HomePage {
  async salir(){
 
 
+  localStorage.setItem("id_cliente","")
   localStorage.setItem("cliente","")
+
+  
+  this.menu.toggle()
 
   const alert = await this.alertController.create({
     header: 'Alert',

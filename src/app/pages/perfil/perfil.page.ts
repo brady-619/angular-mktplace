@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { AlertController, IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { LoginClienteService } from '../../services/login-cliente.service';
+import { GetEditClienteService } from 'src/app/services/get-edit-cliente.service';
 
 @Component({
   selector: 'app-perfil',
@@ -16,18 +17,60 @@ export class PerfilPage implements OnInit {
 
 
 
-  constructor(private router: Router, private alertController: AlertController, private loginCliente: LoginClienteService) { }
+  constructor(private router: Router, private alertController: AlertController, private loginCliente: LoginClienteService,private getInfoCliente: GetEditClienteService) { }
 
   email:any;
   password:any;
   cliente:any;
+  id_cliente:any;
+nombre:any;
+data:any;
 
   ngOnInit() {
   }
 
 
-   ionViewWillEnter(){
+   async ionViewWillEnter(){
      this.cliente = localStorage.getItem("cliente")
+     this.id_cliente = localStorage.getItem("id_cliente")
+
+     console.log("id", this.id_cliente)
+
+
+  
+     if ( this.id_cliente !='' ){
+
+      let params = {
+        id_cliente: this.id_cliente
+      }
+
+      await this.getInfoCliente.InfoCliente(params).then(async respuesta => {
+        console.log(respuesta);
+
+   this.data= respuesta.data
+
+         this.nombre=this.data[0].nombre;
+       
+      
+      
+      });
+      
+      
+
+      
+    }
+
+
+
+
+
+ 
+  }
+
+
+
+  async save(nombre:any){
+    console.log("nom", nombre)
 
   }
 
@@ -64,6 +107,7 @@ await this.loginCliente.LoginCliente(params).then(async respuesta => {
     // se obtiene el nombre
     // console.log(respuesta.data[0].nombre);
     localStorage.setItem("cliente",respuesta.data[0].nombre)
+    localStorage.setItem("id_cliente",respuesta.data[0].idmkt_clientes)
 
 
 

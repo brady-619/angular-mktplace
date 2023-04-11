@@ -17,7 +17,43 @@
     <ion-col size="12">
       <ion-card>
         <ion-card-content>
-          Editar perfil
+
+
+  
+          <ion-input
+          label="Nombre"
+          label-placement="floating"
+          placeholder="Ingresa tu nombre"
+          [(ngModel)]="nombre"
+        ></ion-input>
+
+        <div *ngIf="nombre!=undefined && nombre.length<=4">
+          <ion-label color="danger"
+            >*Debe contener al menos 5 digitos</ion-label
+          >
+        </div>
+
+
+
+
+
+        <div
+        *ngIf="nombre!=undefined && nombre.length>=5"
+      >
+        <ion-button
+          (click)="save(nombre)"
+          expand="block" fill="clear" shape="round"
+        >
+          Actualizar
+        </ion-button>
+      </div>
+
+
+
+
+
+          
+
         </ion-card-content>
       </ion-card>
     </ion-col>
