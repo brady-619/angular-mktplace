@@ -204,10 +204,22 @@
                                       </div>
                                     </ion-col>
 
+                                    <ion-col size="6">
+                                    <ion-list>
+                                      <ion-item lines="none">
+                                        <ion-select aria-label="estado" placeholder="Selecciona un estado" [(ngModel)]="estado">
+                                          <ion-select-option value="CDMX">Ciudad de México</ion-select-option>
+                                          <ion-select-option value="HIDALGO">Hidalgo</ion-select-option>
+                                          <ion-select-option value="GUERRERO">Guerrero</ion-select-option>
+                                        </ion-select>
+                                      </ion-item>
+                                    </ion-list>
+
+                                  </ion-col>
 
 
 
-                                    <ion-col size="12">
+                                    <ion-col size="6">
                                       <ion-input
                                         label="Instrucciones de entrega"
                                         label-placement="floating"
@@ -216,7 +228,7 @@
                                       ></ion-input>
 
                                       <div
-                                        *ngIf="cp!=undefined && cp.length<=4"
+                                        *ngIf="instrucciones!=undefined && instrucciones.length<=4"
                                       >
                                         <ion-label color="danger"
                                           >*Debe contener al menos 5
@@ -250,7 +262,7 @@
         "
             >
               <ion-button
-                (click)="save(nombre, apellido, email, celular,password, calle, numero,colonia,alcaldia,cp, instrucciones)"
+                (click)="save(nombre, apellido, email, celular,password, calle, numero,colonia,alcaldia,cp, estado, instrucciones)"
                 expand="block"
                 fill="clear"
                 shape="round"

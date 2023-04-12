@@ -34,7 +34,8 @@ colonia:any;
 alcaldia:any;
 cp:any;
 instrucciones:any;
-
+estado:any;
+// estado='CDMX';
 
   ngOnInit() {
   }
@@ -64,6 +65,14 @@ instrucciones:any;
          this.email=this.data[0].email;
          this.celular=this.data[0].celular;
          this.password=this.data[0].password;
+
+         this.calle=this.data[0].calle;
+         this.numero=this.data[0].numero;
+         this.colonia=this.data[0].colonia;
+         this.alcaldia=this.data[0].alcaldia;
+         this.cp=this.data[0].cp;
+         this.estado=this.data[0].estado;
+         this.instrucciones=this.data[0].instrucciones;
          
        
       
@@ -84,15 +93,17 @@ instrucciones:any;
 
 
 
-  async save(nombre:any, apellido:any, email:any, celular:any, password:any, calle:any, numero:any, colonia:any,alcaldia:any,cp:any, instrucciones:any){
-    console.log("nom", nombre, apellido, email, celular, password, calle, numero, colonia,alcaldia,cp,instrucciones)
+  async save(nombre:any, apellido:any, email:any, celular:any, password:any, calle:any, numero:any, colonia:any,alcaldia:any,cp:any, estado:any,instrucciones:any){
+
+    console.log("nom", nombre, apellido, email, celular, password, calle, numero, colonia,alcaldia,cp,estado,instrucciones)
 
 
 
     this.id_cliente
 
     let params = {
-      data: [{nombre: nombre, apellido: apellido, email:email,celular:celular,password: password, id_cliente: this.id_cliente }]
+      data: [{nombre: nombre, apellido: apellido, email:email,celular:celular,password: password,
+        calle:calle, numero:numero, colonia:colonia, alcaldia:alcaldia, cp:cp, estado:estado,instrucciones:instrucciones,id_cliente: this.id_cliente }]
     }
 
     console.log("params", params)

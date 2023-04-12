@@ -66,13 +66,15 @@ let params = {
         // });
 
             // window.location.reload();
-    setTimeout(function(){location.reload()}, 3000);
+
+
 
         
     let params = {
       data: [{nombre: "", telefono: "", password: "" }]
     }
 
+    this.router.navigate(['/perfil'])
 
 
 
