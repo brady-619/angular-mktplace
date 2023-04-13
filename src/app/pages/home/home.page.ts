@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, IonicModule, MenuController } from '@ionic/angular';
-
+import { GetMktProductosService } from '../../services/get-mkt-productos.service'
 
 @Component({
   selector: 'app-home',
@@ -11,7 +11,7 @@ import { AlertController, IonicModule, MenuController } from '@ionic/angular';
   imports: [IonicModule],
 })
 export class HomePage {
-  constructor( private route: Router,  public alertController: AlertController,private menu:MenuController  ) {}
+  constructor( private route: Router,  public alertController: AlertController,private menu:MenuController, private getProductos: GetMktProductosService   ) {}
 
 
   cliente:any;
@@ -23,6 +23,22 @@ export class HomePage {
     this.id_cliente = localStorage.getItem("id_cliente")
 
     console.log("id", this.id_cliente)
+
+
+
+
+
+
+   
+
+
+    await this.getProductos.GetMktProductos().then(async respuesta => {
+      console.log(respuesta);
+    });
+    
+
+
+
 
 
 

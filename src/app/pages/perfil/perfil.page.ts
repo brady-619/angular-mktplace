@@ -42,14 +42,30 @@ estado:any;
 
 
    async ionViewWillEnter(){
-     this.cliente = localStorage.getItem("cliente")
+
+
+    if(localStorage.getItem("cliente")==null){
+      this.cliente='';
+    }
+    else{
+      this.cliente = localStorage.getItem("cliente")
+    }
+
+
+
+
+
+
+
+     console.log("cliente", this.cliente)
+
      this.id_cliente = localStorage.getItem("id_cliente")
 
      console.log("id", this.id_cliente)
 
 
   
-     if ( this.id_cliente !='' ){
+     if ( this.id_cliente !=''){
 
       let params = {
         id_cliente: this.id_cliente
