@@ -1,7 +1,7 @@
 <ion-app>
   <ion-menu contentId="main-content">
     <ion-header>
-      <ion-toolbar >
+      <ion-toolbar>
         <ion-title>Cellular Planet</ion-title>
       </ion-toolbar>
     </ion-header>
@@ -10,13 +10,9 @@
         <ion-label class="ion-text-wrap">Mi perfil</ion-label>
       </ion-button>
 
-
-
-      <ion-button  color="danger" (click)="salir()" expand="block" shape="round">
+      <ion-button color="danger" (click)="salir()" expand="block" shape="round">
         Cerrar sesión
       </ion-button>
-
-
     </ion-content>
   </ion-menu>
 
@@ -39,10 +35,10 @@
             <ion-input
               label="Busca en cellularplanet.com"
               label-placement="floating"
-              matInput (keyup)="applyFilter($event)"
+              matInput
+              (keyup)="applyFilter($event)"
               placeholder="Buscar"
             ></ion-input>
-            
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -53,8 +49,7 @@
             <!-- <ion-input type="text" placeholder=""></ion-input> -->
 
             <ion-card>
-              <ion-card-content > 
-
+              <ion-card-content>
                 <!--  <ion-item>
                  <ion-grid fixed>
                     <ion-row>
@@ -72,42 +67,62 @@
     
     
                 </ion-item>-->
-                
-                
-                <table mat-table  [dataSource]="dataSource"  matSort (matSortChange)="announceSortChange($event)"  class="mat-elevation-z8" *ngIf="data">
 
-                  
-
+                <table
+                  mat-table
+                  [dataSource]="dataSource"
+                  matSort
+                  (matSortChange)="announceSortChange($event)"
+                  class="mat-elevation-z8"
+                  *ngIf="data"
+                >
                   <!--- Note that these columns can be defined in any order.
                     The actual rendered columns are set as a property on the row definition" -->
-    
+
                   <!-- Position Column -->
                   <ng-container matColumnDef="producto">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by producto"> producto </th>
-                    
-                 
+                    <th
+                      mat-header-cell
+                      *matHeaderCellDef
+                      mat-sort-header
+                      sortActionDescription="Sort by producto"
+                    >
+                      producto
                       
-                    <td mat-cell *matCellDef="let element">   <ion-card class="prod">     {{element.producto}} <br> <img src="{{element.imagen}}" alt=""> </ion-card></td>
-                   
-
+                    </th>
+                    <ion-row >
+                      <ion-col size="2"  mat-cell *matCellDef="let element">
+                       {{element | json}}
+                          <ion-card class="prod">
+                            {{element.producto}} <br />
+                            <!-- <img src="{{element.imagen}}" alt="" /> -->
+                          </ion-card>
+                 
+                      </ion-col>
+                    </ion-row>
                   </ng-container>
-    
-         
-    
-    
+
                   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                  <tr
+                    mat-row *matRowDef="let row; columns: displayedColumns;"
+                  ></tr>
                 </table>
-               
-    
-    
-                <mat-paginator [pageSize]="2" showFirstLastButtons aria-label="Select page of periodic elements">
+
+                <mat-paginator
+                  [pageSize]="2"
+                  showFirstLastButtons
+                  aria-label="Select page of periodic elements"
+                >
                 </mat-paginator>
-                
-              
-              
               </ion-card-content>
             </ion-card>
+
+            <!-- <ion-grid fixed>
+              <ion-row *ngFor="let item of data">
+                <ion-col size="6"> {{item.producto}}</ion-col>
+                
+              </ion-row>
+            </ion-grid> -->
           </ion-col>
         </ion-row>
       </ion-grid>

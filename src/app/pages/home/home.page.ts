@@ -83,6 +83,13 @@ export class HomePage {
 
     this.data = respuesta.data;
 
+    const newdata = respuesta.data.map((item:any) => {
+      a : item
+      
+return item
+    } 
+    ) 
+
     let ELEMENT_DATA: PeriodicElement[] = respuesta.data;
     this.dataSource = new MatTableDataSource(ELEMENT_DATA);
     // this.dataSource = ELEMENT_DATA;
