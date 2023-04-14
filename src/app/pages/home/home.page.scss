@@ -24,11 +24,39 @@ ion-card{
 
 
 
+.descripcion{
+  width:auto;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: -1px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  margin: auto;
+  // margin-top: 30px;
+  // margin-bottom: 90px;
+  overflow: visible;
+  background-color:rgb(210, 210, 210)
+}
+
+
+
+.descripcionprecio{
+  width:auto;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: -1px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  margin: auto;
+  // margin-top: 30px;
+  // margin-bottom: 90px;
+  overflow: visible;
+  background-color:rgb(255, 255, 255)
+}
 img{
   height: 30vh;
   width: 30vh;
   margin: auto;
   display: block;
+  // border-radius: 99%;
+  
+  border-radius: 10px;
 }
 
 
@@ -56,15 +84,16 @@ table {
 //   width: 100%;
 // }
 
-// .mat-column-idcatalogo {
-//   width: 10px;
-//   // border-left: 1px solid currentColor;
-//   // border-right: 1px solid currentColor;
-//   border-top: 1px solid currentColor;
-//   border-bottom: 1px solid currentColor;
-//   padding-right: 10px;
-//   text-align: center;
-// }
+.mat-column-producto {
+  width: 80%;
+  height: 80%;
+  // border-left: 1px solid currentColor;
+  // border-right: 1px solid currentColor;
+  // border-top: 1px solid currentColor;
+  // border-bottom: 1px solid currentColor;
+  // padding-right: 10px;
+  text-align: center;
+}
 
 
 
@@ -139,3 +168,5 @@ border: 1px solid rgba(128, 128, 128);
   --ion-background-color: linear-gradient( #757575,#000000);
 
 }
+
+

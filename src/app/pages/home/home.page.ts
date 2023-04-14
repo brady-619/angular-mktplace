@@ -40,7 +40,7 @@ export class HomePage {
 
 
 
-  displayedColumns: string[] = ['producto'];
+  displayedColumns: string[] = ['producto','precio'];
 
   constructor(private _liveAnnouncer: LiveAnnouncer, private route: Router,  public alertController: AlertController,private menu:MenuController, private getProductos: GetMktProductosService   ) {}
 
@@ -83,12 +83,12 @@ export class HomePage {
 
     this.data = respuesta.data;
 
-    const newdata = respuesta.data.map((item:any) => {
-      a : item
+//     const newdata = respuesta.data.map((item:any) => {
+//       a : item
       
-return item
-    } 
-    ) 
+// return item
+//     } 
+//     ) 
 
     let ELEMENT_DATA: PeriodicElement[] = respuesta.data;
     this.dataSource = new MatTableDataSource(ELEMENT_DATA);
