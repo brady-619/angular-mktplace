@@ -15,6 +15,7 @@ import { MatTableModule } from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
 import {MatSortModule} from '@angular/material/sort';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -28,7 +29,7 @@ export interface PeriodicElement {
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonicModule,MatTableModule,MatPaginatorModule,MatInputModule,MatSortModule],
+  imports: [IonicModule,MatTableModule,MatPaginatorModule,MatInputModule,MatSortModule,CommonModule],
 })
 export class HomePage {
 
@@ -78,11 +79,11 @@ export class HomePage {
 
 
     await this.getProductos.GetMktProductos().then(async respuesta => {
-      console.log(respuesta.data);
+      console.log(respuesta);
 
     this.data = respuesta.data;
 
-    let ELEMENT_DATA: PeriodicElement[] = respuesta.data
+    let ELEMENT_DATA: PeriodicElement[] = respuesta.data;
     this.dataSource = new MatTableDataSource(ELEMENT_DATA);
     // this.dataSource = ELEMENT_DATA;
 
