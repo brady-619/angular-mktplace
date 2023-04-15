@@ -40,7 +40,7 @@ export class HomePage {
 
 
 
-  displayedColumns: string[] = ['producto','precio'];
+  displayedColumns: string[] = ['producto','precio','categoria'];
 
   constructor(private _liveAnnouncer: LiveAnnouncer, private route: Router,  public alertController: AlertController,private menu:MenuController, private getProductos: GetMktProductosService   ) {}
 
