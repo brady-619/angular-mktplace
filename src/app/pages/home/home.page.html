@@ -50,23 +50,7 @@
 
             <ion-card>
               <ion-card-content>
-                <!--  <ion-item>
-                 <ion-grid fixed>
-                    <ion-row>
-                      <ion-col size="6">
-                        <mat-form-field>
-                          <mat-label>Filter</mat-label>
-                          <input matInput (keyup)="applyFilter($event)" placeholder="Ex. nombre" #input>
-                        </mat-form-field></ion-col>
-                      <ion-col size="6">
-                       
-                      </ion-col>
-                    </ion-row>
-                  </ion-grid> 
-    
-    
-    
-                </ion-item>-->
+
 
                 <table
                   mat-table
@@ -94,8 +78,8 @@
                       <br />
                       <img src="{{element.imagen}}" alt="" />
 
-                      <ion-card>
-                        <ion-card-content class="descripcion">
+                      <ion-card class="descripcion">
+                        <ion-card-content >
                           <ion-text class="ion-text-center" color="primary">
                             <h1>
                               <b><u>{{element.producto}}</u></b>
@@ -166,6 +150,8 @@
                     </td>
                   </ng-container>
 
+                 
+
                   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                   <tr
                     mat-row
@@ -181,6 +167,8 @@
                 </mat-paginator>
               </ion-card-content>
             </ion-card>
+
+            
 
             <!-- <ion-grid fixed>
               <ion-row *ngFor="let item of data">
