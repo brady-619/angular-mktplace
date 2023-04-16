@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, IonicModule, MenuController } from '@ionic/angular';
 import { GetMktProductosService } from '../../services/get-mkt-productos.service';
@@ -16,9 +16,14 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
 import {MatSortModule} from '@angular/material/sort';
 import { CommonModule } from '@angular/common';
-import { log } from 'console';
 
 
+import { register } from 'swiper/element/bundle';
+
+import { IonicSlides } from '@ionic/angular';
+
+
+register();
 
 export interface PeriodicElement {
   producto: string;
@@ -31,8 +36,12 @@ export interface PeriodicElement {
   styleUrls: ['home.page.scss'],
   standalone: true,
   imports: [IonicModule,MatTableModule,MatPaginatorModule,MatInputModule,MatSortModule,CommonModule],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomePage {
+
+
+  swiperModules = [IonicSlides];
 
   data: any;
   dataSource = new MatTableDataSource <PeriodicElement>();

@@ -80,6 +80,41 @@
 
 
 
+            <swiper-container  [slidesPerView]="1" [autoplay]="true" [loop]="true">
+              <swiper-slide> 
+                <ion-card>
+                  <ion-card-content >
+                    IMAGEN DE CELULARES
+                  </ion-card-content>
+                </ion-card>
+      
+      
+              </swiper-slide>
+              <swiper-slide> 
+                <ion-card>
+                  <ion-card-content>
+                    IMAGEN DE AUDIFONOS
+                  </ion-card-content>
+                </ion-card>
+      
+      
+              </swiper-slide>
+              <swiper-slide> 
+                <ion-card>
+                  <ion-card-content>
+                    IMAGEN DE CARGADORES
+                  </ion-card-content>
+                </ion-card>
+      
+      
+              </swiper-slide>
+      
+              
+            </swiper-container>
+
+
+
+      
 
 
 
@@ -132,7 +167,19 @@
                     <td mat-cell *matCellDef="let element">
                       <!-- {{element.producto}}  -->
                       <br />
-                      <img src="{{element.imagen}}" alt="" />
+
+                      <!-- <swiper-container  [slidesPerView]="1" [autoplay]="true" [loop]="true">
+                        <swiper-slide> 
+
+                          <img src="{{element.imagen2}}" alt="" />
+                        </swiper-slide>
+                       
+                        
+                      </swiper-container> -->
+
+                      
+           
+                      <img class="badboy" src="{{element.imagen}}" alt="" />
 
                       <ion-card class="descripcion">
                         <ion-card-content >
