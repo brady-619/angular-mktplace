@@ -23,6 +23,8 @@ import { register } from 'swiper/element/bundle';
 import { IonicSlides } from '@ionic/angular';
 
 
+
+
 register();
 
 export interface PeriodicElement {
@@ -53,7 +55,7 @@ export class HomePage {
 
   displayedColumns: string[] = ['producto','precio','categoria'];
 
-  constructor(private _liveAnnouncer: LiveAnnouncer, private route: Router,  public alertController: AlertController,private menu:MenuController, private getProductos: GetMktProductosService  ) {}
+  constructor(private router: Router,private _liveAnnouncer: LiveAnnouncer, private route: Router,  public alertController: AlertController,private menu:MenuController, private getProductos: GetMktProductosService  ) {}
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -175,6 +177,13 @@ export class HomePage {
 
  home(){
   console.log("home")
+ }
+
+
+ telefonia(){
+
+  
+  this.router.navigate(['/telefonia']);
  }
   
 }
