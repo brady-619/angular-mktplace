@@ -61,6 +61,8 @@ img{
 
 
 
+
+
 ion-label{
 
   --color: #000;
@@ -117,6 +119,15 @@ ion-item{
 }
 
 
+.menu{
+  --ion-item-background: rgb(0, 4, 48);
+
+}
+
+
+
+
+
 
 
 ion-input{
@@ -170,3 +181,12 @@ border: 1px solid rgba(128, 128, 128);
 }
 
 
+ion-menu::part(backdrop) {
+  background-color: rgba(74, 74, 74, 0.745);
+}
+
+ion-menu::part(container) {
+  border-radius: 0 20px 20px 0;
+
+  box-shadow: 4px 0px 16px rgba(0, 0, 0, 0.287);
+}

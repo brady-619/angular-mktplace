@@ -16,6 +16,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
 import {MatSortModule} from '@angular/material/sort';
 import { CommonModule } from '@angular/common';
+import { log } from 'console';
 
 
 
@@ -38,11 +39,12 @@ export class HomePage {
   cliente:any;
   id_cliente:any;
 
+  currentWindowWidth:any;
 
 
   displayedColumns: string[] = ['producto','precio','categoria'];
 
-  constructor(private _liveAnnouncer: LiveAnnouncer, private route: Router,  public alertController: AlertController,private menu:MenuController, private getProductos: GetMktProductosService   ) {}
+  constructor(private _liveAnnouncer: LiveAnnouncer, private route: Router,  public alertController: AlertController,private menu:MenuController, private getProductos: GetMktProductosService  ) {}
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -57,12 +59,15 @@ export class HomePage {
 
 
   
+  public isMobileLayout = false;
 
-
-
+  ngOnInit() {
+    this.currentWindowWidth = window.innerWidth;
+  }
 
 
   async ionViewWillEnter(){
+    
 
     // ngAfterViewInit
     this.cliente = localStorage.getItem("cliente")
@@ -158,5 +163,9 @@ export class HomePage {
 
  }
 
+
+ home(){
+  console.log("home")
+ }
   
 }
