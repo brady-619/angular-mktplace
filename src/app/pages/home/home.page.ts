@@ -49,6 +49,7 @@ export class HomePage {
   dataSource = new MatTableDataSource <PeriodicElement>();
   cliente:any;
   id_cliente:any;
+  botones:any;
 
   currentWindowWidth:any;
 
@@ -78,6 +79,21 @@ export class HomePage {
 
 
   async ionViewWillEnter(){
+
+
+    if(localStorage.getItem("ingresado")!='si'  ){
+      this.cliente='';
+      this.botones='0'
+      console.log("no")
+    }
+    else{
+      this.cliente = localStorage.getItem("cliente")
+      this.botones='1'
+      console.log("si")
+    }
+
+
+
     
 
     // ngAfterViewInit
@@ -171,6 +187,9 @@ export class HomePage {
   await alert.present();
 
 
+  window.location.reload();
+
+  localStorage.removeItem("ingresado");
 
  }
 

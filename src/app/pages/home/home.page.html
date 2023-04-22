@@ -3,7 +3,10 @@
     <ion-header>
       <ion-toolbar>
         <ion-title>Cellular Planet</ion-title>
+
+
       </ion-toolbar>
+      
     </ion-header>
     <ion-content class="menu">
       <ion-button (click)="miperfil()" expand="block" shape="round">
@@ -23,6 +26,11 @@
           <ion-menu-button></ion-menu-button>
         </ion-buttons>
         <ion-title class="ion-text-center">Celullar Planet</ion-title>
+
+
+        <ion-button *ngIf="this.cliente!=''" slot="end" expand="block"  shape="round">
+          <ion-icon name="basket-outline"></ion-icon>
+        </ion-button>
       </ion-toolbar>
     </ion-header>
 
@@ -83,8 +91,8 @@
             <swiper-container  [slidesPerView]="1" [autoplay]="true" [loop]="true">
               <swiper-slide> 
                 <ion-card>
-                  <ion-card-content >
-                    IMAGEN DE CELULARES
+                  <ion-card-content  >
+                   <ion-card-subtitle color="primary">IMAGEN DE CELULARES</ion-card-subtitle> 
                   </ion-card-content>
                 </ion-card>
       
@@ -93,7 +101,7 @@
               <swiper-slide> 
                 <ion-card>
                   <ion-card-content>
-                    IMAGEN DE AUDIFONOS
+                    <ion-card-subtitle color="success">IMAGEN DE AUDIFONOS</ion-card-subtitle> 
                   </ion-card-content>
                 </ion-card>
       
@@ -101,8 +109,8 @@
               </swiper-slide>
               <swiper-slide> 
                 <ion-card>
-                  <ion-card-content>
-                    IMAGEN DE CARGADORES
+                  <ion-card-content color="danger">
+                    <ion-card-subtitle color="danger">IMAGEN DE CARGADORES</ion-card-subtitle> 
                   </ion-card-content>
                 </ion-card>
       

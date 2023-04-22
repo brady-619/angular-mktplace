@@ -1,0 +1,282 @@
+<ion-app>
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Cellular Planet</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="menu">
+      <ion-button (click)="miperfil()" expand="block" shape="round">
+        <ion-label class="ion-text-wrap">Mi perfil</ion-label>
+      </ion-button>
+
+      <ion-button color="danger" (click)="salir()" expand="block" shape="round">
+        Cerrar sesión
+      </ion-button>
+    </ion-content>
+  </ion-menu>
+
+  <div class="ion-page" id="main-content">
+    <ion-header *ngIf="data">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="ion-text-center"
+          >Celullar Planet</ion-title
+        >
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-item lines="none" class="menu">
+        <ion-button
+          *ngIf="currentWindowWidth >= 300"
+          (click)="home()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
+          Home
+        </ion-button>
+
+        <ion-button
+          *ngIf="currentWindowWidth >= 300"
+          (click)="telefonia()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
+          Telefonía
+        </ion-button>
+
+        <ion-button
+          *ngIf="currentWindowWidth >= 300"
+          (click)="home()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
+          Celulares
+        </ion-button>
+
+        <ion-button
+          *ngIf="currentWindowWidth >= 400"
+          (click)="home()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
+          Audifonos
+        </ion-button>
+
+        <ion-button
+          *ngIf="currentWindowWidth >= 500"
+          (click)="home()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
+          Cargadores
+        </ion-button>
+
+        <ion-button
+          *ngIf="currentWindowWidth >= 600"
+          (click)="home()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
+          Audio
+        </ion-button>
+
+        <ion-button
+          *ngIf="currentWindowWidth >= 700"
+          (click)="home()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
+          Electrónica
+        </ion-button>
+
+        <ion-button
+          *ngIf="currentWindowWidth >= 750"
+          (click)="home()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
+          Cables
+        </ion-button>
+
+        <ion-button
+          *ngIf="currentWindowWidth >= 850"
+          (click)="home()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
+          Cocina
+        </ion-button>
+
+        <ion-button
+          *ngIf="currentWindowWidth >= 950"
+          (click)="home()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
+          Iluminación
+        </ion-button>
+
+        <ion-button
+          *ngIf="currentWindowWidth >= 1050"
+          (click)="home()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
+          Belleza
+        </ion-button>
+      </ion-item>
+
+      <ion-grid>
+        <ion-row>
+
+
+          
+
+
+
+
+
+          <ion-col size="10" *ngFor="let data of data">
+            <ion-card>
+              <ion-card-content>
+
+
+
+           <ion-item>
+            <ion-label class="ion-text-left">{{data.producto}}</ion-label>
+           </ion-item>     
+
+           
+
+
+
+
+
+                <swiper-container 
+
+                  [slidesPerView]="1"
+                  [autoplay]="true"
+                  [loop]="true"
+                  :pagination="{
+                  type: 'progressbar',
+                }"
+                >
+
+
+                
+
+
+                  <swiper-slide>
+                    <img class="badboy" src="{{data.imagen}}" alt="" /><br />
+                  </swiper-slide>
+                  <swiper-slide>
+                    <img class="badboy" src="{{data.imagen2}}" alt="" />
+                  </swiper-slide>
+                  <swiper-slide>
+                    <img class="badboy" src="{{data.imagen3}}" alt="" />
+                  </swiper-slide>
+                  
+                </swiper-container>
+
+
+
+                <ion-row>
+                  
+                <ion-col size="8">
+                                  <ion-card>
+                                    <ion-card-content>
+                                    
+                  {{data.descripcion}}  
+                                    </ion-card-content>
+                </ion-card>
+
+       
+    <ion-list>
+      <ion-item>
+        <ion-select [(ngModel)]="cantidad" okText="Aceptar" cancelText="Cancelar" label="Cantidad" aria-label="cantidad" >
+          <ion-select-option value="1">1</ion-select-option>
+          <ion-select-option value="2">2</ion-select-option>
+          <ion-select-option value="3">3</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    
+
+               
+<ion-row>
+
+
+
+  <!-- {{this.cliente}} -->
+
+
+  <ion-col size="6">
+         <ion-button (click)="agregar(cantidad)" [disabled]="this.botones==='0'" class="ion-text-wrap" color="warning" expand="block" >
+Agregar al carrito
+</ion-button>
+
+  </ion-col>
+  <ion-col size="6">
+<ion-button [disabled]="(this.botones==='0')" (click)="comprar(cantidad)" class="ion-text-wrap" color="success"  expand="block"  >
+  Comprar ahora
+</ion-button>
+
+  </ion-col>
+</ion-row>
+
+
+
+<ion-col size="6" *ngIf="this.botones==='0'">
+  <ion-button (click)="inicia()"  class="ion-text-wrap" color="warning" expand="block" >
+Inicia sesión para poder comprar
+</ion-button>
+
+</ion-col>
+
+
+
+
+              
+
+
+     
+     
+
+
+
+
+
+                </ion-col>
+                
+
+
+                </ion-row>
+
+                
+
+
+
+
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+  </div>
+</ion-app>

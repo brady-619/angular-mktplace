@@ -22,38 +22,190 @@
         <ion-buttons slot="start">
           <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <ion-title class="ion-text-center">Celullar Planet - Telefonía</ion-title>
+        <ion-title class="ion-text-center"
+          >Celullar Planet - Telefonía</ion-title
+        >
+
+        <ion-button *ngIf="this.cliente!=''" slot="end" expand="block"  shape="round">
+          <ion-icon name="basket-outline"></ion-icon>
+        </ion-button>
       </ion-toolbar>
     </ion-header>
 
     <ion-content>
-      
+      <ion-item lines="none" class="menu">
+   
+        <ion-button *ngIf="currentWindowWidth >= 300"  (click)="home()" expand="block" fill="clear" shape="round">
+          Home
+        </ion-button>
 
-    
+        <ion-button  *ngIf="currentWindowWidth >= 300" (click)="telefonia()" expand="block" fill="clear" shape="round">
+          Telefonía
+        </ion-button>
 
-          
+        <ion-button  *ngIf="currentWindowWidth >= 300" (click)="home()" expand="block" fill="clear" shape="round">
+          Celulares
+        </ion-button>
+
+        <ion-button  *ngIf="currentWindowWidth >= 400" (click)="home()" expand="block" fill="clear" shape="round">
+          Audifonos
+        </ion-button>
+
+        <ion-button *ngIf="currentWindowWidth >= 500"  (click)="home()" expand="block" fill="clear" shape="round">
+          Cargadores
+        </ion-button>
+
+        <ion-button *ngIf="currentWindowWidth >= 600"  (click)="home()" expand="block" fill="clear" shape="round">
+          Audio
+        </ion-button>
+
+        <ion-button *ngIf="currentWindowWidth >= 700"  (click)="home()" expand="block" fill="clear" shape="round">
+          Electrónica
+        </ion-button>
+
+        <ion-button *ngIf="currentWindowWidth >= 750"  (click)="home()" expand="block" fill="clear" shape="round">
+          Cables
+        </ion-button>
+
+        <ion-button *ngIf="currentWindowWidth >= 850"  (click)="home()" expand="block" fill="clear" shape="round">
+          Cocina
+        </ion-button>
+
+        <ion-button *ngIf="currentWindowWidth >= 950"  (click)="home()" expand="block" fill="clear" shape="round">
+          Iluminación
+        </ion-button>
+
+        <ion-button *ngIf="currentWindowWidth >= 1050" (click)="home()" expand="block" fill="clear" shape="round">
+          Belleza
+        </ion-button>
+        
+      </ion-item>
 
 
-      
+
+
 
 
 
       <ion-grid>
-        <ion-row>
-          <ion-col size="8">
+        <ion-row >
 
 
+
+          
+
+          <ion-col size="6" *ngFor="let data of data">
             <ion-card>
               <ion-card-content>
 
-              </ion-card-content>
-            </ion-card>
+
+                <ion-item>
+                  <ion-label color="light" class="ion-text-center" >{{data.categoria_producto}}</ion-label>
+                </ion-item>
+
+
+
+                
+
+                
+
+
+                <swiper-container 
+                  [slidesPerView]="1"
+                  [autoplay]="true"
+                  [loop]="true"
+                  :pagination="{
+                    type: 'progressbar',
+                  }"
+
+             
+
+
+                >
+                  <swiper-slide>
+                
+                        <img class="badboy" src="{{data.imagen}}" alt=""><br>
+
+
+                        
+                     
+                  </swiper-slide>
+                  <swiper-slide>
+               
+                        <img class="badboy" src="{{data.imagen2}}" alt=""> 
+                  </swiper-slide>
+                  <swiper-slide>
+                
+                        <img  class="badboy" src="{{data.imagen3}}" alt=""> 
+                  </swiper-slide>
+                </swiper-container>
+<br>
+                <ion-card-subtitle class="ion-text-center" >{{data.producto   }} </ion-card-subtitle>
+                <ion-card-subtitle class="ion-text-center" >
+                $<b>{{data.precio}}</b> </ion-card-subtitle>
 
             
 
+                <ion-button (click)="detalle(data.idmkt_productos
+                )"  expand="block" fill="clear" shape="round">
+                  Ver Detalle
+                </ion-button>
+
+
+                <ion-button  expand="block" fill="clear" shape="round">
+                  Comprar
+                </ion-button>     
+
+
+             
+          
+
+
+
+              </ion-card-content>
+
+            </ion-card>
           </ion-col>
+
+          
+
+      
+
+
         </ion-row>
       </ion-grid>
     </ion-content>
+
+    <!-- <ion-footer>
+      <ion-toolbar>
+
+        <ion-grid fixed>
+          <ion-row>
+            <ion-col size="6">        
+                        <ion-button  expand="block" fill="clear" shape="round">
+          Siguiente
+        </ion-button></ion-col>
+            <ion-col size="6">
+        <ion-button  expand="block" fill="clear" shape="round">
+          Atras
+        </ion-button></ion-col>
+          </ion-row>
+        </ion-grid>
+
+   
+
+
+
+
+
+
+     
+        
+      </ion-toolbar>
+    </ion-footer> -->
+
   </div>
 </ion-app>
+
+
+

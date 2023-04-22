@@ -201,7 +201,7 @@ await this.loginCliente.LoginCliente(params).then(async respuesta => {
     localStorage.setItem("id_cliente",respuesta.data[0].idmkt_clientes)
 
 
-
+    localStorage.setItem("ingresado",'si')
 
     this.router.navigate(['/home'])
 // setTimeout(function(){location.reload()}, 3000);
