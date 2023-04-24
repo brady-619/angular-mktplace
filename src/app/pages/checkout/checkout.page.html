@@ -22,16 +22,14 @@
         <ion-buttons slot="start">
           <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <ion-title class="ion-text-center">Celullar Planet</ion-title>
-        <ion-button
-          *ngIf="this.cliente!=''"
-          slot="end"
-          expand="block"
-          shape="round"
+        <ion-title class="ion-text-center"
+          >Celullar Planet</ion-title
         >
+        <ion-button *ngIf="this.cliente!=''" slot="end" expand="block"  shape="round">
           <ion-icon name="basket-outline"></ion-icon>
         </ion-button>
       </ion-toolbar>
+      
     </ion-header>
 
     <ion-content>
@@ -149,101 +147,138 @@
 
       <ion-grid>
         <ion-row>
-          <ion-col size="10" *ngFor="let data of data">
-            <ion-card>
+          <ion-col size="12">
+
+
+            <ion-card *ngIf="data">
               <ion-card-content>
+
                 <ion-item>
-                  <ion-label class="ion-text-left">{{data.producto}}</ion-label>
+                  <ion-card-title >Resumen de compra</ion-card-title>
                 </ion-item>
 
-                <swiper-container
-                  [slidesPerView]="1"
-                  [autoplay]="true"
-                  [loop]="true"
-                  :pagination="{
-                  type: 'progressbar',
-                }"
-                >
-                  <swiper-slide>
-                    <img class="badboy" src="{{data.imagen}}" alt="" /><br />
-                  </swiper-slide>
-                  <swiper-slide>
-                    <img class="badboy" src="{{data.imagen2}}" alt="" />
-                  </swiper-slide>
-                  <swiper-slide>
-                    <img class="badboy" src="{{data.imagen3}}" alt="" />
-                  </swiper-slide>
-                </swiper-container>
 
                 <ion-row>
-                  <ion-col size="8">
-                    <ion-card>
-                      <ion-card-content>
-                        {{data.descripcion}}
-                      </ion-card-content>
-                    </ion-card>
-                    <br />
-                    Precio: ${{data.precio}}
-                    <br />
+                  <ion-col size="6">
 
-                    <ion-list>
+                    <ion-list [inset]="true">
                       <ion-item>
-                        <ion-select
-                          [(ngModel)]="cantidad"
-                          okText="Aceptar"
-                          cancelText="Cancelar"
-                          label="Cantidad"
-                          aria-label="cantidad"
-                        >
-                          <ion-select-option value="1">1</ion-select-option>
-                          <ion-select-option value="2">2</ion-select-option>
-                          <ion-select-option value="3">3</ion-select-option>
-                        </ion-select>
+  
+                        Producto: {{data[0].producto}} <br>
+                        Precio: {{data[0].precio}} <br>
+                        Cantidad: {{cantidad}} <br>
+                        Total: {{total}} <br>
+
+                       
+                        
                       </ion-item>
+  
+                  </ion-list>
+
+
+                  </ion-col>
+                  <ion-col size="6">
+<img src="{{data[0].imagen}}" alt="">
+                     
+                  </ion-col>
+
+
+
+                  <ion-col size="12" *ngIf="data_cliente">
+
+                    <ion-item>
+                      <ion-card-title>Direccion de envío</ion-card-title> 
+                                 
+            
+                    </ion-item>
+
+
+
+                    <!-- this.nombre = this.data_cliente[0].nombre;
+                    this.apellido = this.data_cliente[0].apellido;
+                    this.email = this.data_cliente[0].email;
+                    this.celular = this.data_cliente[0].celular;
+                    this.password = this.data_cliente[0].password;
+              
+                    this.calle = this.data_cliente[0].calle;
+                    this.numero = this.data_cliente[0].numero;
+                    this.colonia = this.data_cliente[0].colonia;
+                    this.alcaldia = this.data_cliente[0].alcaldia;
+                    this.cp = this.data_cliente[0].cp;
+                    this.estado = this.data_cliente[0].estado;
+                    this.instrucciones = this.data_cliente[0].instrucciones;
+ -->
+
+
+
+      <ion-list>
+        <ion-item lines="none">
+          Calle: {{calle}}
+          Numero: {{numero}}
+          Colonia: {{colonia}}
+          Alcaldia/Municipio: {{alcaldia}}
+          Codigo Postal: {{cp}}
+          Estado: {{estado}}
+          Instrucciones adicionales: {{instrucciones}}
+          Celular: {{celular}}
+        </ion-item>
+                        
+
+                      
                     </ion-list>
 
-                    <ion-row>
-                      <!-- {{this.cliente}} -->
 
-                      <ion-col size="6">
-                        <ion-button
-                          (click)="agregar(cantidad, data.idmkt_productos)"
-                          [disabled]="this.botones==='0'"
-                          class="ion-text-wrap"
-                          color="warning"
-                          expand="block"
-                        >
-                          Agregar al carrito
-                        </ion-button>
-                      </ion-col>
-                      <ion-col size="6">
-                        <ion-button
-                          [disabled]="this.botones==='0'"
-                          (click)="comprar(cantidad,data.idmkt_productos)"
-                          class="ion-text-wrap"
-                          color="success"
-                          expand="block"
-                        >
-                          Comprar ahora
-                        </ion-button>
-                      </ion-col>
-                    </ion-row>
 
-                    <ion-col size="6" *ngIf="this.botones==='0'">
-                      <ion-button
-                        (click)="inicia()"
-                        class="ion-text-wrap"
-                        color="warning"
-                        expand="block"
-                      >
-                        Inicia sesión para poder comprar
-                      </ion-button>
-                    </ion-col>
-                  </ion-col>
+              
+
+                                         
+                </ion-col>
+
                 </ion-row>
+
+
+
+
+<!-- (click)="onClick()" -->
+                <ion-button  expand="block"  shape="round">
+                  Pagar ${{total}}
+                </ion-button>
+
+
+
+                  
+                
+                
+
+
+
               </ion-card-content>
             </ion-card>
+
+
+
+
+
+
+            
           </ion-col>
+
+
+          
+
+
+
+
+
+                
+
+
+         
+
+                
+
+
+
         </ion-row>
       </ion-grid>
     </ion-content>

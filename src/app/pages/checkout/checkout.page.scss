@@ -1,0 +1,243 @@
+ion-row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  
+  
+  
+  
+  ion-content{
+    --ion-background-color: linear-gradient( #bababa,#686868);
+  
+  }
+  
+  ion-card{
+    margin: auto;
+    width: 100%;
+    // border: 1px solid rgb(223, 8, 8);
+    padding: 10px;
+  
+    --ion-background-color:  rgb(255, 255, 255);
+  }
+  
+  
+  
+  .descripcion{
+    width:auto;
+    height: auto;
+    border-radius: 10px;
+    // box-shadow: -1px 3px 5px 0px rgba(0, 0, 0, 0.75);
+    margin: auto;
+    // margin-top: 30px;
+     margin-bottom: 10px;
+    overflow: visible;
+    background-color:rgb(242, 242, 242)
+  }
+  
+  
+  
+  .descripcionprecio{
+    width:auto;
+    height: auto;
+    border-radius: 10px;
+    // box-shadow: -1px 3px 5px 0px rgba(0, 0, 0, 0.75);
+    margin: auto;
+    // margin-top: 30px;
+    // margin-bottom: 90px;
+    overflow: visible;
+    background-color:rgb(255, 255, 255)
+  }
+  img{
+    height: 15vh;
+    width: 15vh;
+    margin: auto;
+    display: block;
+    // border-radius: 99%;
+    
+    border-radius: 10px;
+  }
+  
+  
+  
+  
+  
+  ion-label{
+  
+    --color: #000;
+  
+  }
+  
+  
+  ion-spinner {
+    display: block;
+    margin: auto;
+    transform: scale(1);
+  }
+  
+  
+  table {
+    width: 100%;
+  }
+  
+  
+  // .demo-table {
+  //   width: 100%;
+  // }
+  
+  .mat-column-producto {
+    width: 80%;
+    height: 80%;
+    // border-left: 1px solid currentColor;
+    // border-right: 1px solid currentColor;
+    // border-top: 1px solid currentColor;
+    // border-bottom: 1px solid currentColor;
+    // padding-right: 10px;
+    text-align: center;
+  }
+  
+  
+  
+  // .mat-column-demo-name {
+  //   padding-left: 16px;
+  //   font-size: 20px;
+  // }
+  
+  // .mat-column-demo-weight {
+  //   font-style: italic;
+  // }
+  
+  // .mat-column-demo-symbol {
+  //   width: 32px;
+  //   text-align: center;
+  //   font-weight: bold;
+  // }
+  
+  ion-item{
+    --ion-item-background: transparent;
+  }
+  
+  
+  .menu{
+    --ion-item-background: rgb(0, 4, 48);
+  
+  }
+  
+  
+  
+  
+  
+  
+  
+  ion-input{
+    background-color:  rgb(0, 0, 0);
+  
+    color:  rgb(255, 255, 255);
+     width: 100%;
+    height: 40px;
+    border-radius: 50px;
+    --padding-start: 20px;
+    --padding-end: 20px;
+    --highlight-color-focused: none;
+  }
+  
+  
+  
+  //Add this to your css/scss File
+  ::ng-deep {
+    .cdk-overlay-container,
+    .cdk-global-overlay-wrapper {
+      pointer-events: none;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+    .cdk-overlay-container {
+      position: fixed;
+      z-index: 1000;
+    }
+  
+    .cdk-overlay-pane {
+      position: absolute;
+      pointer-events: auto;
+      box-sizing: border-box;
+      z-index: 1000;
+      display: flex;
+      max-width: 100%;
+      max-height: 100%;
+  
+  color:  rgb(255, 255, 255);
+  
+      background-color: rgb(0, 0, 0);
+  border: 1px solid rgba(128, 128, 128);
+    }
+  }
+  
+  .menu{
+    --ion-background-color: linear-gradient( #757575,#000000);
+  
+  }
+  
+  
+  ion-menu::part(backdrop) {
+    background-color: rgba(74, 74, 74, 0.745);
+  }
+  
+  ion-menu::part(container) {
+    border-radius: 0 20px 20px 0;
+  
+    box-shadow: 4px 0px 16px rgba(0, 0, 0, 0.287);
+  }
+  
+  
+  swiper-container {
+    --swiper-pagination-bullet-inactive-color: var(--ion-color-step-200, #cccccc);
+    --swiper-pagination-color: var(--ion-color-primary, #3880ff);
+    --swiper-pagination-progressbar-bg-color: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.25);
+    --swiper-scrollbar-bg-color: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.1);
+    --swiper-scrollbar-drag-bg-color: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.5);
+  }
+  
+  swiper-slide {
+    display: flex;
+    position: relative;
+  
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+  
+    width: 100%;
+    height: 100%;
+  
+    font-size: 18px;
+  
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  // swiper-slide img {
+  //   width: auto;
+  //   max-width: 100%;
+  //   height: auto;
+  //   max-height: 100%;
+  // }
+  
+  
+  
+  
+  .badboy {
+    background : url( http://g02.a.alicdn.com/kf/HTB16ENqIXXXXXaUXVXXq6xXFXXXp/1000-autumn-maples-font-b-fall-b-font-font-b-scenery-b-font-jigsaw-puzzle-casual.jpg);
+  width: 400px;
+  height : 250px;
+    margin: 0 auto;
+    display: block;
+    transition : ease all .5s
+  }
+  
+  .badboy:hover {
+     background : url( http://media-cdn.tripadvisor.com/media/photo-s/01/48/61/6c/beautiful-scenery-around.jpg);
+  width: 400px;
+  height : 250px;
+    }

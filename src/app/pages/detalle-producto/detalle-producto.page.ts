@@ -47,7 +47,7 @@ cantidad:any;
   swiperModules = [IonicSlides];
   cliente:any;
   botones:any;
-  
+  idmkt_productos:any;
   slides = {title: "Lorem ipsum", time: 1000}
 
 
@@ -66,6 +66,9 @@ cantidad:any;
 
 
   async ionViewWillEnter(){
+
+    localStorage.removeItem("cantidad")
+    this.cantidad=0;
 
 
 
@@ -152,13 +155,47 @@ cantidad:any;
 
 
 
-   agregar(cantidad:any){
-    console.log("can", cantidad)
+   agregar(cantidad:any, idmkt_productos:any){
+    console.log("can", cantidad, idmkt_productos)
 
    }
 
-   comprar(cantidad:any){
-    console.log("can", cantidad)
+   async comprar(cantidad:any, idmkt_productos:any){
+    console.log("can", cantidad, idmkt_productos)
+
+
+
+    if(cantidad>=1){
+
+      // borrar
+    localStorage.setItem("cantidad",cantidad )
+ this.router.navigate(['/checkout']);
+    }
+    else{
+
+
+      const alert = await this.alertController.create({
+        header: 'Aviso',
+        subHeader: 'Favor de escoger cantidad',
+        // message: 'This is an alert!',
+        buttons: ['OK'],
+      });
+    
+      await alert.present();
+
+
+
+    }
+
+   
+
+
+
+
+
+
+
+
 
    }
 
