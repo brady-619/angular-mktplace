@@ -28,7 +28,7 @@
         <ion-title class="ion-text-center">Celullar Planet</ion-title>
 
 
-        <ion-button *ngIf="this.cliente!=''" slot="end" expand="block"  shape="round">
+        <ion-button (click)="carrito()"   *ngIf="this.cliente!=''" slot="end" expand="block"  shape="round">
           <ion-icon name="basket-outline"></ion-icon>
         </ion-button>
       </ion-toolbar>

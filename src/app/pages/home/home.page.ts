@@ -50,6 +50,7 @@ export class HomePage {
   cliente:any;
   id_cliente:any;
   botones:any;
+  ingresado:any;
 
   currentWindowWidth:any;
 
@@ -74,30 +75,47 @@ export class HomePage {
   public isMobileLayout = false;
 
   ngOnInit() {
+    
     this.currentWindowWidth = window.innerWidth;
+
+
   }
+
+
+
 
 
   async ionViewWillEnter(){
 
+  
+
+    
+    
 
     if(localStorage.getItem("ingresado")!='si'  ){
+      
       this.cliente='';
       this.botones='0'
       console.log("no")
+     this.ingresado= localStorage.getItem("ingresado")
+
+    console.log("cliente", this.cliente)
     }
     else{
       this.cliente = localStorage.getItem("cliente")
       this.botones='1'
       console.log("si")
+
+    console.log("cliente", this.cliente)
     }
 
 
 
     
+    await console.log("cliente", this.cliente)
 
     // ngAfterViewInit
-    this.cliente = localStorage.getItem("cliente")
+   this.cliente = localStorage.getItem("cliente")
     this.id_cliente = localStorage.getItem("id_cliente")
 
     console.log("id", this.id_cliente)
@@ -204,5 +222,12 @@ export class HomePage {
   
   this.router.navigate(['/telefonia']);
  }
+
+ carrito(){
+
+  
+  this.router.navigate(['/carrito']);
+ }
+ 
   
 }

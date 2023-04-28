@@ -28,6 +28,7 @@
           slot="end"
           expand="block"
           shape="round"
+          (click)="carrito()" 
         >
           <ion-icon name="basket-outline"></ion-icon>
         </ion-button>
@@ -207,7 +208,7 @@
 
                       <ion-col size="6">
                         <ion-button
-                          (click)="agregar(cantidad, data.idmkt_productos)"
+                          (click)="agregar(cantidad, data.idmkt_productos,data.precio)"
                           [disabled]="this.botones==='0'"
                           class="ion-text-wrap"
                           color="warning"
@@ -219,7 +220,7 @@
                       <ion-col size="6">
                         <ion-button
                           [disabled]="this.botones==='0'"
-                          (click)="comprar(cantidad,data.idmkt_productos)"
+                          (click)="comprar(cantidad,data.idmkt_productos,data.precio )"
                           class="ion-text-wrap"
                           color="success"
                           expand="block"

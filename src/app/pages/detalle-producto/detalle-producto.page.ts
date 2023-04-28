@@ -11,6 +11,7 @@ import { register } from 'swiper/element';
 import Swiper, { Autoplay } from 'swiper';
 
 
+import { InsertVentaCarritoService  } from '../../services/insert-venta-carrito.service';
 
 
 const swiper = new Swiper(".gallery", {
@@ -50,13 +51,13 @@ cantidad:any;
   idmkt_productos:any;
   slides = {title: "Lorem ipsum", time: 1000}
 
+  id_cliente:any;
 
 
 
 
 
-
-  constructor(private GetDetalleProducto: GetMktDetalleProductoService,private router: Router,private menu:MenuController,public alertController: AlertController) { }
+  constructor(private GetDetalleProducto: GetMktDetalleProductoService,private router: Router,private menu:MenuController,public alertController: AlertController, private InsertVentaCarrito: InsertVentaCarritoService) { }
 
   ngOnInit() {
     this.currentWindowWidth = window.innerWidth;
@@ -69,6 +70,8 @@ cantidad:any;
 
     localStorage.removeItem("cantidad")
     this.cantidad=0;
+
+    this.id_cliente= localStorage.getItem("id_cliente")
 
 
 
@@ -121,24 +124,36 @@ cantidad:any;
   async salir(){
 
 
-    localStorage.setItem("id_cliente","")
-    localStorage.setItem("cliente","")
-  
-    
-    this.menu.toggle()
-  
-    const alert = await this.alertController.create({
-      header: 'Alert',
-      subHeader: 'Sesión cerrada con éxito',
-      // message: 'This is an alert!',
-      buttons: ['OK'],
-    });
-  
-    await alert.present();
-  
-    this.router.navigate(['/home']);
 
-    localStorage.removeItem("ingresado");
+    await localStorage.setItem("id_cliente","")
+    await localStorage.setItem("cliente","")
+    await localStorage.removeItem("ingresado");
+     
+     this.menu.toggle()
+   
+     const alert = await this.alertController.create({
+       header: 'Alert',
+       subHeader: 'Sesión cerrada con éxito',
+       // message: 'This is an alert!',
+       buttons: ['OK'],
+     });
+   
+ 
+ 
+     await alert.present();
+ 
+  
+   
+     // setTimeout(() => {
+     //   this.router.navigate(['/home'])
+     // }, 4000);
+ 
+   
+     this.router.navigate(['home'])
+     .then(() => {
+       window.location.reload();
+     });
+    
   
    }
 
@@ -155,13 +170,11 @@ cantidad:any;
 
 
 
-   agregar(cantidad:any, idmkt_productos:any){
-    console.log("can", cantidad, idmkt_productos)
+   async agregar(cantidad:any, idmkt_productos:any, precio:any){
+    console.log("can", cantidad, idmkt_productos, precio)
 
-   }
 
-   async comprar(cantidad:any, idmkt_productos:any){
-    console.log("can", cantidad, idmkt_productos)
+    let total= Number(precio)* Number(cantidad)
 
 
 
@@ -169,7 +182,66 @@ cantidad:any;
 
       // borrar
     localStorage.setItem("cantidad",cantidad )
- this.router.navigate(['/checkout']);
+//  this.router.navigate(['/telefonia']);
+
+// armando params
+ let params = {
+  data: [{cliente: this.id_cliente, idmkt_productos: idmkt_productos, cantidad: cantidad, precio:precio , total: total }]
+}
+
+
+// agrega a carrito
+await this.InsertVentaCarrito.InsertVentaCarrito(params).then(async respuesta => {
+  console.log(respuesta);
+
+  if (respuesta.status = "000") {
+    const alert = await this.alertController.create({
+      header: 'Aviso',
+      subHeader: 'Agregado al carrito con éxito',
+      // message: 'This is an alert!',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+    
+
+this.router.navigate(['/telefonia'])
+
+
+
+  } else {
+    const alert = await this.alertController.create({
+      header: 'Aviso',
+      subHeader: 'Error al agregar a carrito',
+      // message: 'This is an alert!',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+
+  }
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
     else{
 
@@ -187,7 +259,108 @@ cantidad:any;
 
     }
 
-   
+
+
+
+
+
+
+
+
+
+   }
+
+   async comprar(cantidad:any, idmkt_productos:any,precio:any ){
+    console.log("can", cantidad, idmkt_productos, precio)
+
+
+    let total= Number(precio)* Number(cantidad)
+
+
+
+    if(cantidad>=1){
+
+      // borrar
+    localStorage.setItem("cantidad",cantidad )
+//  this.router.navigate(['/telefonia']);
+
+// armando params
+ let params = {
+  data: [{cliente: this.id_cliente, idmkt_productos: idmkt_productos, cantidad: cantidad, precio:precio , total: total }]
+}
+
+
+// agrega a carrito
+await this.InsertVentaCarrito.InsertVentaCarrito(params).then(async respuesta => {
+  console.log(respuesta);
+
+  if (respuesta.status = "000") {
+    const alert = await this.alertController.create({
+      header: 'Aviso',
+      subHeader: 'Agregado al carrito con éxito',
+      // message: 'This is an alert!',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+    
+
+this.router.navigate(['/carrito'])
+
+
+
+  } else {
+    const alert = await this.alertController.create({
+      header: 'Aviso',
+      subHeader: 'Error al agregar a carrito',
+      // message: 'This is an alert!',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+
+  }
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+    else{
+
+
+      const alert = await this.alertController.create({
+        header: 'Aviso',
+        subHeader: 'Favor de escoger cantidad',
+        // message: 'This is an alert!',
+        buttons: ['OK'],
+      });
+    
+      await alert.present();
+
+
+
+    }
+
+
+
 
 
 
@@ -206,6 +379,14 @@ cantidad:any;
     this.router.navigate(['/perfil']);
     
    }
+
+
+   carrito(){
+
+  
+    this.router.navigate(['/carrito']);
+   }
+   
 
 
 }

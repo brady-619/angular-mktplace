@@ -139,7 +139,15 @@ export class TelefoniaPage implements OnInit {
 
 
    home(){
-    this.router.navigate(['/home']);
+    // this.router.navigate(['/home']);
+
+
+    this.router.navigate(['home'])
+    .then(() => {
+      window.location.reload();
+    });
+   
+
    }
   
   
@@ -147,6 +155,8 @@ export class TelefoniaPage implements OnInit {
   
     
     this.router.navigate(['/telefonia']);
+
+    
    }
 
 
@@ -164,6 +174,14 @@ export class TelefoniaPage implements OnInit {
 
 
    }
+
+
+   carrito(){
+
+  
+    this.router.navigate(['/carrito']);
+   }
+   
 
 
 }
