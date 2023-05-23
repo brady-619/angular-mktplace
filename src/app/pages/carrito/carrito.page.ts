@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AlertController, IonicModule, MenuController } from '@ionic/angular';
@@ -6,22 +6,36 @@ import { GetProductosCarritoService } from '../../services/get-productos-carrito
 import { Router } from '@angular/router';
 import { DeleteProductoCarritoService } from '../../services/delete-producto-carrito.service';
 
+import { NgxPayPalModule } from 'ngx-paypal';
+
+
+import {
+  IPayPalConfig,
+  ICreateOrderRequest 
+} from 'ngx-paypal';
+
 @Component({
   selector: 'app-carrito',
   templateUrl: './carrito.page.html',
   styleUrls: ['./carrito.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule , NgxPayPalModule]
 })
 export class CarritoPage implements OnInit {
 
+  public payPalConfig ? : IPayPalConfig;
+
+
   currentWindowWidth:any;
+  showSuccess: any;
+  showCancel: any;
+  showError: any;
+  
 
   constructor(private getProductosCarrito: GetProductosCarritoService,
     private router: Router,
     private menu: MenuController,
     public alertController: AlertController,public alertCtrl: AlertController, private deleteProductoCarrito: DeleteProductoCarritoService) { }
-
 
 
 
@@ -32,8 +46,91 @@ export class CarritoPage implements OnInit {
   totales_coma:any;
 
   ngOnInit() {
-    this.currentWindowWidth = window.innerWidth;
+     this.currentWindowWidth = window.innerWidth;
+
+
+     this.initConfig();
+
+
+
   }
+
+
+
+   initConfig() {
+    this.payPalConfig = {
+
+
+        currency: 'MXN',
+        clientId: 'AYKLskE98e7tZ0_h6Mczp8iyyf7MitklAfv6Qbs0bM1hFN7CTrf0TAMVo2IsxAiDzkhh5wK7k3LUAPes',
+        createOrderOnClient: (data) => < ICreateOrderRequest > {
+            intent: 'CAPTURE',
+            purchase_units: [{
+                amount: {
+                    currency_code: 'MXN',
+                    value: '9.99',
+                    breakdown: {
+                        item_total: {
+                            currency_code: 'MXN',
+                            value: '9.99'
+                        }
+                    }
+                },
+                items: [{
+                    name: 'Cellular Planet',
+                    quantity: '1',
+                    category: 'DIGITAL_GOODS',
+                    unit_amount: {
+                        currency_code: 'MXN',
+                        value: '9.99',
+                    },
+                }]
+            }]
+        },
+        advanced: {
+            commit: 'true'
+        },
+        style: {
+            // label: 'paypal',
+            // layout: 'vertical'
+
+            shape: "pill",
+            color: "gold",
+            layout: "horizontal",
+            label: "paypal",
+            tagline: false,
+            
+        },
+        onApprove: (data, actions) => {
+            console.log('onApprove - transaction was approved, but not authorized', data, actions);
+            actions.order.get().then((details: any) => {
+                console.log('onApprove - you can get full order details inside onApprove: ', details);
+            });
+
+        },
+        onClientAuthorization: (data) => {
+            console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
+            this.showSuccess = true;
+        },
+        onCancel: (data, actions) => {
+            console.log('OnCancel', data, actions);
+            this.showCancel = true;
+
+        },
+        onError: err => {
+            console.log('OnError', err);
+            this.showError = true;
+        },
+        onClick: (data, actions) => {
+            console.log('onClick', data, actions);
+            
+          
+        }
+    };
+}
+
+
+
 
 
 
