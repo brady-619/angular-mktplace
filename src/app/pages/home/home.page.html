@@ -1,12 +1,9 @@
-<ion-app>
+<!-- <ion-app>
   <ion-menu contentId="main-content">
     <ion-header>
       <ion-toolbar>
         <ion-title>Cellular Planet</ion-title>
-
-
       </ion-toolbar>
-      
     </ion-header>
     <ion-content class="menu">
       <ion-button (click)="miperfil()" expand="block" shape="round">
@@ -21,115 +18,174 @@
 
   <div class="ion-page" id="main-content">
     <ion-header>
-      <ion-toolbar>
+      <ion-toolbar color="dark">
         <ion-buttons slot="start">
           <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <ion-title class="ion-text-center">Celullar Planet</ion-title>
 
+        <ion-img
+          class="logo"
+          src="../../assets/img/cellular_logo.jpeg"
+          alt=""
+        ></ion-img>
 
-        <ion-button (click)="carrito()"   *ngIf="this.cliente!=''" slot="end" expand="block"  shape="round">
-          <ion-icon name="basket-outline"></ion-icon>
-        </ion-button>
+        <ion-icon
+          size="large"
+          slot="end"
+          (click)="carrito()"
+          *ngIf="this.cliente!=''"
+          name="basket-outline"
+        ></ion-icon>
       </ion-toolbar>
     </ion-header>
 
     <ion-content>
-      
-
-      
       <ion-item lines="none" class="menu">
-   
-        <ion-button *ngIf="currentWindowWidth >= 300"  (click)="home()" expand="block" fill="clear" shape="round">
+        <ion-button
+          *ngIf="currentWindowWidth >= 300"
+          (click)="home()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
           Home
         </ion-button>
 
-        <ion-button  *ngIf="currentWindowWidth >= 300" (click)="telefonia()" expand="block" fill="clear" shape="round">
+        <ion-button
+          *ngIf="currentWindowWidth >= 300"
+          (click)="telefonia()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
           Telefonía
         </ion-button>
 
-        <ion-button  *ngIf="currentWindowWidth >= 300" (click)="home()" expand="block" fill="clear" shape="round">
+        <ion-button
+          *ngIf="currentWindowWidth >= 300"
+          (click)="home()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
           Celulares
         </ion-button>
 
-        <ion-button  *ngIf="currentWindowWidth >= 400" (click)="home()" expand="block" fill="clear" shape="round">
+        <ion-button
+          *ngIf="currentWindowWidth >= 400"
+          (click)="home()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
           Audifonos
         </ion-button>
 
-        <ion-button *ngIf="currentWindowWidth >= 500"  (click)="home()" expand="block" fill="clear" shape="round">
+        <ion-button
+          *ngIf="currentWindowWidth >= 500"
+          (click)="home()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
           Cargadores
         </ion-button>
 
-        <ion-button *ngIf="currentWindowWidth >= 600"  (click)="home()" expand="block" fill="clear" shape="round">
+        <ion-button
+          *ngIf="currentWindowWidth >= 600"
+          (click)="home()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
           Audio
         </ion-button>
 
-        <ion-button *ngIf="currentWindowWidth >= 700"  (click)="home()" expand="block" fill="clear" shape="round">
+        <ion-button
+          *ngIf="currentWindowWidth >= 700"
+          (click)="home()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
           Electrónica
         </ion-button>
 
-        <ion-button *ngIf="currentWindowWidth >= 750"  (click)="home()" expand="block" fill="clear" shape="round">
+        <ion-button
+          *ngIf="currentWindowWidth >= 750"
+          (click)="home()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
           Cables
         </ion-button>
 
-        <ion-button *ngIf="currentWindowWidth >= 850"  (click)="home()" expand="block" fill="clear" shape="round">
+        <ion-button
+          *ngIf="currentWindowWidth >= 850"
+          (click)="home()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
           Cocina
         </ion-button>
 
-        <ion-button *ngIf="currentWindowWidth >= 950"  (click)="home()" expand="block" fill="clear" shape="round">
+        <ion-button
+          *ngIf="currentWindowWidth >= 950"
+          (click)="home()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
           Iluminación
         </ion-button>
 
-        <ion-button *ngIf="currentWindowWidth >= 1050" (click)="home()" expand="block" fill="clear" shape="round">
+        <ion-button
+          *ngIf="currentWindowWidth >= 1050"
+          (click)="home()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
           Belleza
         </ion-button>
-        
       </ion-item>
 
-
-
-            <swiper-container  [slidesPerView]="1" [autoplay]="true" [loop]="true">
-              <swiper-slide> 
-                <ion-card>
-                  <ion-card-content  >
-                   <ion-card-subtitle color="primary">IMAGEN DE CELULARES</ion-card-subtitle> 
-                  </ion-card-content>
-                </ion-card>
-      
-      
-              </swiper-slide>
-              <swiper-slide> 
-                <ion-card>
-                  <ion-card-content>
-                    <ion-card-subtitle color="success">IMAGEN DE AUDIFONOS</ion-card-subtitle> 
-                  </ion-card-content>
-                </ion-card>
-      
-      
-              </swiper-slide>
-              <swiper-slide> 
-                <ion-card>
-                  <ion-card-content color="danger">
-                    <ion-card-subtitle color="danger">IMAGEN DE CARGADORES</ion-card-subtitle> 
-                  </ion-card-content>
-                </ion-card>
-      
-      
-              </swiper-slide>
-      
-              
-            </swiper-container>
-
-
-
-      
-
+      <swiper-container [slidesPerView]="1" [autoplay]="true" [loop]="true">
+        <swiper-slide>
+          <ion-card>
+            <ion-card-content>
+              <ion-card-subtitle color="primary"
+                >IMAGEN DE CELULARES</ion-card-subtitle
+              >
+            </ion-card-content>
+          </ion-card>
+        </swiper-slide>
+        <swiper-slide>
+          <ion-card>
+            <ion-card-content>
+              <ion-card-subtitle color="success"
+                >IMAGEN DE AUDIFONOS</ion-card-subtitle
+              >
+            </ion-card-content>
+          </ion-card>
+        </swiper-slide>
+        <swiper-slide>
+          <ion-card>
+            <ion-card-content color="danger">
+              <ion-card-subtitle color="danger"
+                >IMAGEN DE CARGADORES</ion-card-subtitle
+              >
+            </ion-card-content>
+          </ion-card>
+        </swiper-slide>
+      </swiper-container>
 
 
       <ion-grid fixed>
         <ion-row>
           <ion-col size="9">
-            <!-- <ion-input type="text" placeholder=""></ion-input> -->
 
             <ion-input
               label="Busca en cellularplanet.com"
@@ -145,12 +201,9 @@
       <ion-grid>
         <ion-row>
           <ion-col size="8">
-            <!-- <ion-input type="text" placeholder=""></ion-input> -->
 
             <ion-card>
               <ion-card-content>
-
-
                 <table
                   mat-table
                   [dataSource]="dataSource"
@@ -159,10 +212,7 @@
                   class="mat-elevation-z8"
                   *ngIf="data"
                 >
-                  <!--- Note that these columns can be defined in any order.
-                    The actual rendered columns are set as a property on the row definition" -->
 
-                  <!-- Position Column -->
                   <ng-container matColumnDef="producto">
                     <th
                       mat-header-cell
@@ -173,24 +223,15 @@
                       Producto
                     </th>
                     <td mat-cell *matCellDef="let element">
-                      <!-- {{element.producto}}  -->
+          
                       <br />
 
-                      <!-- <swiper-container  [slidesPerView]="1" [autoplay]="true" [loop]="true">
-                        <swiper-slide> 
+ 
 
-                          <img src="{{element.imagen2}}" alt="" />
-                        </swiper-slide>
-                       
-                        
-                      </swiper-container> -->
-
-                      
-           
                       <img class="badboy" src="{{element.imagen}}" alt="" />
 
                       <ion-card class="descripcion">
-                        <ion-card-content >
+                        <ion-card-content>
                           <ion-text class="ion-text-center" color="primary">
                             <h1>
                               <b><u>{{element.producto}}</u></b>
@@ -215,24 +256,16 @@
                       Precio
                     </th>
                     <td mat-cell *matCellDef="let element">
-
-
                       <ion-card>
                         <ion-card-content class="descripcionprecio">
-
-                      <ion-text class="ion-text-center" color="danger">
-                        <h3>Precio:</h3> <h1>${{element.precio}}</h1>
-                      </ion-text>
-
-          
-                      
-                      </ion-card-content>
+                          <ion-text class="ion-text-center" color="danger">
+                            <h3>Precio:</h3>
+                            <h1>${{element.precio}}</h1>
+                          </ion-text>
+                        </ion-card-content>
                       </ion-card>
-
                     </td>
                   </ng-container>
-
-
 
                   <ng-container matColumnDef="categoria">
                     <th
@@ -244,24 +277,16 @@
                       Categoria
                     </th>
                     <td mat-cell *matCellDef="let element">
-
-
                       <ion-card>
                         <ion-card-content class="descripcionprecio">
-
-                      <ion-text class="ion-text-center" color="danger">
-                        <h3>Categoria:</h3> <h1>{{element.categoria_producto}}</h1>
-                      </ion-text>
-
-          
-                      
-                      </ion-card-content>
+                          <ion-text class="ion-text-center" color="danger">
+                            <h3>Categoria:</h3>
+                            <h1>{{element.categoria_producto}}</h1>
+                          </ion-text>
+                        </ion-card-content>
                       </ion-card>
-
                     </td>
                   </ng-container>
-
-                 
 
                   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                   <tr
@@ -279,17 +304,162 @@
               </ion-card-content>
             </ion-card>
 
-            
 
-            <!-- <ion-grid fixed>
-              <ion-row *ngFor="let item of data">
-                <ion-col size="6"> {{item.producto}}</ion-col>
-                
-              </ion-row>
-            </ion-grid> -->
           </ion-col>
         </ion-row>
       </ion-grid>
     </ion-content>
   </div>
-</ion-app>
+</ion-app> -->
+
+
+
+
+
+
+<ion-header [translucent]="true">
+
+<app-header></app-header>
+</ion-header>
+
+
+<ion-content>
+
+<ion-grid fixed>
+  <ion-row>
+    <ion-col size="9">
+
+      <ion-input
+        label="Busca en cellularplanet.com"
+        label-placement="floating"
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Buscar"
+      ></ion-input>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-grid>
+  <ion-row>
+    <ion-col size="8">
+
+      <ion-card>
+        <ion-card-content>
+          <table
+            mat-table
+            [dataSource]="dataSource"
+            matSort
+            (matSortChange)="announceSortChange($event)"
+            class="mat-elevation-z8"
+            *ngIf="data"
+          >
+
+            <ng-container matColumnDef="producto">
+              <th
+                mat-header-cell
+                *matHeaderCellDef
+                mat-sort-header
+                sortActionDescription="Sort by producto"
+              >
+                Producto
+              </th>
+              <td mat-cell *matCellDef="let element">
+    
+                <br />
+
+
+
+                <img class="badboy" src="{{element.imagen}}" alt="" />
+
+                <ion-card class="descripcion">
+                  <ion-card-content>
+                    <ion-text class="ion-text-center" color="primary">
+                      <h1>
+                        <b><u>{{element.producto}}</u></b>
+                      </h1>
+                    </ion-text>
+                    <br />
+                    <ion-text class="ion-text-justify" color="primary">
+                      <h5><b>{{element.descripcion}}</b></h5>
+                    </ion-text>
+                  </ion-card-content>
+                </ion-card>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="precio">
+              <th
+                mat-header-cell
+                *matHeaderCellDef
+                mat-sort-header
+                sortActionDescription="Sort by precio"
+              >
+                Precio
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <ion-card>
+                  <ion-card-content class="descripcionprecio">
+                    <ion-text class="ion-text-center" color="danger">
+                      <h3>Precio:</h3>
+                      <h1>${{element.precio}}</h1>
+                    </ion-text>
+                  </ion-card-content>
+                </ion-card>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="categoria">
+              <th
+                mat-header-cell
+                *matHeaderCellDef
+                mat-sort-header
+                sortActionDescription="Sort by categoria"
+              >
+                Categoria
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <ion-card>
+                  <ion-card-content class="descripcionprecio">
+                    <ion-text class="ion-text-center" color="danger">
+                      <h3>Categoria:</h3>
+                      <h1>{{element.categoria_producto}}</h1>
+                    </ion-text>
+                  </ion-card-content>
+                </ion-card>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr
+              mat-row
+              *matRowDef="let row; columns: displayedColumns;"
+            ></tr>
+          </table>
+
+          <mat-paginator
+            [pageSize]="2"
+            showFirstLastButtons
+            aria-label="Select page of periodic elements"
+          >
+          </mat-paginator>
+        </ion-card-content>
+      </ion-card>
+
+
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+
+
+
+
+  <app-footer></app-footer>
+
+  
+</ion-content>
+
+
+

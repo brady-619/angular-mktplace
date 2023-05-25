@@ -21,6 +21,8 @@ import { CommonModule } from '@angular/common';
 import { register } from 'swiper/element/bundle';
 
 import { IonicSlides } from '@ionic/angular';
+import { ComponentsModule } from 'src/app/components.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -37,7 +39,7 @@ export interface PeriodicElement {
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonicModule,MatTableModule,MatPaginatorModule,MatInputModule,MatSortModule,CommonModule],
+  imports: [IonicModule,MatTableModule,MatPaginatorModule,MatInputModule,MatSortModule,CommonModule,ComponentsModule,FormsModule],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomePage {

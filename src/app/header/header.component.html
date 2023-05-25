@@ -1,0 +1,128 @@
+<!-- <ion-app>
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Cellular Planet</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="menu">
+      <ion-button (click)="miperfil()" expand="block" shape="round">
+        <ion-label class="ion-text-wrap">Mi perfil</ion-label>
+      </ion-button>
+
+      <ion-button color="danger" (click)="salir()" expand="block" shape="round">
+        Cerrar sesión
+      </ion-button>
+    </ion-content>
+  </ion-menu>
+
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+
+        <ion-img
+          class="logo"
+          src="../../assets/img/cellular_logo.jpeg"
+          alt=""
+        ></ion-img>
+
+
+      </ion-toolbar>
+    </ion-header>
+
+   
+  </div>
+</ion-app> -->
+
+
+<ion-header no-border translucent>
+
+  <ion-toolbar color="dark">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="2">
+    <ion-buttons >
+      <ion-button (click)="toogleMenu()">
+        <ion-icon  slot="icon-only" name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+        </ion-col>
+
+
+        <ion-col size="7" >
+
+          <ion-img style="width:70%" src="https://cellular-planet-productos.s3.amazonaws.com/audifonos/logo+(1).png" alt=""> </ion-img>
+      
+              </ion-col>
+
+
+
+        <ion-col size="3">
+
+
+ 
+            <ion-row>
+              <ion-col size="6">
+          <ion-buttons >
+            <ion-button  >
+              <ion-icon  slot="icon-only" name="basket-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+              </ion-col>
+
+              <ion-col size="5">
+                <ion-buttons >
+                  <ion-button (click)="buscar()"  >
+                    <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+                  </ion-button>
+                </ion-buttons>
+                    </ion-col>
+            
+            </ion-row>
+
+          
+
+
+
+
+
+
+              </ion-col>
+        
+      </ion-row>
+
+
+      <ion-row *ngIf="open==true">
+        <ion-col size="10">
+   
+          <ion-input type="text" placeholder="Awesome Input"></ion-input>
+          
+        </ion-col><ion-col size="2">
+          <ion-buttons >
+          <ion-button (click)="cerrar()"  >
+            <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+          </ion-button>
+          </ion-buttons>
+        </ion-col>
+      
+      
+      </ion-row>
+    </ion-grid>
+
+
+    
+
+
+
+
+
+  </ion-toolbar>
+
+  
+
+</ion-header>
