@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { getMatFormFieldPlaceholderConflictError } from '@angular/material/form-field';
 import { Router } from '@angular/router';
 import { AlertController, MenuController } from '@ionic/angular';
 
@@ -14,6 +15,7 @@ export class HeaderComponent  implements OnInit {
   ngOnInit() {}
 
   open:any
+  valor:any;
 
 
 
@@ -71,5 +73,23 @@ export class HeaderComponent  implements OnInit {
 
 
  }
+
+
+ busqueda(valor:any){
+  console.log(valor)
+
+ }
+
+
+ applyFilter(event: Event) {
+  let filterValue = (event.target as HTMLInputElement).value;
+
+    filterValue = filterValue.trim().toLowerCase();
+  console.log(filterValue);
+
+  localStorage.setItem(filterValue,'busqueda')
+  
+
+}
 
 }

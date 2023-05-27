@@ -100,7 +100,7 @@
       <ion-row *ngIf="open==true">
         <ion-col size="10">
    
-          <ion-input type="text" placeholder="Awesome Input"></ion-input>
+          <ion-input  (keyup)="applyFilter($event)" color="dark" type="text" placeholder="Busca en cellularplanet.com"></ion-input>
           
         </ion-col><ion-col size="2">
           <ion-buttons >

@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, IonicModule, MenuController } from '@ionic/angular';
 import { GetMktProductosService } from '../../services/get-mkt-productos.service';
@@ -71,6 +71,7 @@ export class HomePage {
 
   
 
+ @Input() contador:string | undefined; 
 
 
   
@@ -162,8 +163,16 @@ export class HomePage {
   }
 
   applyFilter(event: Event) {
+    console.log("entra")
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+
+
+
+    
+
+
+
   }
 
   announceSortChange(sortState: Sort) {
