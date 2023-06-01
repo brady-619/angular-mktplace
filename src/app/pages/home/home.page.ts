@@ -23,6 +23,7 @@ import { register } from 'swiper/element/bundle';
 import { IonicSlides } from '@ionic/angular';
 import { ComponentsModule } from 'src/app/components.module';
 import { FormsModule } from '@angular/forms';
+import { GetProductosDestacadosService  } from '../../services/get-productos-destacados.service';
 
 
 
@@ -53,13 +54,14 @@ export class HomePage {
   id_cliente:any;
   botones:any;
   ingresado:any;
+  destacados:any;
 
   currentWindowWidth:any;
 
 
   displayedColumns: string[] = ['producto','precio','categoria'];
 
-  constructor(private router: Router,private _liveAnnouncer: LiveAnnouncer, private route: Router,  public alertController: AlertController,private menu:MenuController, private getProductos: GetMktProductosService  ) {}
+  constructor(private router: Router,private _liveAnnouncer: LiveAnnouncer, private route: Router,  public alertController: AlertController,private menu:MenuController, private getProductos: GetMktProductosService, private getProductosDestacados: GetProductosDestacadosService ) {}
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -82,6 +84,28 @@ export class HomePage {
     this.currentWindowWidth = window.innerWidth;
 
 
+
+
+    // obtenemos los prod destacdos
+  this.getProductosDestacados.GetProductosDestacados().then(async respuesta => {
+      // console.log("destacados",respuesta);
+
+      this.destacados = respuesta.data
+
+    });
+
+
+
+
+
+
+
+    
+
+
+
+
+
   }
 
 
@@ -99,29 +123,29 @@ export class HomePage {
       
       this.cliente='';
       this.botones='0'
-      console.log("no")
+      // console.log("no")
      this.ingresado= localStorage.getItem("ingresado")
 
-    console.log("cliente", this.cliente)
+    // console.log("cliente", this.cliente)
     }
     else{
       this.cliente = localStorage.getItem("cliente")
       this.botones='1'
-      console.log("si")
+      // console.log("si")
 
-    console.log("cliente", this.cliente)
+    // console.log("cliente", this.cliente)
     }
 
 
 
     
-    await console.log("cliente", this.cliente)
+    // await console.log("cliente", this.cliente)
 
     // ngAfterViewInit
    this.cliente = localStorage.getItem("cliente")
     this.id_cliente = localStorage.getItem("id_cliente")
 
-    console.log("id", this.id_cliente)
+    // console.log("id", this.id_cliente)
 
 
 
@@ -131,28 +155,21 @@ export class HomePage {
    
 
 
-    await this.getProductos.GetMktProductos().then(async respuesta => {
-      console.log(respuesta);
+    // await this.getProductos.GetMktProductos().then(async respuesta => {
+    //   console.log(respuesta);
 
-    this.data = respuesta.data;
+    // this.data = respuesta.data;
 
-//     const newdata = respuesta.data.map((item:any) => {
-//       a : item
-      
-// return item
-//     } 
-//     ) 
 
-    let ELEMENT_DATA: PeriodicElement[] = respuesta.data;
-    this.dataSource = new MatTableDataSource(ELEMENT_DATA);
-    // this.dataSource = ELEMENT_DATA;
 
+    // let ELEMENT_DATA: PeriodicElement[] = respuesta.data;
     // this.dataSource = new MatTableDataSource(ELEMENT_DATA);
 
 
-    console.log(this.dataSource)
-    this.dataSource.paginator = this.paginator;
-    });
+
+    // console.log(this.dataSource)
+    // this.dataSource.paginator = this.paginator;
+    // });
 
 
 
@@ -162,10 +179,10 @@ export class HomePage {
 
   }
 
-  applyFilter(event: Event) {
-    console.log("entra")
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  // applyFilter(event: Event) {
+  //   console.log("entra")
+  //   const filterValue = (event.target as HTMLInputElement).value;
+  //   this.dataSource.filter = filterValue.trim().toLowerCase();
 
 
 
@@ -173,20 +190,18 @@ export class HomePage {
 
 
 
-  }
+  // }
 
-  announceSortChange(sortState: Sort) {
-    console.log("mueve", sortState)
-    // This example uses English messages. If your application supports
-    // multiple language, you would internationalize these strings.
-    // Furthermore, you can customize the message to add additional
-    // details about the values being sorted.
-    if (sortState.direction) {
-      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-    } else {
-      this._liveAnnouncer.announce('Sorting cleared');
-    }
-  }
+  // announceSortChange(sortState: Sort) {
+  //   console.log("mueve", sortState)
+
+  //   if (sortState.direction) {
+  //     this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+  //   } else {
+  //     this._liveAnnouncer.announce('Sorting cleared');
+  //   }
+  // }
+
 
   miperfil(){
     this.menu.toggle()
@@ -239,6 +254,11 @@ export class HomePage {
   
   this.router.navigate(['/carrito']);
  }
- 
+
+
+
+ detalle(idmkt_productos:any){
+  console.log("Ver detalle",idmkt_productos)
+ } 
   
 }

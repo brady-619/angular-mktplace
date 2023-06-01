@@ -27,6 +27,21 @@ ion-card{
 
 
 
+.carta{
+  margin: auto;
+  width: 100%;
+   border: none;
+  padding: 10px;
+
+    border-radius: 10px;
+
+
+  --ion-background-color:  rgb(255, 255, 255);
+
+}
+
+
+
 .descripcion{
   width:auto;
   height: auto;
@@ -92,13 +107,51 @@ img{
 }
 
 
+.caja{
+  background-color: rgb(116, 116, 116);
+  color: white;
+  // border: 2px solid black;
+  margin: 0px;
+  padding: 0px;
+  font-size: 80%;
+  border-radius: 5px;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.cajadetalle{
+  background-color: rgb(116, 116, 116);
+  color: white;
+  // border: 2px solid black;
+  margin: 0px;
+  padding: 0px;
+  font-size: 80%;
+  border-radius: 5px;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 900;
+  margin-bottom: 10px;
+
+}
+
+
+
+.negro{
+
+  --background: rgb(0, 0, 0);
+}
+
+
 
 
 ion-label{
 
   --color: #000;
 
-  font-weight: 5;
+
+
 }
 
 
@@ -279,3 +332,30 @@ height : 250px;
   ion-icon{
         padding-right: 15px;
   }
+
+
+.destacados {
+  // background : url( http://g02.a.alicdn.com/kf/HTB16ENqIXXXXXaUXVXXq6xXFXXXp/1000-autumn-maples-font-b-fall-b-font-font-b-scenery-b-font-jigsaw-puzzle-casual.jpg);
+width: 80px;
+height : 80px;
+  margin: 0 auto;
+  display: block;
+  transition : ease all .5s
+}
+// .destacados:hover {
+  // background : url( http://media-cdn.tripadvisor.com/media/photo-s/01/48/61/6c/beautiful-scenery-around.jpg);
+
+//   width: 160px;
+//   height : 160px;
+//  }
+
+
+ .botondestacados{
+
+  color:  rgb(255, 255, 255);
+  --background:  rgb(179, 179, 179);
+  
+ }
+
+
+ ion-icon { zoom: 1.5 }
