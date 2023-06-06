@@ -1,0 +1,454 @@
+ion-row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  
+  
+  
+  
+
+  
+  ion-card{
+    margin: auto;
+    width: 100%;
+    //  border: 2px solid rgb(0, 0, 0);
+    // padding: 10px;
+  
+      border-radius: 10px;
+  
+  
+    --ion-background-color:  rgb(255, 255, 255);
+  }
+  
+  
+  
+  .carta{
+    margin: auto;
+    width: 100%;
+     border: none;
+    padding: 10px;
+  
+      border-radius: 10px;
+  
+  
+    --ion-background-color:  rgb(255, 255, 255);
+  
+  }
+  
+  
+  
+  .descripcion{
+    width:auto;
+    height: auto;
+    border-radius: 10px;
+    // box-shadow: -1px 3px 5px 0px rgba(0, 0, 0, 0.75);
+    margin: auto;
+    // margin-top: 30px;
+     margin-bottom: 10px;
+    overflow: visible;
+    background-color:rgb(242, 242, 242)
+  }
+  
+  
+  
+  .descripcionprecio{
+    width:auto;
+    height: auto;
+    border-radius: 10px;
+    // box-shadow: -1px 3px 5px 0px rgba(0, 0, 0, 0.75);
+    margin: auto;
+    // margin-top: 30px;
+    // margin-bottom: 90px;
+    overflow: visible;
+    background-color:rgb(255, 255, 255)
+  }
+  img{
+    height: 15vh;
+    width: 10vh;
+    margin: auto;
+    display: block;
+    // border-radius: 99%;
+    
+    border-radius: 10px;
+  }
+  
+  
+  .logo{
+    height: 15vh;
+    width: 15vh;
+    margin: auto;
+    display: block;
+    // border-radius: 99%;
+    
+    border-radius: 10px;
+  }
+  
+  .destacado{
+  
+    background-color: rgb(0, 0, 0);
+  }
+  
+  
+  .categoria{
+  
+    --color: #ffffff;
+    text-align: center;
+    background-color: rgb(144, 144, 144);
+    border-radius: 5px;
+     margin-top: 5px;
+     font-weight: 900;
+     
+  
+  }
+  
+  
+  .caja{
+    background-color: rgb(116, 116, 116);
+    color: white;
+    // border: 2px solid black;
+    margin: 0px;
+    padding: 0px;
+    font-size: 80%;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 900;
+    margin-bottom: 10px;
+  }
+  
+  .cajadetalle{
+    background-color: rgb(116, 116, 116);
+    color: white;
+    // border: 2px solid black;
+    margin: 0px;
+    padding: 0px;
+    font-size: 80%;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 900;
+    margin-bottom: 10px;
+  
+  }
+  
+  
+  
+  .negro{
+  
+    --background: rgb(0, 0, 0);
+  }
+  
+  
+  
+  
+  ion-label{
+  
+    --color: #000;
+    font-size: 80%;
+  
+  
+  
+  }
+  
+  
+  ion-spinner {
+    display: block;
+    margin: auto;
+    transform: scale(1);
+  }
+  
+  
+  table {
+    width: 100%;
+  }
+  
+  
+  // .demo-table {
+  //   width: 100%;
+  // }
+  
+  .mat-column-producto {
+    width: 80%;
+    height: 80%;
+    // border-left: 1px solid currentColor;
+    // border-right: 1px solid currentColor;
+    // border-top: 1px solid currentColor;
+    // border-bottom: 1px solid currentColor;
+    // padding-right: 10px;
+    text-align: center;
+  }
+  
+  
+  
+  // .mat-column-demo-name {
+  //   padding-left: 16px;
+  //   font-size: 20px;
+  // }
+  
+  // .mat-column-demo-weight {
+  //   font-style: italic;
+  // }
+  
+  // .mat-column-demo-symbol {
+  //   width: 32px;
+  //   text-align: center;
+  //   font-weight: bold;
+  // }
+  
+  ion-item{
+    background-color: rgb(255, 255, 255);
+
+    --min-height: 58px;
+  }
+
+
+
+    
+  ion-fab{
+
+    background-color: rgb(255, 255, 255);
+  }
+  ion-fab-button{
+
+    background-color: rgb(255, 255, 255);
+  }
+
+
+
+  
+  
+  .menu{
+    --ion-item-background: rgb(0, 4, 48);
+  
+  }
+  
+  
+  
+  
+  
+  
+  
+  ion-input{
+    background-color:  rgb(0, 0, 0);
+  
+    color:  rgb(255, 255, 255);
+     width: 100%;
+    height: 40px;
+    border-radius: 50px;
+    --padding-start: 20px;
+    --padding-end: 20px;
+    --highlight-color-focused: none;
+  }
+  
+  
+  
+  //Add this to your css/scss File
+  ::ng-deep {
+    .cdk-overlay-container,
+    .cdk-global-overlay-wrapper {
+      pointer-events: none;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+    .cdk-overlay-container {
+      position: fixed;
+      z-index: 1000;
+    }
+  
+    .cdk-overlay-pane {
+      position: absolute;
+      pointer-events: auto;
+      box-sizing: border-box;
+      z-index: 1000;
+      display: flex;
+      max-width: 100%;
+      max-height: 100%;
+  
+  color:  rgb(255, 255, 255);
+  
+      background-color: rgb(0, 0, 0);
+  border: 1px solid rgba(128, 128, 128);
+    }
+  }
+  
+  .menu{
+    --ion-background-color: linear-gradient( #757575,#000000);
+  
+  }
+  
+  
+  ion-menu::part(backdrop) {
+    background-color: rgba(74, 74, 74, 0.745);
+  }
+  
+  ion-menu::part(container) {
+    border-radius: 0 20px 20px 0;
+  
+    box-shadow: 4px 0px 16px rgba(0, 0, 0, 0.287);
+  }
+  
+  
+  swiper-container {
+    --swiper-pagination-bullet-inactive-color: var(--ion-color-step-200, #cccccc);
+    --swiper-pagination-color: var(--ion-color-primary, #3880ff);
+    --swiper-pagination-progressbar-bg-color: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.25);
+    --swiper-scrollbar-bg-color: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.1);
+    --swiper-scrollbar-drag-bg-color: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.5);
+  }
+  
+  swiper-slide {
+    display: flex;
+    position: relative;
+  
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+  
+    width: 100%;
+    height: 100%;
+  
+    font-size: 18px;
+  
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  // swiper-slide img {
+  //   width: auto;
+  //   max-width: 100%;
+  //   height: auto;
+  //   max-height: 100%;
+  // }
+  
+  
+  
+  .badboy {
+    // background : url( http://g02.a.alicdn.com/kf/HTB16ENqIXXXXXaUXVXXq6xXFXXXp/1000-autumn-maples-font-b-fall-b-font-font-b-scenery-b-font-jigsaw-puzzle-casual.jpg);
+  width: 300px;
+  height : 150px;
+    margin: 0 auto;
+    display: block;
+    transition : ease all .5s
+  }
+  
+  // .badboy:hover {
+  //    background : url( http://media-cdn.tripadvisor.com/media/photo-s/01/48/61/6c/beautiful-scenery-around.jpg);
+  // width: 400px;
+  // height : 250px;
+  //   }
+  
+  
+  
+  
+    ion-icon{
+          padding-right: 15px;
+          
+    }
+  
+  
+  .destacados {
+    // background : url( http://g02.a.alicdn.com/kf/HTB16ENqIXXXXXaUXVXXq6xXFXXXp/1000-autumn-maples-font-b-fall-b-font-font-b-scenery-b-font-jigsaw-puzzle-casual.jpg);
+  width: 80px;
+  height : 80px;
+    margin: 0 auto;
+    display: block;
+    transition : ease all .5s
+  }
+  // .destacados:hover {
+    // background : url( http://media-cdn.tripadvisor.com/media/photo-s/01/48/61/6c/beautiful-scenery-around.jpg);
+  
+  //   width: 160px;
+  //   height : 160px;
+  //  }
+  
+  
+   .botondestacados{
+  
+    color:  rgb(255, 255, 255);
+    --background:  rgb(179, 179, 179);
+    text-align:center;
+    width: 100%;
+    height: 90%;
+
+    
+
+    
+   }
+  
+  
+
+
+   .centrado{
+        text-align: center;
+        
+   }
+
+
+
+   ion-toolbar{
+
+    --background:  rgb(255, 255, 255);
+   }
+
+
+
+
+   .shadow-red{
+    --border-radius: 5px;
+    --box-shadow: 0px 14px 25px rgba(182, 30, 30, 0.59);
+}
+
+
+.circular{
+
+
+    --background:  rgb(0, 0, 0);
+}
+
+
+
+
+.producto{
+  font-size: 90%;
+  text-align: center;
+
+}
+
+.flecha{
+      padding: 8px;
+     
+}
+
+
+
+
+ion-fab{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: right;
+  background-color: #ffffff;
+  padding-right: 5px;
+}
+
+
+
+.botonup{
+ 
+  background-color:transparent;
+
+  --ion-item-background: transparent;
+}
+
+
+
+
+.swiper-slide {
+  width: auto;
+}
+
+

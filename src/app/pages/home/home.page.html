@@ -316,7 +316,7 @@
   <app-header></app-header>
 </ion-header>
 
-<ion-content>
+<ion-content >
   <ion-img
     src="https://images-celullarplanet-marketplace.s3.amazonaws.com/mundo.png"
     alt="The Wisconsin State Capitol building in Madison, WI at night"
@@ -331,7 +331,7 @@
       <ion-row>
         <ion-col size="4">
           <ion-card>
-            <ion-img
+            <ion-img  (click)="audifonosbt()"
               src="https://images-celullarplanet-marketplace.s3.amazonaws.com/CATEGORIAS+PAGINA+PRINCIPAL+/AUDIFONOS.png"
               alt="The Wisconsin State Capitol building in Madison, WI at night"
             ></ion-img>
@@ -348,9 +348,13 @@
         </ion-col>
         <ion-col size="4">
           <ion-card>
-            <ion-img
+            <ion-img 
               src="https://images-celullarplanet-marketplace.s3.amazonaws.com/CATEGORIAS+PAGINA+PRINCIPAL+/MANOS+LIBRES.png"
               alt="The Wisconsin State Capitol building in Madison, WI at night"
+
+              
+
+
             ></ion-img>
           </ion-card>
 

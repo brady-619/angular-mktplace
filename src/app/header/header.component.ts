@@ -1,8 +1,10 @@
+import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { getMatFormFieldPlaceholderConflictError } from '@angular/material/form-field';
 import { Router } from '@angular/router';
 import { AlertController, MenuController } from '@ionic/angular';
 
+import { GetProductosHeaderService } from 'src/app/services/get-productos-header.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -10,12 +12,14 @@ import { AlertController, MenuController } from '@ionic/angular';
 })
 export class HeaderComponent  implements OnInit {
 
-  constructor( public alertController: AlertController,private menu:MenuController, private route: Router, private menuCtrl: MenuController  ) {}
+  constructor( public alertController: AlertController,private menu:MenuController, private route: Router, private menuCtrl: MenuController, private getProductosHeader:GetProductosHeaderService ) {}
 
   ngOnInit() {}
 
   open:any
   valor:any;
+  filterValue:any
+  data_header:any;
 
 
 
@@ -65,31 +69,71 @@ export class HeaderComponent  implements OnInit {
   this.open=true
 
 
+
+
  }
 
- cerrar(){
+ async cerrar(){
   console.log("cierra")
   this.open=false
+  this.data_header==undefined
 
+  this.filterValue=undefined
+
+console.log(this.data_header)
+
+
+
+console.log(this.data_header)
 
  }
 
 
- busqueda(valor:any){
-  console.log(valor)
-
- }
 
 
- applyFilter(event: Event) {
-  let filterValue = (event.target as HTMLInputElement).value;
 
-    filterValue = filterValue.trim().toLowerCase();
-  console.log(filterValue);
+ async applyFilter(event: Event) {
 
-  localStorage.setItem(filterValue,'busqueda')
+
+  console.log(event)
+
+  this.filterValue = (event.target as HTMLInputElement).value;
+
+
+
+
+    this.filterValue = this.filterValue.trim().toLowerCase();
+  console.log(this.filterValue);
+
+  // localStorage.setItem(this.filterValue,'busqueda')
+
+
+      //telefonia
+      let params = {
+        producto: '%'+this.filterValue+'%'
+      }
+
+ 
+if(this.filterValue.length > 0){
+
+        await this.getProductosHeader.GetProductosHeader(params).then(async respuesta => {
+        console.log(respuesta);
+         this.data_header= respuesta.data;    
+      });
+}
+else{
+  console.log("nada")
+}
+
+
+      
   
 
+}
+
+home(){
+  console.log("regresa")
+  this.route.navigate(['/home']);
 }
 
 }

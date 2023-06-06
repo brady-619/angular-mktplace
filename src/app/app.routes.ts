@@ -34,4 +34,8 @@ export const routes: Routes = [
     path: 'carrito',
     loadComponent: () => import('./pages/carrito/carrito.page').then( m => m.CarritoPage)
   },
+  {
+    path: 'audifonos-bt',
+    loadComponent: () => import('./pages/audifonos-bt/audifonos-bt.page').then( m => m.AudifonosBtPage)
+  },
 ];

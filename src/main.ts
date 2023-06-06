@@ -19,14 +19,19 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { Router } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import Swiper, { Autoplay, Navigation, Pagination } from 'swiper';
+
 if (environment.production) {
   enableProdMode();
 }
 
 bootstrapApplication(AppComponent, {
   providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: RouteReuseStrategy,  useClass: IonicRouteStrategy },
     importProvidersFrom(IonicModule.forRoot({}),HttpClientModule,MatTableModule,MatPaginatorModule,MatInputModule,MatSortModule,MatFormFieldModule,BrowserAnimationsModule),
     provideRouter(routes),
-  ],
+  ]
+  
+  
+  ,
 });

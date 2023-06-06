@@ -260,5 +260,20 @@ export class HomePage {
  detalle(idmkt_productos:any){
   console.log("Ver detalle",idmkt_productos)
  } 
+
+
+
+
+ audifonosbt(){
+  console.log("audifonosbt")
+
+
+  this.router.navigate(['/audifonos-bt']);
+
+
+ }
+
+
+
   
 }
