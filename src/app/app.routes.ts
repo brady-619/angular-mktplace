@@ -38,4 +38,12 @@ export const routes: Routes = [
     path: 'audifonos-bt',
     loadComponent: () => import('./pages/audifonos-bt/audifonos-bt.page').then( m => m.AudifonosBtPage)
   },
+  {
+    path: 'manos-libres',
+    loadComponent: () => import('./pages/manos-libres/manos-libres.page').then( m => m.ManosLibresPage)
+  },
+  {
+    path: 'cargadores',
+    loadComponent: () => import('./pages/cargadores/cargadores.page').then( m => m.CargadoresPage)
+  },
 ];

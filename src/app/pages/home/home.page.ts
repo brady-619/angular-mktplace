@@ -273,6 +273,22 @@ export class HomePage {
 
  }
 
+ 
+manoslibres(){
+  console.log("manoslibres")
+
+
+  this.router.navigate(['/manos-libres']);
+}
+
+
+ 
+cargadores(){
+  console.log("cargadores")
+
+
+  this.router.navigate(['/cargadores']);
+}
 
 
   

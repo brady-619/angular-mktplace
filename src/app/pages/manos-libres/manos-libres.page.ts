@@ -1,67 +1,30 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonContent, IonicModule, IonicSlides } from '@ionic/angular';
+import { GetMktProductosCategoriaService } from 'src/app/services/get-mkt-productos-categoria.service';
+import { GetPreciosMayorMenorService } from 'src/app/services/get-precios-mayor-menor.service';
+import { GetPreciosMenorMayorService } from 'src/app/services/get-precios-menor-mayor.service';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { ComponentsModule } from 'src/app/components.module';
-import { GetMktProductosCategoriaService } from 'src/app/services/get-mkt-productos-categoria.service';
-import { GetPreciosMayorMenorService } from '../../services/get-precios-mayor-menor.service';
-import { GetPreciosMenorMayorService } from '../../services/get-precios-menor-mayor.service';
-import { IonicSlides } from '@ionic/angular';
-import Swiper, { Autoplay, Navigation, Pagination } from 'swiper';
+import { register } from 'swiper/element';
 
-import { IonContent } from '@ionic/angular';
-// import { register } from 'swiper/element';
-
-import { register } from 'swiper/element/bundle';
-
-
-
-
-// const swiper = new Swiper(".gallery", {
-//   modules: [Autoplay],
-//   loop: true,
-//   autoplay: {
-//       delay: 3000,
-//       }
-// });
-
-
-// var swiper = new Swiper('.swiper-container', {
-//   hashNavigation: {
-//       watchState: true,
-//   },
-//   pagination: {
-//       el: '.swiper-pagination',
-//       clickable: true,
-//   },
-//   slidesPerView: 2
-// });
 
 register();
 
 
 @Component({
-  selector: 'app-audifonos-bt',
-  templateUrl: './audifonos-bt.page.html',
-  styleUrls: ['./audifonos-bt.page.scss'],
+  selector: 'app-manos-libres',
+  templateUrl: './manos-libres.page.html',
+  styleUrls: ['./manos-libres.page.scss'],
   standalone: true,
   imports: [IonicModule,MatTableModule,MatPaginatorModule,MatInputModule,MatSortModule,CommonModule,ComponentsModule,FormsModule],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA]
 })
-
-
-
-
-
-
-
-
-export class AudifonosBtPage implements OnInit {
-
+export class ManosLibresPage implements OnInit {
 
 
 
@@ -83,7 +46,7 @@ export class AudifonosBtPage implements OnInit {
   bandera:boolean =false
 
   // cambio
-  categoria =1;
+  categoria =2;
 
   estadomenu: boolean = false;
 
