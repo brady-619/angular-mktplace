@@ -5,6 +5,10 @@ import { Router } from '@angular/router';
 import { AlertController, MenuController } from '@ionic/angular';
 
 import { GetProductosHeaderService } from 'src/app/services/get-productos-header.service';
+
+import { InfiniteScrollCustomEvent } from '@ionic/angular';
+
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -14,7 +18,9 @@ export class HeaderComponent  implements OnInit {
 
   constructor( public alertController: AlertController,private menu:MenuController, private route: Router, private menuCtrl: MenuController, private getProductosHeader:GetProductosHeaderService ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
 
   open:any
   valor:any;
@@ -135,5 +141,24 @@ home(){
   console.log("regresa")
   this.route.navigate(['/home']);
 }
+
+
+
+
+
+productobuscado(productobuscado:any){
+  console.log("diste click en", productobuscado)
+
+
+  console.log("cierra")
+  this.open=false
+  this.data_header==undefined
+
+  this.filterValue=undefined
+
+
+
+}
+
 
 }
