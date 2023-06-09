@@ -81,6 +81,16 @@ export class HomePage {
 
   ngOnInit() {
     
+  }
+
+
+
+
+
+  async ionViewWillEnter(){
+
+
+
     this.currentWindowWidth = window.innerWidth;
 
 
@@ -93,27 +103,6 @@ export class HomePage {
       this.destacados = respuesta.data
 
     });
-
-
-
-
-
-
-
-    
-
-
-
-
-
-  }
-
-
-
-
-
-  async ionViewWillEnter(){
-
   
 
     
@@ -289,6 +278,66 @@ cargadores(){
 
   this.router.navigate(['/cargadores']);
 }
+
+
+ 
+bocinas(){
+  console.log("bocinas")
+
+
+  this.router.navigate(['/bocinas']);
+}
+
+
+ 
+smartwatch(){
+  console.log("smartwatch")
+
+
+  this.router.navigate(['/smart-watch']);
+}
+
+
+ 
+ 
+hogar(){
+  console.log("hogar")
+
+
+  this.router.navigate(['/hogar']);
+}
+
+ 
+cables(){
+  console.log("cables")
+
+
+  this.router.navigate(['/cables']);
+}
+
+ 
+plugin(){
+  console.log("plugin")
+
+
+  this.router.navigate(['/plug-in']);
+}
+
+powerbank(){
+  console.log("power-bank")
+
+
+  this.router.navigate(['/power-bank']);
+}
+
+ 
+belleza(){
+  console.log("belleza")
+
+
+  this.router.navigate(['/belleza']);
+}
+
 
 
   

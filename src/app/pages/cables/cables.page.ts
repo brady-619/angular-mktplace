@@ -1,45 +1,29 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonContent, IonicModule, IonicSlides } from '@ionic/angular';
+import { GetMktProductosCategoriaService } from 'src/app/services/get-mkt-productos-categoria.service';
+import { GetPreciosMayorMenorService } from 'src/app/services/get-precios-mayor-menor.service';
+import { GetPreciosMenorMayorService } from 'src/app/services/get-precios-menor-mayor.service';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { ComponentsModule } from 'src/app/components.module';
-import { GetMktProductosCategoriaService } from 'src/app/services/get-mkt-productos-categoria.service';
-import { GetPreciosMayorMenorService } from '../../services/get-precios-mayor-menor.service';
-import { GetPreciosMenorMayorService } from '../../services/get-precios-menor-mayor.service';
-import { IonicSlides } from '@ionic/angular';
-import Swiper, { Autoplay, Navigation, Pagination } from 'swiper';
-
-import { IonContent } from '@ionic/angular';
-// import { register } from 'swiper/element';
-
 import { register } from 'swiper/element/bundle';
 
 register();
 
 
 @Component({
-  selector: 'app-audifonos-bt',
-  templateUrl: './audifonos-bt.page.html',
-  styleUrls: ['./audifonos-bt.page.scss'],
+  selector: 'app-cables',
+  templateUrl: './cables.page.html',
+  styleUrls: ['./cables.page.scss'],
   standalone: true,
   imports: [IonicModule,MatTableModule,MatPaginatorModule,MatInputModule,MatSortModule,CommonModule,ComponentsModule,FormsModule],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA]
 })
-
-
-
-
-
-
-
-
-export class AudifonosBtPage implements OnInit {
-
-
+export class CablesPage implements OnInit {
 
 
   constructor(private getMktProductos:GetMktProductosCategoriaService, private getProductosMayMen: GetPreciosMayorMenorService , private getProductosMenMay: GetPreciosMenorMayorService) { }
@@ -60,7 +44,7 @@ export class AudifonosBtPage implements OnInit {
   bandera:boolean =false
 
   // cambio
-  categoria =1;
+  categoria =7;
 
   estadomenu: boolean = false;
 
@@ -219,3 +203,4 @@ export class AudifonosBtPage implements OnInit {
 
 
 }
+

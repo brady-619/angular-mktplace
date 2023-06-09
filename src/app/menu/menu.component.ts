@@ -14,6 +14,10 @@ export class MenuComponent  implements OnInit {
 
   ngOnInit() {}
 
+  inicio(){
+    this.router.navigate(['/home']);
+    this.menu.close();
+  }
 
   audifonosbt(){
     this.router.navigate(['/audifonos-bt']);
@@ -28,4 +32,32 @@ export class MenuComponent  implements OnInit {
     this.menu.close();
   }
 
+  bocinas(){
+    this.router.navigate(['/bocinas']);
+    this.menu.close();
+  }
+  smartwatch(){
+    this.router.navigate(['/smart-watch']);
+    this.menu.close();
+  }
+  hogar(){
+    this.router.navigate(['/hogar']);
+    this.menu.close();
+  }
+  cables(){
+    this.router.navigate(['/cables']);
+    this.menu.close();
+  }
+  plugin(){
+    this.router.navigate(['/plug-in']);
+    this.menu.close();
+  }
+  powerbank(){
+    this.router.navigate(['/power-bank']);
+    this.menu.close();
+  }
+  belleza(){
+    this.router.navigate(['/belleza']);
+    this.menu.close();
+  }
 }

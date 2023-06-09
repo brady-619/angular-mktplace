@@ -46,4 +46,32 @@ export const routes: Routes = [
     path: 'cargadores',
     loadComponent: () => import('./pages/cargadores/cargadores.page').then( m => m.CargadoresPage)
   },
+  {
+    path: 'bocinas',
+    loadComponent: () => import('./pages/bocinas/bocinas.page').then( m => m.BocinasPage)
+  },
+  {
+    path: 'smart-watch',
+    loadComponent: () => import('./pages/smart-watch/smart-watch.page').then( m => m.SmartWatchPage)
+  },
+  {
+    path: 'hogar',
+    loadComponent: () => import('./pages/hogar/hogar.page').then( m => m.HogarPage)
+  },
+  {
+    path: 'cables',
+    loadComponent: () => import('./pages/cables/cables.page').then( m => m.CablesPage)
+  },
+  {
+    path: 'plug-in',
+    loadComponent: () => import('./pages/plug-in/plug-in.page').then( m => m.PlugInPage)
+  },
+  {
+    path: 'power-bank',
+    loadComponent: () => import('./pages/power-bank/power-bank.page').then( m => m.PowerBankPage)
+  },
+  {
+    path: 'belleza',
+    loadComponent: () => import('./pages/belleza/belleza.page').then( m => m.BellezaPage)
+  },
 ];
