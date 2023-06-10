@@ -1,0 +1,206 @@
+<ion-header [translucent]="true">
+  <app-header></app-header>
+</ion-header>
+
+<ion-content *ngIf="productos_relacionados">
+
+
+  <ion-grid *ngIf="data" >
+
+
+
+    <ion-row>
+      <ion-col size="10">
+
+
+        
+
+        <ion-button expand="block"  shape="round">
+          {{data[0].producto}}
+        </ion-button>
+
+      </ion-col>
+      <ion-col size="2">
+
+        
+
+<ion-button expand="block"  shape="round">
+  ${{data[0].precio}}
+</ion-button>
+
+      </ion-col>
+    </ion-row>
+
+
+
+
+    <ion-row>
+      <ion-col size="9">
+        
+
+
+
+  
+        <img src="{{data[0].imagen}}" alt="">
+
+
+       
+
+      </ion-col>
+      <ion-col size="3">
+    
+<ion-card>
+    <img src="{{data[0].imagen}}" >
+</ion-card>
+<br>
+      
+<ion-card>
+ <img src="{{data[0].imagen2}}" >
+</ion-card>
+<br>
+<ion-card>
+       <img src="{{data[0].imagen3}}" >
+</ion-card>
+<br>  
+<ion-card>
+         <img src="{{data[0].imagen4}}" > 
+</ion-card>
+       
+
+   
+
+
+
+       
+
+      </ion-col>
+
+
+
+<ion-row>
+  <ion-col size="4">
+    <ion-button expand="block"  shape="round">
+     Cantidad
+    </ion-button>
+
+  </ion-col>
+  <ion-col size="4">
+
+    <ion-button expand="block"  shape="round">
+      Añadir al carrito
+     </ion-button>
+
+  </ion-col>
+  <ion-col size="4">
+
+    <ion-button expand="block"  shape="round">
+      Comprar ahora
+     </ion-button>
+
+  </ion-col>
+</ion-row>
+
+<ion-row>
+  <ion-col size="12">
+
+
+    <ion-item>
+      <ion-label class="ion-text-center">DESCRIPCIÓN</ion-label>
+    </ion-item>
+
+
+
+
+    <ion-card>
+          <ion-textarea>
+      {{data[0].descripcion}}
+    </ion-textarea>
+    </ion-card>
+
+  
+
+
+
+
+  </ion-col>
+</ion-row>
+
+
+
+
+<ion-row>
+  <ion-col size="12" >
+
+
+    <ion-item lines="none">
+      <ion-label class="ion-text-center">PRODUCTOS RELACIONADOS</ion-label>
+    </ion-item>
+
+  </ion-col>
+</ion-row>
+
+
+
+
+<ion-grid fixed>
+  <ion-row>
+    <ion-col size="10">
+
+      <!-- <swiper-container>
+        <swiper-slide>s1</swiper-slide>
+        <swiper-slide>s2</swiper-slide>
+        <swiper-slide>s3</swiper-slide>
+        
+        </swiper-container> -->
+
+
+        <swiper-container [slidesPerView]="3" [autoplay]="true" [loop]="true"  [pagination]="{ clickable: true }"  >
+          <swiper-slide *ngFor="let item of productos_relacionados">
+            <img (click)="detalle(item.idmkt_productos, item.categoria)" src="{{item.imagen}}" alt="" />
+          </swiper-slide>
+        </swiper-container>
+
+    </ion-col>
+    
+  </ion-row>
+</ion-grid>
+
+
+
+
+
+
+
+
+
+
+
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-item lines="none" >
+
+    
+    <ion-fab>
+      <ion-fab-button color="dark"  (click)="subir()">
+        <ion-icon class="flecha"  name="chevron-up-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  
+  
+  
+  
+  
+  </ion-item>
+
+
+
+
+
+<app-footer></app-footer>
+</ion-content>
+
+
+
+

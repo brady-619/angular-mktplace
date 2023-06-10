@@ -17,6 +17,7 @@ import { IonContent } from '@ionic/angular';
 // import { register } from 'swiper/element';
 
 import { register } from 'swiper/element/bundle';
+import { Router } from '@angular/router';
 
 register();
 
@@ -42,7 +43,7 @@ export class AudifonosBtPage implements OnInit {
 
 
 
-  constructor(private getMktProductos:GetMktProductosCategoriaService, private getProductosMayMen: GetPreciosMayorMenorService , private getProductosMenMay: GetPreciosMenorMayorService) { }
+  constructor(private router: Router,private getMktProductos:GetMktProductosCategoriaService, private getProductosMayMen: GetPreciosMayorMenorService , private getProductosMenMay: GetPreciosMenorMayorService) { }
 
 
 
@@ -209,6 +210,21 @@ export class AudifonosBtPage implements OnInit {
     
     });
     
+
+
+
+  }
+
+
+
+  detalle(idmkt_productos:any, categoria:any){
+
+    console.log(idmkt_productos)
+
+
+
+
+    this.router.navigate(['/ver-detalle/'+idmkt_productos+'/'+categoria]);
 
 
 

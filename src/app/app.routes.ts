@@ -74,4 +74,8 @@ export const routes: Routes = [
     path: 'belleza',
     loadComponent: () => import('./pages/belleza/belleza.page').then( m => m.BellezaPage)
   },
+  {
+    path: 'ver-detalle/:idmkt_productos/:categoria',
+    loadComponent: () => import('./pages/ver-detalle/ver-detalle.page').then( m => m.VerDetallePage)
+  },
 ];
