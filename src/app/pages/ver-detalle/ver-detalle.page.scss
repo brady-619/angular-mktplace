@@ -10,13 +10,23 @@ ion-row {
     width: 100%;
      border: 2px solid rgb(0, 0, 0);
     padding: 10px;
-  
       border-radius: 10px;
-  
-  
     --ion-background-color:  rgb(255, 255, 255);
   }
+
+
+  .pickable{
+    height: 70%;
+    width: 70%;
+    margin: auto;
+    display: block;
+    // border-radius: 99%;
   
+    border-radius: 10px;
+
+  }
+  
+
   img {
     height: 15vh;
     width: 10vh;
@@ -103,6 +113,11 @@ ion-row {
   ion-icon {
     padding-right: 15px;
   }
+
+
+  .none{
+    padding-right: 0px;
+  }
   
   .botondestacados {
     color: rgb(255, 255, 255);
@@ -139,3 +154,36 @@ ion-row {
   }
   
   
+
+  .labelcantidad{
+
+    text-align: center;
+     padding-top: 0px;
+     padding-left: 20%;
+     padding-right: 0px;
+  }
+
+  
+
+  .ion-icon-cantidad {
+    padding-right: 0px;
+  }
+
+  .imagenprincipal{
+
+    height: auto;
+    width: auto;
+    margin: auto;
+    display: block;
+    // border-radius: 99%;
+  
+    // border-radius: 10px;
+  }
+
+
+
+.botoncarrito{
+   padding-right: 10px;
+   padding-left: 10px;
+}
+

@@ -16,7 +16,7 @@ import { InfiniteScrollCustomEvent } from '@ionic/angular';
 })
 export class HeaderComponent  implements OnInit {
 
-  constructor( public alertController: AlertController,private menu:MenuController, private route: Router, private menuCtrl: MenuController, private getProductosHeader:GetProductosHeaderService ) {}
+  constructor( private router: Router,public alertController: AlertController,private menu:MenuController, private route: Router, private menuCtrl: MenuController, private getProductosHeader:GetProductosHeaderService ) {}
 
   ngOnInit() {
     
@@ -146,8 +146,8 @@ home(){
 
 
 
-productobuscado(productobuscado:any){
-  console.log("diste click en", productobuscado)
+productobuscado(productobuscado:any, categoria:any){
+  console.log("diste click en", productobuscado, categoria)
 
 
   console.log("cierra")
@@ -156,6 +156,7 @@ productobuscado(productobuscado:any){
 
   this.filterValue=undefined
 
+  this.router.navigate(['/ver-detalle/'+productobuscado+'/'+categoria]);
 
 
 }

@@ -224,7 +224,7 @@
     <ion-row >
       <ion-col size="12" *ngFor="let item of data_header">
 
-        <ion-item (click)="productobuscado(item.idmkt_productos)" >
+        <ion-item (click)="productobuscado(item.idmkt_productos, item.categoria)" >
           <ion-thumbnail slot="start">
             <img alt="Silhouette of mountains" src="{{item.imagen}}" />
           </ion-thumbnail>

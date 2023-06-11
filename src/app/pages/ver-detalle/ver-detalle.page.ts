@@ -1,5 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonicModule } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -33,6 +33,9 @@ export class VerDetallePage implements OnInit {
 
   data:any;
   productos_relacionados:any;
+  imagen_cambiada:any | null;
+  zoomeada:any;
+  cantidad=1;
 
   @ViewChild(IonContent)
   content!: IonContent;
@@ -108,6 +111,72 @@ export class VerDetallePage implements OnInit {
 
 
   }
+
+
+  cambio(imagen:any){
+
+    // console.log("zoom", imagen)
+
+   this.imagen_cambiada=imagen
+  //  console.log("zoom", this.imagen_cambiada)
+  }
+
+
+
+  zoom(imagen:any){
+    // console.log("zoomeada", imagen)
+
+  this.zoomeada=true;
+
+
+
+
+  }
+
+
+
+  cerrarzoom(){
+    this.zoomeada=false;
+  }
+
+
+
+  menos(){
+    console.log("menos")
+
+    if(this.cantidad>1){
+    this.cantidad= this.cantidad-1
+}
+  }
+
+
+  mas(){
+    console.log("mas")
+
+
+    if(this.cantidad<9){
+      this.cantidad= this.cantidad+1
+  }
+ 
+
+  }
+
+
+
+
+
+carrito(cantidad:any,idmkt_productos:any){
+  console.log("carrito", cantidad, idmkt_productos)
+
+}
+
+comprar(cantidad:any,idmkt_productos:any){
+  console.log("carrito", cantidad, idmkt_productos)
+
+
+}
+
+
 
 
 
