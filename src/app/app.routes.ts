@@ -78,4 +78,8 @@ export const routes: Routes = [
     path: 'ver-detalle/:idmkt_productos/:categoria',
     loadComponent: () => import('./pages/ver-detalle/ver-detalle.page').then( m => m.VerDetallePage)
   },
+  {
+    path: 'respaldo-pay-pal',
+    loadComponent: () => import('./pages/respaldo-pay-pal/respaldo-pay-pal.page').then( m => m.RespaldoPayPalPage)
+  },
 ];

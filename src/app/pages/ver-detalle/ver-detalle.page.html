@@ -11,7 +11,7 @@
         </ion-item>
       </ion-col>
       <ion-col size="5">
-        <ion-button class="precio" expand="block" color="medium" shape="round">
+        <ion-button class="precio" expand="block" color="gris-boton-cantidad" shape="round">
       <ion-label color="dark"><b><h1>${{data[0].precio}}</h1></b></ion-label>    
         </ion-button>
       </ion-col>
@@ -152,7 +152,7 @@
         </ion-button>
       </ion-col>
       <ion-col size="4" *ngIf="data">
-        <ion-button (click)="carrito(cantidad,data[0].idmkt_productos)" color="dark" expand="block" shape="round" >
+        <ion-button (click)="agregar(cantidad,data[0].idmkt_productos,data[0].precio)" color="dark" expand="block" shape="round" >
           
 
           <ion-label class="botoncarrito"><ion-icon class="none" color="light" slot="end" name="cart-outline"></ion-icon>Añadir a carrito

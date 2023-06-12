@@ -162,4 +162,11 @@ productobuscado(productobuscado:any, categoria:any){
 }
 
 
+
+carrito(){
+  this.route.navigate(['/carrito']);
+
+}
+
+
 }

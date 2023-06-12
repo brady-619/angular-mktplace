@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { CommonModule, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonicModule } from '@ionic/angular';
+import { AlertController, IonContent, IonicModule, MenuController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GetMktDetalleProductoService } from 'src/app/services/get-mkt-detalle-producto.service';
 import { MatInputModule } from '@angular/material/input';
@@ -12,6 +12,7 @@ import { ComponentsModule } from 'src/app/components.module';
 import { GetMktProductosCategoriaService } from 'src/app/services/get-mkt-productos-categoria.service';
 
 import { register } from 'swiper/element/bundle';
+import { InsertVentaCarritoService } from 'src/app/services/insert-venta-carrito.service';
 
 register();
 
@@ -28,7 +29,15 @@ export class VerDetallePage implements OnInit {
 
 
 
-  constructor(private router: Router, private route: ActivatedRoute,private GetDetalleProducto: GetMktDetalleProductoService,private getMktProductos:GetMktProductosCategoriaService,) { }
+  constructor(private router: Router, private route: ActivatedRoute,private GetDetalleProducto: GetMktDetalleProductoService,private getMktProductos:GetMktProductosCategoriaService,
+    
+
+ 
+    private menu: MenuController,
+    public alertController: AlertController,
+    private InsertVentaCarrito: InsertVentaCarritoService
+    
+    ) { }
 
 
   data:any;
@@ -36,6 +45,8 @@ export class VerDetallePage implements OnInit {
   imagen_cambiada:any | null;
   zoomeada:any;
   cantidad=1;
+
+  id_cliente=1;
 
   @ViewChild(IonContent)
   content!: IonContent;
@@ -165,8 +176,73 @@ export class VerDetallePage implements OnInit {
 
 
 
-carrito(cantidad:any,idmkt_productos:any){
-  console.log("carrito", cantidad, idmkt_productos)
+
+  
+
+  async agregar(cantidad: any, idmkt_productos: any, precio: any) {
+    console.log('can', cantidad, idmkt_productos, precio);
+
+    let total = Number(precio) * Number(cantidad);
+
+    if (cantidad >= 1) {
+      // armando params
+      let params = {
+        data: [
+          {
+            cliente: this.id_cliente,
+            idmkt_productos: idmkt_productos,
+            cantidad: cantidad,
+            precio: precio,
+            total: total,
+          },
+        ],
+      };
+
+      // agrega a carrito
+      await this.InsertVentaCarrito.InsertVentaCarrito(params).then(
+        async (respuesta) => {
+          console.log(respuesta);
+
+          if ((respuesta.status = '000')) {
+            const alert = await this.alertController.create({
+              header: 'Aviso',
+              subHeader: 'Agregado al carrito con éxito',
+              // message: 'This is an alert!',
+              buttons: ['OK'],
+            });
+
+            await alert.present();
+
+            this.router.navigate(['/home']);
+          } else {
+            const alert = await this.alertController.create({
+              header: 'Aviso',
+              subHeader: 'Error al agregar a carrito',
+              // message: 'This is an alert!',
+              buttons: ['OK'],
+            });
+
+            await alert.present();
+          }
+        }
+      );
+    } else {
+      const alert = await this.alertController.create({
+        header: 'Aviso',
+        subHeader: 'Favor de escoger cantidad',
+        // message: 'This is an alert!',
+        buttons: ['OK'],
+      });
+
+      await alert.present();
+    }
+  
+
+
+
+  
+
+
 
 }
 

@@ -80,15 +80,24 @@
 
 
 
-
-  
-  /** orange **/
-	--ion-color-orange: #ea9c2e;
-	--ion-color-orange-rgb: 234,156,46;
+//comprar ahora
+  --ion-color-orange: #db7c2f;
+	--ion-color-orange-rgb: 219,124,47;
 	--ion-color-orange-contrast: #000000;
 	--ion-color-orange-contrast-rgb: 0,0,0;
-	--ion-color-orange-shade: #ce8928;
-	--ion-color-orange-tint: #eca643;
+	--ion-color-orange-shade: #c16d29;
+	--ion-color-orange-tint: #df8944;
+
+
+//gris-boton-cantidad
+  --ion-color-gris-boton-cantidad: #afadc0;
+	--ion-color-gris-boton-cantidad-rgb: 175,173,192;
+	--ion-color-gris-boton-cantidad-contrast: #000000;
+	--ion-color-gris-boton-cantidad-contrast-rgb: 0,0,0;
+	--ion-color-gris-boton-cantidad-shade: #9a98a9;
+	--ion-color-gris-boton-cantidad-tint: #b7b5c6;
+
+
 }
 
 
@@ -100,6 +109,50 @@
 	--ion-color-contrast-rgb: var(--ion-color-orange-contrast-rgb);
 	--ion-color-shade: var(--ion-color-orange-shade);
 	--ion-color-tint: var(--ion-color-orange-tint);
+
+
+  // boton-gris-categorias
+	--ion-color-boton-gris-categorias: #a1a1a1;
+	--ion-color-boton-gris-categorias-rgb: 161,161,161;
+	--ion-color-boton-gris-categorias-contrast: #000000;
+	--ion-color-boton-gris-categorias-contrast-rgb: 0,0,0;
+	--ion-color-boton-gris-categorias-shade: #8e8e8e;
+	--ion-color-boton-gris-categorias-tint: #aaaaaa;
+
+
+//gris-boton-cantidad
+	--ion-color-gris-boton-cantidad: #afadc0;
+	--ion-color-gris-boton-cantidad-rgb: 175,173,192;
+	--ion-color-gris-boton-cantidad-contrast: #000000;
+	--ion-color-gris-boton-cantidad-contrast-rgb: 0,0,0;
+	--ion-color-gris-boton-cantidad-shade: #9a98a9;
+	--ion-color-gris-boton-cantidad-tint: #b7b5c6;
+
+}
+
+
+
+
+.ion-color-gris-boton-cantidad {
+	--ion-color-base: var(--ion-color-gris-boton-cantidad);
+	--ion-color-base-rgb: var(--ion-color-gris-boton-cantidad-rgb);
+	--ion-color-contrast: var(--ion-color-gris-boton-cantidad-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-gris-boton-cantidad-contrast-rgb);
+	--ion-color-shade: var(--ion-color-gris-boton-cantidad-shade);
+	--ion-color-tint: var(--ion-color-gris-boton-cantidad-tint);
+}
+
+
+
+
+
+.ion-color-boton-gris-categorias {
+	--ion-color-base: var(--ion-color-boton-gris-categorias);
+	--ion-color-base-rgb: var(--ion-color-boton-gris-categorias-rgb);
+	--ion-color-contrast: var(--ion-color-boton-gris-categorias-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-boton-gris-categorias-contrast-rgb);
+	--ion-color-shade: var(--ion-color-boton-gris-categorias-shade);
+	--ion-color-tint: var(--ion-color-boton-gris-categorias-tint);
 }
 
 
@@ -107,3 +160,13 @@
 
 
 
+
+
+.ion-color-gris-boton-cantidad {
+	--ion-color-base: var(--ion-color-gris-boton-cantidad);
+	--ion-color-base-rgb: var(--ion-color-gris-boton-cantidad-rgb);
+	--ion-color-contrast: var(--ion-color-gris-boton-cantidad-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-gris-boton-cantidad-contrast-rgb);
+	--ion-color-shade: var(--ion-color-gris-boton-cantidad-shade);
+	--ion-color-tint: var(--ion-color-gris-boton-cantidad-tint);
+}
