@@ -6,7 +6,7 @@ import { AlertController, MenuController } from '@ionic/angular';
 
 import { GetProductosHeaderService } from 'src/app/services/get-productos-header.service';
 
-import { InfiniteScrollCustomEvent } from '@ionic/angular';
+import { GetCountCarritoService } from 'src/app/services/get-count-carrito.service';
 
 
 @Component({
@@ -16,16 +16,52 @@ import { InfiniteScrollCustomEvent } from '@ionic/angular';
 })
 export class HeaderComponent  implements OnInit {
 
-  constructor( private router: Router,public alertController: AlertController,private menu:MenuController, private route: Router, private menuCtrl: MenuController, private getProductosHeader:GetProductosHeaderService ) {}
 
-  ngOnInit() {
+  contador:any;
+
+  constructor( private router: Router,public alertController: AlertController,private menu:MenuController, private route: Router, private menuCtrl: MenuController, private getProductosHeader:GetProductosHeaderService ,
+   private getCountCarrito: GetCountCarritoService ) {}
+
+
+   
+
+
+
+
     
-  }
+  
 
   open:any
   valor:any;
   filterValue:any
   data_header:any;
+
+
+
+   async ngOnInit() {
+    console.log("entras")
+    let params = {
+      cliente: 1
+    }
+
+
+ await this.getCountCarrito.GetCountCarrito(params).then(async respuesta => {
+      console.log(respuesta);
+
+       this.contador= respuesta.data[0].contador;
+
+    
+    
+    });
+    
+}
+
+
+
+
+
+
+
 
 
 

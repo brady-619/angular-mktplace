@@ -282,7 +282,7 @@ async borrar(idmkt_carrito: any, producto: any) {
               });
               await alert.present();
 
-              this.ionViewWillEnter();
+              location.reload();
             })
             .catch(async (error) => {
               /* Código a realizar cuando se rechaza la promesa */

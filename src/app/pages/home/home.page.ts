@@ -24,6 +24,7 @@ import { IonicSlides } from '@ionic/angular';
 import { ComponentsModule } from 'src/app/components.module';
 import { FormsModule } from '@angular/forms';
 import { GetProductosDestacadosService  } from '../../services/get-productos-destacados.service';
+import { GetCountCarritoService } from 'src/app/services/get-count-carrito.service';
 
 
 
@@ -61,7 +62,8 @@ export class HomePage {
 
   displayedColumns: string[] = ['producto','precio','categoria'];
 
-  constructor(private router: Router,private _liveAnnouncer: LiveAnnouncer, private route: Router,  public alertController: AlertController,private menu:MenuController, private getProductos: GetMktProductosService, private getProductosDestacados: GetProductosDestacadosService ) {}
+  constructor(private router: Router,private _liveAnnouncer: LiveAnnouncer, private route: Router,  public alertController: AlertController,private menu:MenuController, private getProductos: GetMktProductosService, private getProductosDestacados: GetProductosDestacadosService ,
+    private getCountCarrito: GetCountCarritoService ) {}
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -88,6 +90,26 @@ export class HomePage {
 
 
   async ionViewWillEnter(){
+
+
+
+    console.log("entras")
+    let params = {
+      cliente: 1
+    }
+
+
+ await this.getCountCarrito.GetCountCarrito(params).then(async respuesta => {
+      console.log(respuesta);
+
+       this.contador= respuesta.data[0].contador;
+
+    
+    
+    });
+    
+
+
 
 
 

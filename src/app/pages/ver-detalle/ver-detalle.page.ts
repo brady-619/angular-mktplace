@@ -180,9 +180,28 @@ export class VerDetallePage implements OnInit {
   
 
   async agregar(cantidad: any, idmkt_productos: any, precio: any) {
+
+
+
+
+
+
+
+
+
+
+
+
+    
     console.log('can', cantidad, idmkt_productos, precio);
 
     let total = Number(precio) * Number(cantidad);
+
+
+
+
+
+    
 
     if (cantidad >= 1) {
       // armando params
