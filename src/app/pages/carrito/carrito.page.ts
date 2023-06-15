@@ -1,10 +1,10 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AlertController, IonicModule, MenuController } from '@ionic/angular';
+import { AlertController, IonContent, IonicModule, MenuController } from '@ionic/angular';
 import { GetProductosCarritoService } from '../../services/get-productos-carrito.service';
 import { Router } from '@angular/router';
-import { DeleteProductoCarritoService } from '../../services/delete-producto-carrito.service';
+
 
 import { NgxPayPalModule } from 'ngx-paypal';
 
@@ -16,7 +16,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { ComponentsModule } from 'src/app/components.module';
+import { DeleteProductoCarritoService } from 'src/app/services/delete-producto-carrito.service';
 
+import { UpdateCantidadTotalService } from 'src/app/services/update-cantidad-total.service';
 @Component({
   selector: 'app-carrito',
   templateUrl: './carrito.page.html',
@@ -33,6 +35,9 @@ export class CarritoPage implements OnInit {
     public alertController: AlertController,
     private InsertVentaCarrito: InsertVentaCarritoService,
     private getProductosCarrito: GetProductosCarritoService,
+    private deleteProductoCarrito: DeleteProductoCarritoService,
+    private updateCantidadCarrito: UpdateCantidadTotalService,
+    public alertCtrl: AlertController,
   ) {}
 
 
@@ -40,6 +45,17 @@ export class CarritoPage implements OnInit {
   totales:any;
   data:any;
   totales_coma:any;
+  cantidad:any;
+  filterValue:any;
+
+  totales_descuento=0;
+
+  totales_final:any;
+
+
+
+  @ViewChild(IonContent)
+  content!: IonContent;
 
   ngOnInit() {}
 
@@ -64,19 +80,245 @@ export class CarritoPage implements OnInit {
 
         console.log(this.data);
 
+        this.cantidad=this.data.cantidad
+
+
+
         this.data.forEach((item: any) => {
           // console.log(item);
           this.totales = this.totales + Number(item.total);
 
           this.totales_coma = new Intl.NumberFormat('es-MX').format(
             this.totales
+
+            
           );
         });
 
+        
         // console.log(this.totales);
 
 
       });
+
+
+      
   }
+
+
+ async  menos(idmkt_carrito:any,cantidad:any,precio:any){
+    console.log("menos",cantidad)
+    console.log("idmkt_carrito",idmkt_carrito)
+
+
+let contador=cantidad;
+
+    if(cantidad>1){  
+
+      contador--;
+
+      let total= ( contador * precio)
+  
+      console.log(total)
+          let params = {
+            data: [{ cantidad: contador, total:total, idmkt_carrito: idmkt_carrito }],
+          };
+      
+  
+  
+      await this.updateCantidadCarrito.UpdateCantidadTotal(params).then(async (resp) => {
+          console.log(resp);
+
+          this.ionViewWillEnter();
+  
+         
+        });
+
+
+        
+
+      
+      
+    }
+
+
+
+  }
+
+
+  async mas(idmkt_carrito:any,cantidad:number,precio:any){
+    console.log("mas",cantidad)
+    console.log("idmkt_carrito",idmkt_carrito)
+
+
+let contador=cantidad;
+
+    if(cantidad<9){  
+
+      contador++;
+
+      let total= ( contador * precio)
+  
+      console.log(total)
+          let params = {
+            data: [{ cantidad: contador, total:total, idmkt_carrito: idmkt_carrito }],
+          };
+      
+  
+  
+      await this.updateCantidadCarrito.UpdateCantidadTotal(params).then(async (resp) => {
+          console.log(resp);
+
+          this.ionViewWillEnter();
+
+
+
+  
+         
+        });
+
+
+        
+
+      
+      
+    }
+
+
+
+
+    
+
+   
+
+}
+
+
+
+
+async applyFilter(event: Event) {
+
+  this.filterValue = (event.target as HTMLInputElement).value;
+
+
+
+
+  this.filterValue = this.filterValue.trim().toLowerCase();
+// console.log(this.filterValue);
+
+  // console.log(this.filterValue)
+
+
+
+  if(this.filterValue=='junio202340'){
+    console.log("aplica descuento")
+
+
+
+    this.totales_descuento= Number((this.totales*.40).toFixed(2))
+
+
+
+
+    this.totales_final= this.totales-this.totales_descuento
+
+
+  }
+  else{
+
+
+    this.totales_final= this.totales;
+    this.totales_descuento=0;
+  }
+
+
+
+
+ 
+      
+  
+
+}
+
+
+async borrar(idmkt_carrito: any, producto: any) {
+  console.log('id a borrar', idmkt_carrito, producto);
+
+  const alert = await this.alertCtrl.create({
+    header: 'AVISO, seguro que deseas eliminar el producto: ' + producto,
+    // subHeader: 'ICC:' +  sims  + '   al P.V:'  + this.pv,
+    // message: '<b>el producto:</b><br/>' + producto + '   <br/>',
+    buttons: [
+      {
+        text: 'Cancel',
+        role: 'cancel',
+        cssClass: 'secondary',
+        handler: () => {
+          console.log('Confirm Cancel');
+        },
+      },
+      {
+        text: 'Ok',
+        // handler: (alertData) => { //takes the data
+        //     console.log(alertData.name1);
+        // }
+        handler: async (alertData) => {
+          console.log('Se manda asigna la venta');
+
+          // console.log("Sim:", ICCI);
+
+          let params = {
+            data: [{ idmkt_carrito: idmkt_carrito }],
+          };
+
+          await this.deleteProductoCarrito.DeleteProductoCarrito(params).then(async (resp) => {
+              console.log(resp);
+
+              const alert = await this.alertCtrl.create({
+                header: 'Producto eliminado con éxito.',
+                // subHeader: 'SubTitle',
+                // message: 'This is an alert message',
+                buttons: ['OK'],
+              });
+              await alert.present();
+
+              this.ionViewWillEnter();
+            })
+            .catch(async (error) => {
+              /* Código a realizar cuando se rechaza la promesa */
+              console.log('NO paso chido', error);
+
+              const alert = await this.alertCtrl.create({
+                header: 'Error en red.',
+                // subHeader: 'SubTitle',
+                // message: 'This is an alert message',
+                buttons: ['OK'],
+              });
+              await alert.present();
+            });
+        },
+      },
+    ],
+  });
+
+  await alert.present();
+}
+
+
+
+
+envio(){
+  this.router.navigate(['/envio']);
+}
+
+
+
+
+subir(){
+  console.log("sube")
+
+  this.content.scrollToTop(400);
+}
+
 
 }
