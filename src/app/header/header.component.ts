@@ -35,14 +35,25 @@ export class HeaderComponent  implements OnInit {
   valor:any;
   filterValue:any
   data_header:any;
-
+  cliente:any
 
 
     ngOnInit() {
-    console.log("entras")
+    // console.log("entras")
+
+    // localStorage.setItem('ingresado', 'si');
+
+     this.cliente= localStorage.getItem('id_cliente')
+
+
+
     let params = {
-      cliente: 1
+      cliente: this.cliente
     }
+
+    console.log(this.cliente)
+
+    if(this.cliente){
 
 
   this.getCountCarrito.GetCountCarrito(params).then(async respuesta => {
@@ -53,6 +64,7 @@ export class HeaderComponent  implements OnInit {
     
     
     });
+  }
     
 }
 

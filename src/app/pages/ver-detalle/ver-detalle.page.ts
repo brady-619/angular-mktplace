@@ -46,7 +46,7 @@ export class VerDetallePage implements OnInit {
   zoomeada:any;
   cantidad=1;
 
-  id_cliente=1;
+  id_cliente:any;
 
   @ViewChild(IonContent)
   content!: IonContent;
@@ -183,9 +183,11 @@ export class VerDetallePage implements OnInit {
 
 
 
+    this.id_cliente = localStorage.getItem('id_cliente');
 
 
 
+   if(this.id_cliente) {
 
 
 
@@ -269,6 +271,12 @@ export class VerDetallePage implements OnInit {
       await alert.present();
     }
   
+
+  }
+
+else{
+  this.router.navigate(['/login'])
+}
 
 
 

@@ -35,9 +35,10 @@
           
 
           <ion-input 
-          label="Celular"
+          label="Email"
           label-placement="floating"
-          placeholder="Ingresa tu celular"
+          placeholder="Ingresa tu email"
+          [(ngModel)]="email"
         ></ion-input>
 
 <br>
@@ -47,12 +48,13 @@
         label="Contraseña"
         label-placement="floating"
         placeholder="Ingresa tu contraseña"
+        [(ngModel)]="password"
       ></ion-input>
       <br>
 
 
 
-      <ion-button  expand="block" color="orange" shape="round">
+      <ion-button (click)="login(email,password)"   expand="block" color="orange" shape="round">
         Iniciar sesión
       </ion-button>
 

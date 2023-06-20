@@ -8,6 +8,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { ComponentsModule } from 'src/app/components.module';
 import { GetInfoClienteService } from 'src/app/services/get-info-cliente.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-envio',
@@ -19,7 +20,7 @@ import { GetInfoClienteService } from 'src/app/services/get-info-cliente.service
 })
 export class EnvioPage implements OnInit {
 
-  constructor(private getInfoCliente: GetInfoClienteService) { }
+  constructor(private getInfoCliente: GetInfoClienteService,    private router: Router) { }
 
   ngOnInit() {
   }
@@ -36,14 +37,28 @@ export class EnvioPage implements OnInit {
   cp:any;
   instrucciones:any;
   estado:any;
+  id_cliente:any;
 
   async ionViewWillEnter(){
 
+
+    this.id_cliente = localStorage.getItem('id_cliente');
+
+
+
+console.log(this.id_cliente)
+
+
     //telefonia
     let params = {
-      idmkt_clientes: 1
+      idmkt_clientes: this.id_cliente
     };
 
+    console.log(params)
+
+
+
+if(this.id_cliente ){
 
 
 
@@ -80,7 +95,12 @@ export class EnvioPage implements OnInit {
         
       });
 
+    }
 
+    else{
+      this.router.navigate(['/login']);
+
+    }
 
 
   }
@@ -89,8 +109,17 @@ export class EnvioPage implements OnInit {
 
 
 
-  pago(nombre:any, calle:any){
-    console.log(nombre,calle)
+  pago(nombre:any, calle:any,numero:any, colonia:any,alcaldia:any, cp:any,estado:any,instrucciones:any){
+
+
+
+
+    console.log(nombre,calle, numero, colonia, alcaldia, cp, estado, instrucciones)
+
+
+
+
+
 
   }
 

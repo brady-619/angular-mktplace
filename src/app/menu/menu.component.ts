@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 
 
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -10,9 +11,18 @@ import { MenuController } from '@ionic/angular';
 })
 export class MenuComponent  implements OnInit {
 
+
+  id_cliente:any
+
   constructor(private router: Router,private menu: MenuController) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+ this.id_cliente= localStorage.getItem('id_cliente')
+
+
+
+  }
 
   inicio(){
     this.router.navigate(['/home']);
@@ -59,5 +69,34 @@ export class MenuComponent  implements OnInit {
   belleza(){
     this.router.navigate(['/belleza']);
     this.menu.close();
+  }
+
+  login(){
+    this.router.navigate(['/login']);
+    this.menu.close();
+  }
+
+  perfil(){
+    this.router.navigate(['/perfil']);
+    this.menu.close();
+  }
+  salir(){
+console.log("cierra sesion")
+window.localStorage.clear();
+    this.menu.close();
+
+
+
+
+    setTimeout(() => {
+
+      this.router.navigate(['home'])
+      .then(() => {
+        window.location.reload();
+      });
+
+    }, 3000);
+
+
   }
 }

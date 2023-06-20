@@ -73,7 +73,7 @@
                     ></ion-input>
                   </ion-col>
                   <ion-col size="6">
-                    <ion-input [(ngModel)]="apellido"
+                    <ion-input [(ngModel)]="apellido" disabled
                       label="Apellidos"
                       label-placement="floating"
                       fill="outline"
@@ -82,7 +82,7 @@
                   </ion-col>
 
                   <ion-col size="12">
-                    <ion-input [(ngModel)]="celular"
+                    <ion-input [(ngModel)]="celular" disabled
                       label="Numero de celular"
                       label-placement="floating"
                       fill="outline"
@@ -91,7 +91,7 @@
                   </ion-col>
 
                   <ion-col size="12">
-                    <ion-input  [(ngModel)]="email"
+                    <ion-input  [(ngModel)]="email" disabled
                       label="Correo"
                       label-placement="floating"
                       fill="outline"
@@ -275,7 +275,7 @@
 
             <ion-col size="12">
 
-              <ion-button (click)="pago(nombre,calle)"  expand="block"color="orange" shape="round">
+              <ion-button (click)="pago(nombre,calle,numero, colonia,alcaldia, cp,estado,instrucciones )"  expand="block"color="orange" shape="round">
                 Continuar con pago
               </ion-button>
               

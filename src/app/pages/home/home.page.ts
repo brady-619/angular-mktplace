@@ -93,10 +93,16 @@ export class HomePage {
 
 
 
-    console.log("entras")
+     this.cliente= localStorage.getItem('cliente')
+
+
+
     let params = {
-      cliente: 1
+      cliente: this.cliente
     }
+
+
+    if(this.cliente){
 
 
  await this.getCountCarrito.GetCountCarrito(params).then(async respuesta => {
@@ -108,7 +114,7 @@ export class HomePage {
     
     });
     
-
+  }
 
 
 

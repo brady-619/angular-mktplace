@@ -43,18 +43,37 @@
       </ion-button>
 
 
+<div *ngIf="!id_cliente">
+
+
 
      
-    <ion-button color="dark" expand="block" shape="round" >
+    <ion-button (click)="login()"  color="dark" expand="block" shape="round" >
       Iniciar Sesión
       </ion-button>
 
+</div>
 
 
-     
-    <ion-button color="danger" expand="block" shape="round" >
+
+<div *ngIf="id_cliente">
+  <ion-button (click)="perfil()" color="dark" expand="block" fill="clear" shape="round"   >
+Mi perfil
+    </ion-button>
+
+</div>
+
+<div *ngIf="id_cliente">
+    <ion-button (click)="salir()"  color="danger" expand="block" shape="round" >
       Cerrar Sesión
       </ion-button>
+
+</div>
+     
+
+
+
+
 
   </ion-content>
 

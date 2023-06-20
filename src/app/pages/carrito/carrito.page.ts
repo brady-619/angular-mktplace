@@ -41,7 +41,7 @@ export class CarritoPage implements OnInit {
   ) {}
 
 
-  id_cliente=1;
+  id_cliente:any;
   totales:any;
   data:any;
   totales_coma:any;
@@ -66,10 +66,24 @@ export class CarritoPage implements OnInit {
     // set inicializado
     // this.id_cliente = localStorage.getItem('id_cliente');
 
+
+   this.id_cliente= localStorage.getItem('id_cliente')
+
     //telefonia
     let params = {
       cliente: this.id_cliente,
     };
+
+    // console.log(this.id_cliente)
+
+
+    if(this.id_cliente==false || this.id_cliente==null  ){
+
+  this.router.navigate(['/login']);
+    }
+
+
+    else{
 
     await this.getProductosCarrito
       .GetProductosCarrito(params)
@@ -99,7 +113,7 @@ export class CarritoPage implements OnInit {
         // console.log(this.totales);
 
 
-      });
+      });}
 
 
       

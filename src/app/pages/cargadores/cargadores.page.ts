@@ -81,16 +81,16 @@ export class CargadoresPage implements OnInit {
 
   async ionViewWillEnter(){
 
-    if(localStorage.getItem("ingresado")!='si'  ){
-      this.cliente='';
-      this.botones='0'
-      console.log("no")
-    }
-    else{
-      this.cliente = localStorage.getItem("cliente")
-      this.botones='1'
-      console.log("si")
-    }
+    // if(localStorage.getItem("ingresado")!='si'  ){
+    //   this.cliente='';
+    //   this.botones='0'
+    //   console.log("no")
+    // }
+    // else{
+    //   this.cliente = localStorage.getItem("cliente")
+    //   this.botones='1'
+    //   console.log("si")
+    // }
 
     // localStorage.getItem("idmkt_productos")
     // console.log(localStorage.getItem("idmkt_productos"))

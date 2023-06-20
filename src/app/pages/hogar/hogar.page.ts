@@ -46,7 +46,7 @@ export class HogarPage implements OnInit {
   bandera:boolean =false
 
   // cambio
-  categoria =6;
+  categoria =10;
 
   estadomenu: boolean = false;
 
@@ -79,16 +79,16 @@ export class HogarPage implements OnInit {
 
   async ionViewWillEnter(){
 
-    if(localStorage.getItem("ingresado")!='si'  ){
-      this.cliente='';
-      this.botones='0'
-      console.log("no")
-    }
-    else{
-      this.cliente = localStorage.getItem("cliente")
-      this.botones='1'
-      console.log("si")
-    }
+    // if(localStorage.getItem("ingresado")!='si'  ){
+    //   this.cliente='';
+    //   this.botones='0'
+    //   console.log("no")
+    // }
+    // else{
+    //   this.cliente = localStorage.getItem("cliente")
+    //   this.botones='1'
+    //   console.log("si")
+    // }
 
     // localStorage.getItem("idmkt_productos")
     // console.log(localStorage.getItem("idmkt_productos"))

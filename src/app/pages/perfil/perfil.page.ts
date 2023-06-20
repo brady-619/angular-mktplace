@@ -17,124 +17,136 @@ import { ComponentsModule } from 'src/app/components.module';
   templateUrl: './perfil.page.html',
   styleUrls: ['./perfil.page.scss'],
   standalone: true,
-  imports: [IonicModule,MatTableModule,MatPaginatorModule,MatInputModule,MatSortModule,CommonModule,ComponentsModule,FormsModule],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA]
+  imports: [
+    IonicModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatInputModule,
+    MatSortModule,
+    CommonModule,
+    ComponentsModule,
+    FormsModule,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PerfilPage implements OnInit {
+  constructor(
+    private router: Router,
+    private alertController: AlertController,
+    private loginCliente: LoginClienteService,
+    private getInfoCliente: GetEditClienteService,
+    private updateCliente: UpdateClienteService
+  ) {}
 
+  email: any;
+  password: any;
+  cliente: any;
+  id_cliente: any;
+  nombre: any;
+  data: any;
+  apellido: any;
+  celular: any;
+  calle: any;
+  numero: any;
+  colonia: any;
+  alcaldia: any;
+  cp: any;
+  instrucciones: any;
+  estado: any;
+  // estado='CDMX';
 
+  ngOnInit() {}
 
-  constructor(private router: Router, private alertController: AlertController, private loginCliente: LoginClienteService,private getInfoCliente: GetEditClienteService, private updateCliente: UpdateClienteService) { }
+  async ionViewWillEnter() {
+    this.id_cliente = localStorage.getItem('id_cliente');
 
-  email:any;
-  password:any;
-  cliente:any;
-  id_cliente:any;
-nombre:any;
-data:any;
-apellido:any;
-celular:any;
-calle:any;
-numero:any;
-colonia:any;
-alcaldia:any;
-cp:any;
-instrucciones:any;
-estado:any;
-// estado='CDMX';
+    //  console.log("id", this.id_cliente)
 
-  ngOnInit() {
-  }
-
-
-   async ionViewWillEnter(){
-
-
-    if(localStorage.getItem("cliente")==null){
-      this.cliente='';
-    }
-    else{
-      this.cliente = localStorage.getItem("cliente")
-    }
-
-
-
-
-
-
-
-     console.log("cliente", this.cliente)
-
-     this.id_cliente = localStorage.getItem("id_cliente")
-
-     console.log("id", this.id_cliente)
-
-
-  
-     if ( this.id_cliente !=''){
-
+    if (this.id_cliente) {
       let params = {
-        id_cliente: this.id_cliente
-      }
+        id_cliente: this.id_cliente,
+      };
 
-      await this.getInfoCliente.InfoCliente(params).then(async respuesta => {
+      await this.getInfoCliente.InfoCliente(params).then(async (respuesta) => {
         console.log(respuesta);
 
-   this.data= respuesta.data
+        this.data = respuesta.data;
 
-         this.nombre=this.data[0].nombre;
-         this.apellido=this.data[0].apellido;
-         this.email=this.data[0].email;
-         this.celular=this.data[0].celular;
-         this.password=this.data[0].password;
+        this.nombre = this.data[0].nombre;
+        this.apellido = this.data[0].apellido;
+        this.email = this.data[0].email;
+        this.celular = this.data[0].celular;
+        this.password = this.data[0].password;
 
-         this.calle=this.data[0].calle;
-         this.numero=this.data[0].numero;
-         this.colonia=this.data[0].colonia;
-         this.alcaldia=this.data[0].alcaldia;
-         this.cp=this.data[0].cp;
-         this.estado=this.data[0].estado;
-         this.instrucciones=this.data[0].instrucciones;
-         
-       
-      
-      
+        this.calle = this.data[0].calle;
+        this.numero = this.data[0].numero;
+        this.colonia = this.data[0].colonia;
+        this.alcaldia = this.data[0].alcaldia;
+        this.cp = this.data[0].cp;
+        this.estado = this.data[0].estado;
+        this.instrucciones = this.data[0].instrucciones;
       });
-      
-      
-
-      
     }
-
-
-
-
-
- 
   }
 
+  async save(
+    nombre: any,
+    apellido: any,
+    email: any,
+    celular: any,
+    password: any,
+    calle: any,
+    numero: any,
+    colonia: any,
+    alcaldia: any,
+    cp: any,
+    estado: any,
+    instrucciones: any
+  ) {
+    console.log(
+      'nom',
+      nombre,
+      apellido,
+      email,
+      celular,
+      password,
+      calle,
+      numero,
+      colonia,
+      alcaldia,
+      cp,
+      estado,
+      instrucciones
+    );
 
-
-  async save(nombre:any, apellido:any, email:any, celular:any, password:any, calle:any, numero:any, colonia:any,alcaldia:any,cp:any, estado:any,instrucciones:any){
-
-    console.log("nom", nombre, apellido, email, celular, password, calle, numero, colonia,alcaldia,cp,estado,instrucciones)
-
-
-
-    this.id_cliente
+    this.id_cliente;
 
     let params = {
-      data: [{nombre: nombre, apellido: apellido, email:email,celular:celular,password: password,
-        calle:calle, numero:numero, colonia:colonia, alcaldia:alcaldia, cp:cp, estado:estado,instrucciones:instrucciones,id_cliente: this.id_cliente }]
-    }
+      data: [
+        {
+          nombre: nombre,
+          apellido: apellido,
+          email: email,
+          celular: celular,
+          password: password,
+          calle: calle,
+          numero: numero,
+          colonia: colonia,
+          alcaldia: alcaldia,
+          cp: cp,
+          estado: estado,
+          instrucciones: instrucciones,
+          id_cliente: this.id_cliente,
+        },
+      ],
+    };
 
-    console.log("params", params)
+    console.log('params', params);
 
-
-    await this.updateCliente.UpdateCliente(params).then(async respuesta => {
+    await this.updateCliente.UpdateCliente(params).then(async (respuesta) => {
       console.log(respuesta);
 
-      if (respuesta.status = "000") {
+      if ((respuesta.status = '000')) {
         const alert = await this.alertController.create({
           header: 'Alert',
           subHeader: 'Tu registro ha sido exitoso',
@@ -143,12 +155,8 @@ estado:any;
         });
 
         await alert.present();
-        
 
-
-        this.router.navigate(['/home'])
-
-
+        this.router.navigate(['/home']);
       } else {
         const alert = await this.alertController.create({
           header: 'Alert',
@@ -158,96 +166,51 @@ estado:any;
         });
 
         await alert.present();
-
       }
-
-
     });
-
-
-
-
-
-
   }
 
+  async inicio(email: any, password: any) {
+    console.log(email);
+    console.log('params', email, password);
 
+    let params = {
+      email: email,
+      password: password,
+    };
 
+    await this.loginCliente.LoginCliente(params).then(async (respuesta) => {
+      console.log(respuesta);
 
-  async inicio(email:any, password:any){
+      if (respuesta.status === '000') {
+        const alert = await this.alertController.create({
+          header: 'Alert',
+          subHeader: 'Inicio de sesión exitoso',
+          // message: 'This is an alert!',
+          buttons: ['OK'],
+        });
 
-    console.log(email)
-    console.log("params", email, password);
+        await alert.present();
 
+        // se obtiene el nombre
+        // console.log(respuesta.data[0].nombre);
+        localStorage.setItem('cliente', respuesta.data[0].nombre);
+        localStorage.setItem('id_cliente', respuesta.data[0].idmkt_clientes);
 
+        localStorage.setItem('ingresado', 'si');
 
-let params = {
-  email: email, password: password
-}
+        this.router.navigate(['/home']);
+        // setTimeout(function(){location.reload()}, 3000);
+      } else {
+        const alert = await this.alertController.create({
+          header: 'Alert',
+          subHeader: 'Error usuario no encontrado',
+          // message: 'This is an alert!',
+          buttons: ['OK'],
+        });
 
-
-
-await this.loginCliente.LoginCliente(params).then(async respuesta => {
-  console.log(respuesta);
-
-  if (respuesta.status === "000") {
-    const alert = await this.alertController.create({
-      header: 'Alert',
-      subHeader: 'Inicio de sesión exitoso',
-      // message: 'This is an alert!',
-      buttons: ['OK'],
+        await alert.present();
+      }
     });
-
-    await alert.present();
-
-
-    // se obtiene el nombre
-    // console.log(respuesta.data[0].nombre);
-    localStorage.setItem("cliente",respuesta.data[0].nombre)
-    localStorage.setItem("id_cliente",respuesta.data[0].idmkt_clientes)
-
-
-    localStorage.setItem("ingresado",'si')
-
-    this.router.navigate(['/home'])
-// setTimeout(function(){location.reload()}, 3000);
-
-
-
-    
-
-
-
-
-  } else {
-    const alert = await this.alertController.create({
-      header: 'Alert',
-      subHeader: 'Error usuario no encontrado',
-      // message: 'This is an alert!',
-      buttons: ['OK'],
-    });
-
-
-
-    await alert.present();
-
   }
-
-
-});
-
-
-  
-
-
-
-    
-
-
-  }
-
-
-
-
-
 }

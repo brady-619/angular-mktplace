@@ -74,7 +74,7 @@ let params = {
       data: [{nombre: "", telefono: "", password: "" }]
     }
 
-    this.router.navigate(['/perfil'])
+    this.router.navigate(['/login'])
 
 
 
