@@ -12,6 +12,7 @@ import { GetPreciosMayorMenorService } from 'src/app/services/get-precios-mayor-
 import { GetPreciosMenorMayorService } from 'src/app/services/get-precios-menor-mayor.service';
 
 import { register } from 'swiper/element/bundle';
+import { Router } from '@angular/router';
 
 register();
 
@@ -27,7 +28,7 @@ export class HogarPage implements OnInit {
 
 
 
-  constructor(private getMktProductos:GetMktProductosCategoriaService, private getProductosMayMen: GetPreciosMayorMenorService , private getProductosMenMay: GetPreciosMenorMayorService) { }
+  constructor(private getMktProductos:GetMktProductosCategoriaService, private getProductosMayMen: GetPreciosMayorMenorService , private getProductosMenMay: GetPreciosMenorMayorService,private router: Router) { }
 
 
 
@@ -200,6 +201,18 @@ export class HogarPage implements OnInit {
   }
 
 
+  detalle(idmkt_productos:any, categoria:any){
+
+    console.log(idmkt_productos)
+
+
+
+
+    this.router.navigate(['/ver-detalle/'+idmkt_productos+'/'+categoria]);
+
+
+
+  }
 
 
 

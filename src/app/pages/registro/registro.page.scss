@@ -1,133 +1,223 @@
-ion-row{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-  }
-  
-  
-  
-  
-  ion-content{
-    --ion-background-color: linear-gradient( #f50b0b,#0858b9);
-  
-  }
-  
-  ion-card{
-    margin: auto;
-    width: 100%;
-    // border: 1px solid rgb(223, 8, 8);
-    padding: 10px;
-  
-    --ion-background-color:  rgba(255, 255, 255, 0.877);
-  }
-  
-  
-  
-  
-  ion-label{
-  
-    --color: #000;
-  
-  }
-  
-  
-  ion-spinner {
-    display: block;
-    margin: auto;
-    transform: scale(1);
-  }
-  
-  
-  table {
-    width: 100%;
-  }
-  
-  
-  // .demo-table {
-  //   width: 100%;
-  // }
-  
-  // .mat-column-idcatalogo {
-  //   width: 10px;
-  //   // border-left: 1px solid currentColor;
-  //   // border-right: 1px solid currentColor;
-  //   border-top: 1px solid currentColor;
-  //   border-bottom: 1px solid currentColor;
-  //   padding-right: 10px;
-  //   text-align: center;
-  // }
-  
-  
-  
-  // .mat-column-demo-name {
-  //   padding-left: 16px;
-  //   font-size: 20px;
-  // }
-  
-  // .mat-column-demo-weight {
-  //   font-style: italic;
-  // }
-  
-  // .mat-column-demo-symbol {
-  //   width: 32px;
-  //   text-align: center;
-  //   font-weight: bold;
-  // }
-  
-  ion-item{
-    --ion-item-background: transparent;
-  }
-  
-  
-  
-  
-  ion-input{
-    background-color:  rgb(0, 0, 0);
-  
-    color:  rgb(255, 255, 255);
-     width: 100%;
-    height: 40px;
-    border-radius: 50px;
-    --padding-start: 20px;
-    --padding-end: 20px;
-    --highlight-color-focused: none;
-  }
-  
-  
-  
-  //Add this to your css/scss File
-  ::ng-deep {
-    .cdk-overlay-container,
-    .cdk-global-overlay-wrapper {
-      pointer-events: none;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-    }
-    .cdk-overlay-container {
-      position: fixed;
-      z-index: 1000;
-    }
-  
-    .cdk-overlay-pane {
-      position: absolute;
-      pointer-events: auto;
-      box-sizing: border-box;
-      z-index: 1000;
-      display: flex;
-      max-width: 100%;
-      max-height: 100%;
-  
-  color:  rgb(255, 255, 255);
-  
-      background-color: rgb(0, 0, 0);
-  border: 1px solid rgba(128, 128, 128);
-    }
-  }
-  
-  .menu{
-    --ion-background-color: linear-gradient( #757575,#000000);
-  
-  }
+ion-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+ion-card{
+  margin: auto;
+  width: 100%;
+   border: 2px solid rgb(0, 0, 0);
+  padding: 10px;
+    border-radius: 10px;
+  --ion-background-color:  rgb(255, 255, 255);
+}
+
+//   ion-grid{
+//     height: 85%;
+//   }
+
+
+.pickable{
+  height: 70%;
+  width: 70%;
+  margin: auto;
+  display: block;
+  // border-radius: 99%;
+
+  border-radius: 10px;
+
+}
+
+
+img {
+  height: 60%;
+  width: 60%;
+  margin: auto;
+  display: block;
+  // border-radius: 99%;
+
+  border-radius: 10px;
+}
+
+
+
+
+.negro {
+  --background: rgb(0, 0, 0);
+}
+
+ion-label {
+  --color: #000;
+  font-size: 80%;
+}
+
+ion-item {
+  background-color: rgb(255, 255, 255);
+
+  --min-height: 58px;
+}
+
+ion-fab-button {
+  background-color: rgb(255, 255, 255);
+}
+
+ion-input {
+  background-color: rgb(0, 0, 0);
+
+  color: rgb(255, 255, 255);
+  width: 100%;
+  height: 40px;
+  border-radius: 50px;
+  --padding-start: 20px;
+  --padding-end: 20px;
+  --highlight-color-focused: none;
+}
+
+swiper-container {
+  --swiper-pagination-bullet-inactive-color: var(--ion-color-step-200, #cccccc);
+  --swiper-pagination-color: var(--ion-color-primary, #3880ff);
+  --swiper-pagination-progressbar-bg-color: rgba(
+    var(--ion-text-color-rgb, 0, 0, 0),
+    0.25
+  );
+  --swiper-scrollbar-bg-color: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.1);
+  --swiper-scrollbar-drag-bg-color: rgba(
+    var(--ion-text-color-rgb, 0, 0, 0),
+    0.5
+  );
+}
+
+swiper-slide {
+  display: flex;
+  position: relative;
+
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  font-size: 18px;
+
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.badboy {
+  width: 300px;
+  height: 150px;
+  margin: 0 auto;
+  display: block;
+  transition: ease all 0.5s;
+}
+
+// ion-icon {
+//   padding-right: 15px;
+// }
+
+
+.none{
+  padding-right: 0px;
+}
+
+.botondestacados {
+  color: rgb(255, 255, 255);
+  --background: rgb(179, 179, 179);
+  text-align: center;
+  width: 100%;
+  height: 90%;
+}
+
+.centrado {
+  text-align: center;
+}
+
+ion-toolbar {
+  --background: rgb(255, 255, 255);
+}
+
+.producto {
+  font-size: 90%;
+  text-align: center;
+}
+
+.flecha {
+  padding: 8px;
+}
+
+ion-fab {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: right;
+  padding-right: 5px;
+  background-color: rgb(255, 255, 255);
+}
+
+
+
+.labelcantidad{
+
+  text-align: center;
+   padding-top: 0px;
+   padding-left: 20%;
+   padding-right: 0px;
+}
+
+
+
+.ion-icon-cantidad-derecha {
+  padding-right: 60%;
+}
+.ion-icon-cantidad-izquierda {
+  padding-left: 40%;
+}
+
+.imagenprincipal{
+
+  height: auto;
+  width: auto;
+  margin: auto;
+  display: block;
+  // border-radius: 99%;
+
+  // border-radius: 10px;
+}
+
+
+
+.botoncarrito{
+ padding-right: 10px;
+ padding-left: 10px;
+}
+
+
+.botoneliminar {
+  padding-right: 0px;
+}
+
+// ion-button{
+
+//   height: auto;
+//   width: 90%;
+// }
+
+
+.lineacarrito{
+ 
+  border-bottom: 4px solid rgb(0, 0, 0);
+}
+
+ion-textarea{
+  width: 100%;
+  height: 120px;
+  --background:  rgb(230, 230, 230);
+
+  // border-radius: 10%;
+}
+
+
+

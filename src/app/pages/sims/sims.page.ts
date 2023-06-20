@@ -1,38 +1,38 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, ViewChild } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonicModule, IonicSlides } from '@ionic/angular';
+import { AlertController, IonContent, IonicModule, IonicSlides, MenuController } from '@ionic/angular';
 import { MatInputModule } from '@angular/material/input';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
-import { MatTableModule } from '@angular/material/table';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { ComponentsModule } from 'src/app/components.module';
+import { Router } from '@angular/router';
+import { GetCountCarritoService } from 'src/app/services/get-count-carrito.service';
+import { GetMktProductosService } from 'src/app/services/get-mkt-productos.service';
+import { GetProductosDestacadosService } from 'src/app/services/get-productos-destacados.service';
+import { PeriodicElement } from '../home/home.page';
 import { GetMktProductosCategoriaService } from 'src/app/services/get-mkt-productos-categoria.service';
 import { GetPreciosMayorMenorService } from 'src/app/services/get-precios-mayor-menor.service';
 import { GetPreciosMenorMayorService } from 'src/app/services/get-precios-menor-mayor.service';
 
-import { register } from 'swiper/element';
-import { Router } from '@angular/router';
-
-
-register();
-
 @Component({
-  selector: 'app-cargadores',
-  templateUrl: './cargadores.page.html',
-  styleUrls: ['./cargadores.page.scss'],
+  selector: 'app-sims',
+  templateUrl: './sims.page.html',
+  styleUrls: ['./sims.page.scss'],
   standalone: true,
   imports: [IonicModule,MatTableModule,MatPaginatorModule,MatInputModule,MatSortModule,CommonModule,ComponentsModule,FormsModule],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA]
 })
-export class CargadoresPage implements OnInit {
-
- 
-
-  constructor(private getMktProductos:GetMktProductosCategoriaService, private getProductosMayMen: GetPreciosMayorMenorService , private getProductosMenMay: GetPreciosMenorMayorService,
-    private router: Router) { }
+export class SimsPage implements OnInit {
 
 
+
+
+  constructor(private getMktProductos:GetMktProductosCategoriaService, private getProductosMayMen: GetPreciosMayorMenorService , private getProductosMenMay: GetPreciosMenorMayorService,private router: Router) { }
+
+
+  
 
   swiperSlideChanged(e:any){
     console.log('chan',e)
@@ -48,7 +48,7 @@ export class CargadoresPage implements OnInit {
   bandera:boolean =false
 
   // cambio
-  categoria =3;
+  categoria =11;
 
   estadomenu: boolean = false;
 
@@ -216,7 +216,6 @@ export class CargadoresPage implements OnInit {
 
 
   }
-
 
 
 }

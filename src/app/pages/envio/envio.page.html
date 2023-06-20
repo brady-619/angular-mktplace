@@ -3,42 +3,303 @@
 </ion-header>
 
 <ion-content>
-
-
-
-
   <ion-grid fixed>
     <ion-row>
       <ion-col size="6">
-
-<ion-item lines="none">
-  <ion-label text-wrap class="ion-text-center">Información de envío</ion-label>
-</ion-item>
-
+        <ion-item lines="none">
+          <ion-label text-wrap class="ion-text-center"
+            >Información de envío</ion-label
+          >
+        </ion-item>
       </ion-col>
 
       <ion-col size="6">
-
-
         <ion-item-group>
-       
-            <ion-label text-wrap class="ion-text-center">Ya tienes cuenta?</ion-label>   
-       
-        
-          
-            <ion-label text-wrap class="ion-text-center">Inicia sesión</ion-label>
-      
-         
-        </ion-item-group>
+          <ion-label text-wrap class="ion-text-center"
+            >Ya tienes cuenta?</ion-label
+          >
 
-      
-        
+          <ion-label text-wrap class="ion-text-center">
+            <a href="/login">Iniciar sesión</a>
+          </ion-label>
+        </ion-item-group>
       </ion-col>
-      
+
+      <!-- 
+      <ion-col size="12">
+        <ion-item class="lineacarrito" lines="none">
+          <ion-grid fixed>
+            <ion-row>
+              <ion-col size="12">
+                <ion-label class="ion-text-center"
+                  ><ion-icon
+                    slot="icon-only"
+                    size="large"
+                    name="person-outline"
+                  ></ion-icon>
+                  CONTACTO</ion-label
+                >
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-col> -->
+
+      <ion-col size="12">
+        <ion-grid fixed>
+          <ion-row>
+            <ion-col size="12">
+              <ion-item class="lineacarrito" lines="none">
+                <ion-label class="ion-text-center"
+                  ><ion-icon
+                    slot="icon-only"
+                    size="large"
+                    name="person-outline"
+                  ></ion-icon>
+                  CONTACTO</ion-label
+                >
+              </ion-item>
+            </ion-col>
+
+            <ion-col size="12">
+              <ion-grid fixed>
+                <ion-row>
+                  <ion-col size="6">
+                    <ion-input [(ngModel)]="nombre" disabled
+                      label="Nombres"
+                      label-placement="floating"
+                      fill="outline"
+                      placeholder="Nombres"
+                    ></ion-input>
+                  </ion-col>
+                  <ion-col size="6">
+                    <ion-input [(ngModel)]="apellido"
+                      label="Apellidos"
+                      label-placement="floating"
+                      fill="outline"
+                      placeholder="Apellidos"
+                    ></ion-input>
+                  </ion-col>
+
+                  <ion-col size="12">
+                    <ion-input [(ngModel)]="celular"
+                      label="Numero de celular"
+                      label-placement="floating"
+                      fill="outline"
+                      placeholder="Ingresa tu Celular"
+                    ></ion-input>
+                  </ion-col>
+
+                  <ion-col size="12">
+                    <ion-input  [(ngModel)]="email"
+                      label="Correo"
+                      label-placement="floating"
+                      fill="outline"
+                      placeholder="Ingresa tu correo"
+                    ></ion-input>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-col>
+
+
+
+            <ion-col size="12">
+              <ion-item class="lineacarrito" lines="none">
+                <ion-label class="ion-text-center"
+                  ><ion-icon
+                    slot="icon-only"
+                    size="large"
+                    name="person-outline"
+                  ></ion-icon>
+                  DATOS DE ENVIO</ion-label
+                >
+              </ion-item>
+            </ion-col>
+
+            <ion-col size="12">
+              <ion-grid fixed>
+                <ion-row>
+
+                  <ion-col size="8">
+                    <ion-input  [(ngModel)]="calle"
+                      label="Calle"
+                      label-placement="floating"
+                      fill="outline"
+                      placeholder="Calle"
+                    ></ion-input>
+                  </ion-col>
+
+
+                  <ion-col size="4">
+                    <ion-input   [(ngModel)]="numero"
+                      label="Número"
+                      label-placement="floating"
+                      fill="outline"
+                      placeholder="Número"
+                    ></ion-input>
+                  </ion-col>
+
+
+
+
+                  <ion-col size="6">
+                    <ion-input   [(ngModel)]="colonia"
+                      label="Colonia"
+                      label-placement="floating"
+                      fill="outline"
+                      placeholder="Colonia"
+                    ></ion-input>
+                  </ion-col>
+
+
+                  <ion-col size="6">
+                    <ion-input   [(ngModel)]="alcaldia"
+                      label="Municipio/Alcaldia"
+                      label-placement="floating"
+                      fill="outline"
+                      placeholder="Municipio"
+                    ></ion-input>
+                  </ion-col>
+
+
+
+                  <ion-col size="6">
+                    <ion-input   [(ngModel)]="cp"
+                      label="CP"
+                      label-placement="floating"
+                      fill="outline"
+                      placeholder="CP"
+                    ></ion-input>
+                  </ion-col>
+
+
+
+
+
+
+
+                  <ion-col size="6">
+                    
+                    <ion-list >
+                      
+                      <ion-item lines ="none" color="dark" >
+
+                        
+                        <ion-select   aria-label="estado"   [(ngModel)]="estado" placeholder="Selecciona tu estado">
+                          <ion-select-option value="Aguascalientes">Aguascalientes</ion-select-option>
+                          <ion-select-option value="Baja California">Baja California</ion-select-option>
+                          <ion-select-option value="Baja California Sur">Baja California Sur </ion-select-option>
+
+                       
+                        <ion-select-option value="Campeche">Campeche</ion-select-option>
+                   
+                   <ion-select-option value="Chiapas">Chiapas</ion-select-option>
+            
+                    <ion-select-option value="Chihuahua">Chihuahua</ion-select-option>
+              
+                  <ion-select-option value="CDMX">CDMX</ion-select-option>
+        
+                <ion-select-option value="Coahuila">Coahuila</ion-select-option>
+     
+              <ion-select-option value="Colima">Colima</ion-select-option>
+
+              <ion-select-option value="Durango">Durango </ion-select-option>
+              <ion-select-option value="Estado de México">Estado de México </ion-select-option>
+              <ion-select-option value="Guanajuato">Guanajuato </ion-select-option>
+              <ion-select-option value="Guerrero">Guerrero</ion-select-option>
+              <ion-select-option value="Hidalgo">Hidalgo</ion-select-option>
+              <ion-select-option value="Jalisco">Jalisco</ion-select-option>
+              <ion-select-option value="Michoacán">Michoacán </ion-select-option>
+              <ion-select-option value="Morelos">Morelos </ion-select-option>
+              <ion-select-option value="Nayarit">Nayarit  </ion-select-option>
+              <ion-select-option value="Nuevo León">Nuevo León </ion-select-option>
+              <ion-select-option value="Oaxaca">Oaxaca </ion-select-option>
+              <ion-select-option value="Puebla">Puebla</ion-select-option>
+              <ion-select-option value="Querétaro">Querétaro </ion-select-option>
+              <ion-select-option value="Quintana Roo">Quintana Roo</ion-select-option>
+              <ion-select-option value="San Luis Potosí">San Luis Potosí  </ion-select-option>
+              <ion-select-option value="Sinaloa">Sinaloa</ion-select-option>
+              <ion-select-option value="Sonora">Sonora</ion-select-option>
+              <ion-select-option value="Tabasco">Tabasco</ion-select-option>
+              <ion-select-option value="Tamaulipas">Tamaulipas</ion-select-option>
+              <ion-select-option value="Tlaxcala">Tlaxcala </ion-select-option>
+              <ion-select-option value="Veracruz">Veracruz</ion-select-option>
+              <ion-select-option value="Yucatán">Yucatán</ion-select-option>
+              <ion-select-option value="Zacatecas ">Zacatecas </ion-select-option>
+
+          
+          </ion-select>
+                      </ion-item>
+                    </ion-list>
+                  </ion-col>
+
+
+
+
+                  <ion-col size="12">
+                    <ion-input  [(ngModel)]="instrucciones"
+                      label="Instrucciones"
+                      label-placement="floating"
+                      fill="outline"
+                      placeholder="Ingresa tus referencias"
+                    ></ion-input>
+                  </ion-col>
+
+
+
+
+
+
+
+
+
+                  <ion-col size="8" >
+
+
+
+
+                   
+
+                    
+                  </ion-col>
+
+
+                </ion-row>
+              </ion-grid>
+            </ion-col>
+
+
+
+
+
+            <ion-col size="12">
+
+              <ion-button (click)="pago(nombre,calle)"  expand="block"color="orange" shape="round">
+                Continuar con pago
+              </ion-button>
+              
+            </ion-col>
+
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+          </ion-row>
+        </ion-grid>
+      </ion-col>
     </ion-row>
   </ion-grid>
-
-  
 
   <app-footer></app-footer>
 </ion-content>

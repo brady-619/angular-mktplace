@@ -38,14 +38,14 @@ export class HeaderComponent  implements OnInit {
 
 
 
-   async ngOnInit() {
+    ngOnInit() {
     console.log("entras")
     let params = {
       cliente: 1
     }
 
 
- await this.getCountCarrito.GetCountCarrito(params).then(async respuesta => {
+  this.getCountCarrito.GetCountCarrito(params).then(async respuesta => {
       console.log(respuesta);
 
        this.contador= respuesta.data[0].contador;
@@ -174,8 +174,10 @@ else{
 }
 
 home(){
-  console.log("regresa")
+  // console.log("regresa")
+
   this.route.navigate(['/home']);
+  
 }
 
 

@@ -86,4 +86,16 @@ export const routes: Routes = [
     path: 'envio',
     loadComponent: () => import('./pages/envio/envio.page').then( m => m.EnvioPage)
   },
+  {
+    path: 'login',
+    loadComponent: () => import('./pages/login/login.page').then( m => m.LoginPage)
+  },
+  {
+    path: 'recupera-cuenta',
+    loadComponent: () => import('./pages/recupera-cuenta/recupera-cuenta.page').then( m => m.RecuperaCuentaPage)
+  },
+  {
+    path: 'sims',
+    loadComponent: () => import('./pages/sims/sims.page').then( m => m.SimsPage)
+  },
 ];

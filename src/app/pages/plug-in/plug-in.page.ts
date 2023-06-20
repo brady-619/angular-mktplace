@@ -12,6 +12,7 @@ import { MatTableModule } from '@angular/material/table';
 import { ComponentsModule } from 'src/app/components.module';
 
 import { register } from 'swiper/element/bundle';
+import { Router } from '@angular/router';
 
 register();
 
@@ -26,7 +27,7 @@ register();
 export class PlugInPage implements OnInit {
 
 
-  constructor(private getMktProductos:GetMktProductosCategoriaService, private getProductosMayMen: GetPreciosMayorMenorService , private getProductosMenMay: GetPreciosMenorMayorService) { }
+  constructor(private getMktProductos:GetMktProductosCategoriaService, private getProductosMayMen: GetPreciosMayorMenorService , private getProductosMenMay: GetPreciosMenorMayorService,private router: Router) { }
 
 
 
@@ -200,6 +201,18 @@ export class PlugInPage implements OnInit {
 
 
 
+  detalle(idmkt_productos:any, categoria:any){
+
+    console.log(idmkt_productos)
+
+
+
+
+    this.router.navigate(['/ver-detalle/'+idmkt_productos+'/'+categoria]);
+
+
+
+  }
 
 
 }

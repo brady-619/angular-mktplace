@@ -67,16 +67,11 @@ ion-card{
   overflow: visible;
   background-color:rgb(255, 255, 255)
 }
-img{
-  height: 15vh;
-  width: 10vh;
-  margin: auto;
-  display: block;
-  // border-radius: 99%;
-  
+
+
+ion-img::part(image) {
   border-radius: 10px;
 }
-
 
 .logo{
   height: 15vh;
@@ -366,6 +361,8 @@ height : 80px;
 
 
  .headercarrusel{
+  width: auto;
+  margin: auto;
   // width: 30%;
   // height : 30%;
  }

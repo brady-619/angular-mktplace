@@ -1,139 +1,170 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-item lines="none">
-      <ion-title class="ion-text-center">Registro</ion-title>
-      <ion-button (click)="perfil()">
-        <ion-icon slot="icon-only" name="arrow-undo"></ion-icon>
-      </ion-button>
-      <ion-button (click)="home()">
-        <ion-icon slot="icon-only" name="home"></ion-icon>
-      </ion-button>
-    </ion-item>
-  </ion-toolbar>
+<ion-header [translucent]="true">
+  <app-header></app-header>
 </ion-header>
 
 <ion-content>
+
+
   <ion-grid fixed>
     <ion-row>
-      <ion-col size="10">
-        <br>
-        <ion-card>
-          <ion-card-content>
+      <ion-col size="12">
 
-             
-               
-                <ion-input
-                label="Nombre"
-                label-placement="floating"
-                placeholder="Ingresa tu nombre"
-                [(ngModel)]="nombre"
-              ></ion-input>
-     
-              <div *ngIf="nombre!=undefined && nombre.length<=4">
-                <ion-label color="danger"
-                  >*Debe contener al menos 5 digitos</ion-label
+
+
+        <ion-item class="lineacarrito" lines="none">
+          <ion-grid fixed>
+            <ion-row>
+              <ion-col size="12">
+                
+                <ion-label class="ion-text-center"
+                  ><ion-icon
+                    slot="icon-only"
+                    size="large"
+                    name="person-circle-outline"
+                  ></ion-icon>
+                  Registro de cuenta</ion-label
                 >
-              </div>
-              <br>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
 
 
+        <br>
 
-              <ion-input
+        <ion-card>
+
+          <ion-row>
+            
+
+            <ion-col size="6">
+
+              <ion-input 
+              label="Nombre"
+              label-placement="floating"
+              placeholder="Ingresa tu nombre"
+              [(ngModel)]="nombre"
+            ></ion-input>
+            </ion-col>
+      
+
+      
+            <ion-col size="6">
+
+              <ion-input 
               label="Apellido"
               label-placement="floating"
               placeholder="Ingresa tu apellido"
               [(ngModel)]="apellido"
             ></ion-input>
-    
-              <div *ngIf="apellido!=undefined && apellido.length<=4">
-                <ion-label color="danger"
-                  >*Debe contener al menos 5 digitos</ion-label
-                >
-              </div>
-              <br>
 
-     
- 
-              <ion-input
+              
+            </ion-col>
+
+
+
+
+      
+            <ion-col size="6">
+
+              <ion-input 
               label="Email"
               label-placement="floating"
               placeholder="Ingresa tu email"
               [(ngModel)]="email"
             ></ion-input>
-            
-      
-              <div *ngIf="email!=undefined && email.length<=4">
-                <ion-label color="danger"
-                  >*Debe contener al menos 5 digitos</ion-label
-                >
-              </div>
-              <br>
 
+              
+            </ion-col>
+
+
+
+
+      
+            <ion-col size="6">
 
               <ion-input
               label="Celular"
               label-placement="floating"
               type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-              maxlength="15"
+              maxlength="10"
               placeholder="Ingresa tu número de celular"
               [(ngModel)]="celular"
 
             ></ion-input>
 
-     
-            
-            
+              
+            </ion-col>
+
 
       
-              <div *ngIf="celular!=undefined && celular.length<=9">
-                <ion-label color="danger"
-                  >*Debe contener al menos 10 digitos</ion-label
-                >
-              </div>
-              <br>
+            <ion-col size="6">
 
- 
-
- 
-              <ion-input
-              label="Contraseña"
+              <ion-input 
+              label="Password"
               label-placement="floating"
               placeholder="Ingresa tu password"
               [(ngModel)]="password"
             ></ion-input>
-    
-              <div *ngIf="password!=undefined && password.length<=4">
-                <ion-label color="danger"
-                  >*Debe contener al menos 5 digitos</ion-label
-                >
-              </div>
-              <br>
 
-
-           
               
-              
+            </ion-col>
+            
 
-              <div
-                *ngIf="nombre!=undefined && nombre.length>=5 &&
-                apellido!=undefined && apellido.length>=5 &&
-                email!=undefined && email.length>=5 &&
-                celular!=undefined && celular.length>=10 &&
-                password!=undefined && password.length>=5 
-                "
-              >
-                <ion-button
-                  (click)="save(nombre, apellido, email,celular, password)"
-                  expand="block"
-                  shape="round"
-                >
-                  Guardar
-                </ion-button>
-              </div>
+            <ion-col size="6">
+            </ion-col>
+
+
+
+
+
+
+            <br>
+
+
+            <ion-col size="12">
+              <ion-button
+              (click)="save(nombre, apellido, email,celular, password)"
+              expand="block"
+              shape="round"
+              color="orange"
+            >
+                Registro
+              </ion-button>
+            </ion-col>
+
+
+
   
-          </ion-card-content>
+      
+
+
+
+
+
+
+
+
+          </ion-row>
+
+
+
+
+
         </ion-card>
+
+
+
+
       </ion-col>
+      
     </ion-row>
   </ion-grid>
+
+
+
+
+
 </ion-content>
+
+  <app-footer></app-footer>

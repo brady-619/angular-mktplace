@@ -267,10 +267,28 @@ export class HomePage {
  }
 
 
+ sims(){
 
- detalle(idmkt_productos:any){
-  console.log("Ver detalle",idmkt_productos)
- } 
+  
+  this.router.navigate(['/sims']);
+ }
+
+
+
+
+
+ detalle(idmkt_productos:any, categoria:any){
+
+  console.log(idmkt_productos)
+
+
+
+
+  this.router.navigate(['/ver-detalle/'+idmkt_productos+'/'+categoria]);
+
+
+
+}
 
 
 

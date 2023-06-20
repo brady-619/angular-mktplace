@@ -1,16 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AlertController, IonicModule } from '@ionic/angular';
+import {  AlertController, IonicModule } from '@ionic/angular';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { ComponentsModule } from 'src/app/components.module';
 import { Router } from '@angular/router';
-import { InsertClienteService } from '../../services/insert-cliente.service';
+import { InsertClienteService } from 'src/app/services/insert-cliente.service';
 
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.page.html',
   styleUrls: ['./registro.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule],
+  imports: [IonicModule,MatTableModule,MatPaginatorModule,MatInputModule,MatSortModule,CommonModule,ComponentsModule,FormsModule],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA]
 })
 export class RegistroPage implements OnInit {
   constructor(private router: Router, private alertController: AlertController, private insertCliente: InsertClienteService) {}
@@ -21,15 +27,9 @@ export class RegistroPage implements OnInit {
   password: any;
   celular:any;
 
+
+
   ngOnInit() {}
-
-  perfil() {
-    this.router.navigate(['/perfil']);
-  }
-
-  home() {
-    this.router.navigate(['/home']);
-  }
 
   async save(nombre: any, apellido: any, email: any, celular:any,password: any) {
     console.log('params', nombre, apellido, email,celular, password);
@@ -99,3 +99,7 @@ let params = {
 
   }
 }
+
+
+
+

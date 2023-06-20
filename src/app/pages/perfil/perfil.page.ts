@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AlertController, IonicModule } from '@ionic/angular';
@@ -6,13 +6,19 @@ import { Router } from '@angular/router';
 import { LoginClienteService } from '../../services/login-cliente.service';
 import { GetEditClienteService } from 'src/app/services/get-edit-cliente.service';
 import { UpdateClienteService } from 'src/app/services/update-cliente.service';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { ComponentsModule } from 'src/app/components.module';
 
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.page.html',
   styleUrls: ['./perfil.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonicModule,MatTableModule,MatPaginatorModule,MatInputModule,MatSortModule,CommonModule,ComponentsModule,FormsModule],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PerfilPage implements OnInit {
 
@@ -241,14 +247,6 @@ await this.loginCliente.LoginCliente(params).then(async respuesta => {
   }
 
 
-  registro(){
-    this.router.navigate(['/registro'])
-
-  }
-
-  home() {
-    this.router.navigate(['/home']);
-  }
 
 
 

@@ -5,40 +5,26 @@ ion-row {
     border-radius: 50%;
   }
   
-  ion-card{
+  ion-card {
     margin: auto;
     width: 100%;
-     border: 2px solid rgb(0, 0, 0);
-    padding: 10px;
-      border-radius: 10px;
-    --ion-background-color:  rgb(255, 255, 255);
-  }
-  
-  
-  .pickable{
-    height: 70%;
-    width: 70%;
-    margin: auto;
-    display: block;
-    // border-radius: 99%;
+    //  border: 2px solid rgb(0, 0, 0);
+    // padding: 10px;
   
     border-radius: 10px;
   
+    --ion-background-color: rgb(255, 255, 255);
   }
-  
   
   img {
-    height: 60%;
-    width: 60%;
+    height: 15vh;
+    width: 10vh;
     margin: auto;
     display: block;
     // border-radius: 99%;
   
     border-radius: 10px;
   }
-  
-  
-  
   
   .negro {
     --background: rgb(0, 0, 0);
@@ -110,13 +96,8 @@ ion-row {
     transition: ease all 0.5s;
   }
   
-  // ion-icon {
-  //   padding-right: 15px;
-  // }
-  
-  
-  .none{
-    padding-right: 0px;
+  ion-icon {
+    padding-right: 15px;
   }
   
   .botondestacados {
@@ -153,67 +134,3 @@ ion-row {
     background-color: rgb(255, 255, 255);
   }
   
-  
-  
-  .labelcantidad{
-  
-    text-align: center;
-     padding-top: 0px;
-     padding-left: 20%;
-     padding-right: 0px;
-  }
-  
-  
-  
-  .ion-icon-cantidad-derecha {
-    padding-right: 60%;
-  }
-  .ion-icon-cantidad-izquierda {
-    padding-left: 40%;
-  }
-  
-  .imagenprincipal{
-  
-    height: auto;
-    width: auto;
-    margin: auto;
-    display: block;
-    // border-radius: 99%;
-  
-    // border-radius: 10px;
-  }
-  
-  
-  
-  .botoncarrito{
-   padding-right: 10px;
-   padding-left: 10px;
-  }
-  
-  
-  .botoneliminar {
-    padding-right: 0px;
-  }
-  
-  // ion-button{
-  
-  //   height: auto;
-  //   width: 90%;
-  // }
-  
-  
-  .lineacarrito{
-   
-    border-bottom: 4px solid rgb(0, 0, 0);
-  }
-  
-  ion-textarea{
-    width: 100%;
-    height: 120px;
-    --background:  rgb(230, 230, 230);
-  
-    // border-radius: 10%;
-  }
-
-
-

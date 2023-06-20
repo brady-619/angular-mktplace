@@ -282,7 +282,20 @@ async borrar(idmkt_carrito: any, producto: any) {
               });
               await alert.present();
 
-              location.reload();
+
+
+
+
+
+            setTimeout(() => {
+
+             
+                window.location.reload();
+           
+
+            }, 4000);
+
+            
             })
             .catch(async (error) => {
               /* Código a realizar cuando se rechaza la promesa */

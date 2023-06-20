@@ -232,7 +232,20 @@ export class VerDetallePage implements OnInit {
 
             await alert.present();
 
-            this.router.navigate(['/home']);
+
+
+
+            setTimeout(() => {
+
+              this.router.navigate(['home'])
+              .then(() => {
+                window.location.reload();
+              });
+
+            }, 4000);
+
+
+            // this.router.navigate(['/home']);
           } else {
             const alert = await this.alertController.create({
               header: 'Aviso',
