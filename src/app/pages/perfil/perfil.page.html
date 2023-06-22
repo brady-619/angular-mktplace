@@ -103,34 +103,40 @@
             </ion-col>
 
 
-      
-            <ion-col size="6">
-
+      <!-- sin ver -->
+            <ion-col size="6" *ngIf="!ver">
               <ion-input 
               label="Password"
               label-placement="floating"
               placeholder="Ingresa tu password"
               [(ngModel)]="password"
+              type="password"
             ></ion-input>
-
-              
             </ion-col>
-            
-
-            <ion-col size="6">
+            <ion-col size="6" *ngIf="!ver">
+              <ion-icon (click)="tooglePassword()" size="large"  [name]="passwordToggleIcon"></ion-icon>
             </ion-col>
 
 
 
-
+<!-- viendo -->
+            <ion-col size="6" *ngIf="ver">
+              <ion-input 
+              label="Password"
+              label-placement="floating"
+              placeholder="Ingresa tu password"
+              [(ngModel)]="password"
+                type="text"
+            ></ion-input>
+            </ion-col>
+            <ion-col size="6" *ngIf="ver">
+              <ion-icon (click)="tooglePassword()" size="large"  [name]="passwordToggleIcon"></ion-icon>
+            </ion-col>
 
 
             <br>
 
             
-
-            
-
 
 
 

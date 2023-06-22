@@ -57,7 +57,35 @@ export class PerfilPage implements OnInit {
   estado: any;
   // estado='CDMX';
 
+
+passwordToggleIcon='eye-off'
+
+ver=false
+
+  
+
+  tooglePassword(){
+    console.log("entra")
+
+if(this.ver){
+  this.ver=false
+  this.passwordToggleIcon='eye-off'
+}
+else{
+  this.ver=true
+  this.passwordToggleIcon='eye'
+
+}
+    
+  }
+
+
+
+
+
   ngOnInit() {}
+
+
 
   async ionViewWillEnter() {
     this.id_cliente = localStorage.getItem('id_cliente');
