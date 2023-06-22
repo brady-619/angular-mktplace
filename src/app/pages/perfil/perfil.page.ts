@@ -12,6 +12,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { ComponentsModule } from 'src/app/components.module';
 
+import {  ViewChild} from  '@angular/core';
+
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.page.html',

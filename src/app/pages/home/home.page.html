@@ -739,7 +739,7 @@
   
 
           <ion-card class="carta">
-            <ion-img
+            <ion-img  (click)="detalle(item.idmkt_productos, item.categoria)"
               src="{{item.imagen}}" 
             ></ion-img>
           </ion-card>
