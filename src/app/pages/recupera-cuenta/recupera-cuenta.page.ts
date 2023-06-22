@@ -40,7 +40,8 @@ export class RecuperaCuentaPage implements OnInit {
 
   email: any;
   celular: any;
-  password:any;
+  password:any; 
+  idmkt_clientes:any;
 
   ngOnInit() {}
 
@@ -64,24 +65,35 @@ export class RecuperaCuentaPage implements OnInit {
       console.log(respuesta);
 
 
-      const idmkt_clientes= respuesta.data[0].idmkt_clientes
+      //  this.idmkt_clientes= localStorage.getItem('id_cliente')
 
 
-      console.log(idmkt_clientes)
 
 
-      if (respuesta.status === '000') {
+
+
+
+      if (respuesta.data!=false) {
+
+
+      this.idmkt_clientes= respuesta.data[0].idmkt_clientes
+       console.log(this.idmkt_clientes)
+
+
         const alert = await this.alertController.create({
           header: 'Alert',
           subHeader: 'Cambio de contraseña exitoso',
-          // message: 'This is an alert!',
+          // message: 'This is an alert!', 
+          //imagen en vez en el clik listo
+          //mensaje error listo
+          // imagen mas como home 
           buttons: ['OK'],
         });
 
 
 
                      let request = {
-                  data: [{  password: password, id_cliente:idmkt_clientes
+                  data: [{  password: password, id_cliente:this.idmkt_clientes
                    }] }
 
 

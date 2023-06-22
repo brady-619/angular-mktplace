@@ -14,6 +14,7 @@
 
 
 
+
 <ion-item class="negro">
   <ion-label color="light" class="ion-text-left">AUDIFONOS BT</ion-label>
 
@@ -110,16 +111,16 @@
 
  <swiper-container [slidesPerView]="1" [autoplay]="true" [loop]="true"  [pagination]="{ clickable: true }"  >
    <swiper-slide>
-     <img class="badboy" src="{{item.imagen}}" alt="" /><br />
+     <img class="badboy" (click)="detalle(item.idmkt_productos, item.categoria)" src="{{item.imagen}}" alt="" /><br />
    </swiper-slide>
    <swiper-slide>
-     <img class="badboy" src="{{item.imagen2}}" alt="" />
+     <img class="badboy" (click)="detalle(item.idmkt_productos, item.categoria)"  src="{{item.imagen2}}" alt="" />
    </swiper-slide>
    <swiper-slide>
-     <img class="badboy" src="{{item.imagen3}}" alt="" />
+     <img class="badboy" (click)="detalle(item.idmkt_productos, item.categoria)"  src="{{item.imagen3}}" alt="" />
    </swiper-slide>
    <swiper-slide>
-     <img class="badboy" src="{{item.imagen4}}" alt="" />
+     <img class="badboy" (click)="detalle(item.idmkt_productos, item.categoria)"  src="{{item.imagen4}}" alt="" />
    </swiper-slide>
  </swiper-container>
 
