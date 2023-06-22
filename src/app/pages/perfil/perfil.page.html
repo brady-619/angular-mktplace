@@ -136,6 +136,192 @@
 
             <br>
 
+
+
+<ion-col size="12">
+              <ion-accordion-group>
+              <ion-accordion value="first">
+                <ion-item slot="header" color="gris-boton-cantidad">
+                  <ion-label class="ion-text-center">Dirección de envío</ion-label>
+                </ion-item>
+                <div class="ion-padding" slot="content">
+                  
+
+
+
+
+
+
+                  <ion-grid fixed>
+                    <ion-row>
+                      <ion-col size="6">
+
+                        <ion-input 
+                        label="Calle"
+                        label-placement="floating"
+                        placeholder="Ingresa tu calle"
+                        [(ngModel)]="calle"
+                      ></ion-input>
+
+
+                      </ion-col>
+                      <ion-col size="6">
+
+              <ion-input 
+              label="Numero"
+              label-placement="floating"
+              placeholder="Ingresa tu numero"
+              [(ngModel)]="numero"
+            ></ion-input>
+
+
+                      </ion-col>
+
+
+
+
+
+
+
+                      <ion-col size="6">
+
+                        <ion-input 
+                        label="Colonia"
+                        label-placement="floating"
+                        placeholder="Ingresa tu colonia"
+                        [(ngModel)]="colonia"
+                      ></ion-input>
+
+
+                      </ion-col>
+                      <ion-col size="6">
+
+              <ion-input 
+              label="Alcaldia/Municipio"
+              label-placement="floating"
+              placeholder="Ingresa tu municipio"
+              [(ngModel)]="alcaldia"
+            ></ion-input>
+
+
+                      </ion-col>
+
+
+
+
+
+
+                      <ion-col size="6">
+
+                        <ion-input 
+                        label="Codigo postal"
+                        label-placement="floating"
+                        placeholder="Ingresa tu codigo postal"
+                        [(ngModel)]="cp"
+                      ></ion-input>
+
+
+                      </ion-col>
+                      <ion-col size="6">
+                    
+                        <ion-list >
+                          
+                          <ion-item lines ="none" color="dark" >
+    
+                            
+                            <ion-select   aria-label="estado"   [(ngModel)]="estado" placeholder="Selecciona tu estado">
+                              <ion-select-option value="Aguascalientes">Aguascalientes</ion-select-option>
+                              <ion-select-option value="Baja California">Baja California</ion-select-option>
+                              <ion-select-option value="Baja California Sur">Baja California Sur </ion-select-option>
+    
+                           
+                            <ion-select-option value="Campeche">Campeche</ion-select-option>
+                       
+                       <ion-select-option value="Chiapas">Chiapas</ion-select-option>
+                
+                        <ion-select-option value="Chihuahua">Chihuahua</ion-select-option>
+                  
+                      <ion-select-option value="CDMX">CDMX</ion-select-option>
+            
+                    <ion-select-option value="Coahuila">Coahuila</ion-select-option>
+         
+                  <ion-select-option value="Colima">Colima</ion-select-option>
+    
+                  <ion-select-option value="Durango">Durango </ion-select-option>
+                  <ion-select-option value="Estado de México">Estado de México </ion-select-option>
+                  <ion-select-option value="Guanajuato">Guanajuato </ion-select-option>
+                  <ion-select-option value="Guerrero">Guerrero</ion-select-option>
+                  <ion-select-option value="Hidalgo">Hidalgo</ion-select-option>
+                  <ion-select-option value="Jalisco">Jalisco</ion-select-option>
+                  <ion-select-option value="Michoacán">Michoacán </ion-select-option>
+                  <ion-select-option value="Morelos">Morelos </ion-select-option>
+                  <ion-select-option value="Nayarit">Nayarit  </ion-select-option>
+                  <ion-select-option value="Nuevo León">Nuevo León </ion-select-option>
+                  <ion-select-option value="Oaxaca">Oaxaca </ion-select-option>
+                  <ion-select-option value="Puebla">Puebla</ion-select-option>
+                  <ion-select-option value="Querétaro">Querétaro </ion-select-option>
+                  <ion-select-option value="Quintana Roo">Quintana Roo</ion-select-option>
+                  <ion-select-option value="San Luis Potosí">San Luis Potosí  </ion-select-option>
+                  <ion-select-option value="Sinaloa">Sinaloa</ion-select-option>
+                  <ion-select-option value="Sonora">Sonora</ion-select-option>
+                  <ion-select-option value="Tabasco">Tabasco</ion-select-option>
+                  <ion-select-option value="Tamaulipas">Tamaulipas</ion-select-option>
+                  <ion-select-option value="Tlaxcala">Tlaxcala </ion-select-option>
+                  <ion-select-option value="Veracruz">Veracruz</ion-select-option>
+                  <ion-select-option value="Yucatán">Yucatán</ion-select-option>
+                  <ion-select-option value="Zacatecas ">Zacatecas </ion-select-option>
+    
+              
+              </ion-select>
+                          </ion-item>
+                        </ion-list>
+                      </ion-col>
+    
+
+
+
+
+                      <ion-col size="12">
+
+                        <ion-input 
+                        label="Instrucciones"
+                        label-placement="floating"
+                        placeholder="Ingresa tus instrucciones de entrega"
+                        [(ngModel)]="instrucciones"
+                      ></ion-input>
+          
+          
+                                </ion-col>
+
+
+
+                    </ion-row>
+                  </ion-grid>
+
+
+
+
+
+
+
+
+
+                </div>
+              </ion-accordion>
+              
+
+            </ion-accordion-group>
+</ion-col>
+
+
+
+
+
+
+
+
+
+
             
 
 
@@ -146,6 +332,21 @@
                 expand="block"
               shape="round"
               color="orange"
+
+
+             (click)="save(nombre,
+             apellido,
+             email,
+             celular,
+             password,
+             calle,
+             numero,
+             colonia,
+             alcaldia,
+             cp,
+             estado,
+             instrucciones)" 
+
             >
                Actualizar datos
               </ion-button>
@@ -155,9 +356,6 @@
 
   
       
-
-
-
 
 
 
@@ -188,9 +386,9 @@
 
 
 
-  <app-footer></app-footer>
 </ion-content>
 
+  <app-footer></app-footer>
 
 
 

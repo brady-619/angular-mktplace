@@ -37,6 +37,29 @@ export class LoginPage implements OnInit {
   email: any;
   password: any;
 
+
+passwordToggleIcon='eye-off'
+
+ver=false
+
+  
+
+  tooglePassword(){
+    console.log("entra")
+
+if(this.ver){
+  this.ver=false
+  this.passwordToggleIcon='eye-off'
+}
+else{
+  this.ver=true
+  this.passwordToggleIcon='eye'
+
+}
+    
+  }
+
+
   ngOnInit() {}
 
   async login(email: any, password: any) {

@@ -179,14 +179,26 @@ else{
       if ((respuesta.status = '000')) {
         const alert = await this.alertController.create({
           header: 'Alert',
-          subHeader: 'Tu registro ha sido exitoso',
+          subHeader: 'Tus datos han sido actualizados con éxito',
           // message: 'This is an alert!',
           buttons: ['OK'],
         });
 
         await alert.present();
 
-        this.router.navigate(['/home']);
+        // this.router.navigate(['/home']);
+        setTimeout(() => {
+
+          this.router.navigate(['home'])
+          .then(() => {
+            window.location.reload();
+          });
+    
+        }, 3000);
+    
+
+
+
       } else {
         const alert = await this.alertController.create({
           header: 'Alert',
@@ -200,47 +212,48 @@ else{
     });
   }
 
-  async inicio(email: any, password: any) {
-    console.log(email);
-    console.log('params', email, password);
 
-    let params = {
-      email: email,
-      password: password,
-    };
+  // async inicio(email: any, password: any) {
+  //   console.log(email);
+  //   console.log('params', email, password);
 
-    await this.loginCliente.LoginCliente(params).then(async (respuesta) => {
-      console.log(respuesta);
+  //   let params = {
+  //     email: email,
+  //     password: password,
+  //   };
 
-      if (respuesta.status === '000') {
-        const alert = await this.alertController.create({
-          header: 'Alert',
-          subHeader: 'Inicio de sesión exitoso',
-          // message: 'This is an alert!',
-          buttons: ['OK'],
-        });
+  //   await this.loginCliente.LoginCliente(params).then(async (respuesta) => {
+  //     console.log(respuesta);
 
-        await alert.present();
+  //     if (respuesta.status === '000') {
+  //       const alert = await this.alertController.create({
+  //         header: 'Alert',
+  //         subHeader: 'Inicio de sesión exitoso',
+  //         // message: 'This is an alert!',
+  //         buttons: ['OK'],
+  //       });
 
-        // se obtiene el nombre
-        // console.log(respuesta.data[0].nombre);
-        localStorage.setItem('cliente', respuesta.data[0].nombre);
-        localStorage.setItem('id_cliente', respuesta.data[0].idmkt_clientes);
+  //       await alert.present();
 
-        localStorage.setItem('ingresado', 'si');
+  //       // se obtiene el nombre
+  //       // console.log(respuesta.data[0].nombre);
+  //       localStorage.setItem('cliente', respuesta.data[0].nombre);
+  //       localStorage.setItem('id_cliente', respuesta.data[0].idmkt_clientes);
 
-        this.router.navigate(['/home']);
-        // setTimeout(function(){location.reload()}, 3000);
-      } else {
-        const alert = await this.alertController.create({
-          header: 'Alert',
-          subHeader: 'Error usuario no encontrado',
-          // message: 'This is an alert!',
-          buttons: ['OK'],
-        });
+  //       localStorage.setItem('ingresado', 'si');
 
-        await alert.present();
-      }
-    });
-  }
+  //       this.router.navigate(['/home']);
+  //       // setTimeout(function(){location.reload()}, 3000);
+  //     } else {
+  //       const alert = await this.alertController.create({
+  //         header: 'Alert',
+  //         subHeader: 'Error usuario no encontrado',
+  //         // message: 'This is an alert!',
+  //         buttons: ['OK'],
+  //       });
+
+  //       await alert.present();
+  //     }
+  //   });
+  // }
 }

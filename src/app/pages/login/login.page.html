@@ -44,12 +44,51 @@
 <br>
 
 
-        <ion-input 
+
+
+  <!-- sin ver -->
+<ion-row *ngIf="!ver">
+
+  
+
+<ion-col size="10">
+          <ion-input 
         label="Contraseña"
         label-placement="floating"
         placeholder="Ingresa tu contraseña"
         [(ngModel)]="password"
+        type="password"
       ></ion-input>
+</ion-col>
+<ion-col size="2" >
+        <ion-icon (click)="tooglePassword()" size="large"  [name]="passwordToggleIcon"></ion-icon>
+</ion-col>
+</ion-row>
+
+
+
+
+
+<!-- viendo -->
+<ion-row *ngIf="ver">
+
+  
+
+  <ion-col size="10">
+            <ion-input 
+          label="Contraseña"
+          label-placement="floating"
+          placeholder="Ingresa tu contraseña"
+          [(ngModel)]="password"
+          type="text"
+        ></ion-input>
+  </ion-col>
+  <ion-col size="2" >
+          <ion-icon (click)="tooglePassword()" size="large"  [name]="passwordToggleIcon"></ion-icon>
+  </ion-col>
+  </ion-row>
+
+
       <br>
 
 
