@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { AlertController, IonicModule } from '@ionic/angular';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -9,21 +9,22 @@ import { MatTableModule } from '@angular/material/table';
 import { ComponentsModule } from 'src/app/components.module';
 import { GetInfoClienteService } from 'src/app/services/get-info-cliente.service';
 import { Router } from '@angular/router';
+import { NgxPayPalModule, IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 
 @Component({
   selector: 'app-envio',
   templateUrl: './envio.page.html',
   styleUrls: ['./envio.page.scss'],
   standalone: true,
-  imports: [IonicModule,MatTableModule,MatPaginatorModule,MatInputModule,MatSortModule,CommonModule,ComponentsModule,FormsModule],
+  imports: [IonicModule,MatTableModule,MatPaginatorModule,MatInputModule,MatSortModule,CommonModule,ComponentsModule,FormsModule,NgxPayPalModule],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA]
 })
 export class EnvioPage implements OnInit {
 
-  constructor(private getInfoCliente: GetInfoClienteService,    private router: Router) { }
+  public payPalConfig?: IPayPalConfig;
 
-  ngOnInit() {
-  }
+  constructor(private getInfoCliente: GetInfoClienteService,    private router: Router,    public alertController: AlertController,
+    public alertCtrl: AlertController) { }
   data :any
 
   nombre:any;
@@ -39,12 +40,35 @@ export class EnvioPage implements OnInit {
   estado:any;
   id_cliente:any;
 
+
+  showSuccess: any;
+  showCancel: any;
+  showError: any;
+
+  totales:any;
+
+  ngOnInit() {
+    
+  }
+
+
+  
+
+
+
+
+
+
   async ionViewWillEnter(){
 
 
     this.id_cliente = localStorage.getItem('id_cliente');
 
+    this.totales=localStorage.getItem('totales_final')
+    
+    console.log(this.totales)
 
+this.initConfig(this.totales);
 
 console.log(this.id_cliente)
 
@@ -104,6 +128,103 @@ if(this.id_cliente ){
 
 
   }
+
+
+
+  async initConfig(totales: any) {
+    this.payPalConfig = {
+      currency: 'MXN',
+      clientId:
+        'AYKLskE98e7tZ0_h6Mczp8iyyf7MitklAfv6Qbs0bM1hFN7CTrf0TAMVo2IsxAiDzkhh5wK7k3LUAPes',
+      createOrderOnClient: (data) =>
+        <ICreateOrderRequest>{
+          intent: 'CAPTURE',
+          purchase_units: [
+            {
+              amount: {
+                currency_code: 'MXN',
+                value: totales,
+                breakdown: {
+                  item_total: {
+                    currency_code: 'MXN',
+                    value: totales,
+                  },
+                },
+              },
+              items: [
+                {
+                  name: 'Cellular Planet',
+                  quantity: '1',
+                  category: 'DIGITAL_GOODS',
+                  unit_amount: {
+                    currency_code: 'MXN',
+                    value: totales,
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      advanced: {
+        commit: 'true',
+      },
+      style: {
+        label: 'paypal',
+        layout: 'vertical',
+        shape: 'pill',
+        color: 'gold',
+        // layout: 'horizontal',
+        // label: 'paypal',
+        tagline: false,
+      },
+      onApprove: (data, actions) => {
+        // console.log('onApprove - transaction was approved, but not authorized', data, actions);
+        actions.order.get().then(async (details: any) => {
+          console.log('onApprove: ', details);
+
+          console.log('onApprove: ', details.status);
+          // APPROVED
+          if (details.status === 'APPROVED') {
+            const alert = await this.alertCtrl.create({
+              header: 'Alert',
+              subHeader: 'Venta realizada con éxito.',
+              // message: 'This is an alert!',
+              buttons: ['OK'],
+            });
+            await alert.present();
+            this.router.navigate(['/home']);
+          } else {
+            const alert = await this.alertCtrl.create({
+              header: 'Alert',
+              subHeader: 'Error al realizar el cobro. Favor de validar datos de tarjeta',
+              // message: 'This is an alert!',
+              buttons: ['OK'],
+            });
+            await alert.present();
+          }
+        });
+      },
+      // onClientAuthorization: (data) => {
+      //     console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
+      //     this.showSuccess = true;
+      // },
+      onCancel: (data, actions) => {
+        console.log('OnCancel', data, actions);
+        this.showCancel = true;
+      },
+      onError: (err) => {
+        console.log('OnError', err);
+        this.showError = true;
+      },
+      onClick: (data, actions) => {
+        console.log('onClick', data, actions);
+        console.log('on click');
+      },
+    };
+  }
+
+
+
 
 
 

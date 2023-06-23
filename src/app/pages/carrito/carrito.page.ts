@@ -61,6 +61,12 @@ export class CarritoPage implements OnInit {
 
 
   async ionViewWillEnter() {
+
+
+
+localStorage.removeItem('totales_final')
+
+
     this.totales = 0;
 
     // set inicializado
@@ -106,9 +112,10 @@ export class CarritoPage implements OnInit {
             this.totales
 
             
+
           );
         });
-
+    localStorage.setItem('totales_final',this.totales)
         
         // console.log(this.totales);
 
@@ -234,7 +241,9 @@ async applyFilter(event: Event) {
 
 
 
-    this.totales_final= this.totales-this.totales_descuento
+    this.totales_final= this.totales-this.totales_descuento;
+
+    localStorage.setItem('totales_final',this.totales_final)
 
 
   }
@@ -243,6 +252,7 @@ async applyFilter(event: Event) {
 
     this.totales_final= this.totales;
     this.totales_descuento=0;
+    localStorage.setItem('totales_final',this.totales_final)
   }
 
 
@@ -335,7 +345,14 @@ async borrar(idmkt_carrito: any, producto: any) {
 
 
 envio(){
-  this.router.navigate(['/envio']);
+
+  
+console.log(localStorage.getItem('totales_final'))
+  
+   this.router.navigate(['/envio']);
+
+
+
 }
 
 
