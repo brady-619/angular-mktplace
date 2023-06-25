@@ -40,6 +40,8 @@ export class EnvioPage implements OnInit {
   estado:any;
   id_cliente:any;
 
+  valido=false;
+
 
   showSuccess: any;
   showCancel: any;
@@ -135,7 +137,7 @@ if(this.id_cliente ){
     this.payPalConfig = {
       currency: 'MXN',
       clientId:
-        'AYKLskE98e7tZ0_h6Mczp8iyyf7MitklAfv6Qbs0bM1hFN7CTrf0TAMVo2IsxAiDzkhh5wK7k3LUAPes',
+        'AcBq5wH2s9JU9CJliGrBUi4oR6zTV6EiMqw9h0shyCgxEZfI4IFP4yugiTxeHnpy3kXmp_cyDChUMEmI',
       createOrderOnClient: (data) =>
         <ICreateOrderRequest>{
           intent: 'CAPTURE',
@@ -192,7 +194,7 @@ if(this.id_cliente ){
               buttons: ['OK'],
             });
             await alert.present();
-            this.router.navigate(['/home']);
+            // this.router.navigate(['/home']);
           } else {
             const alert = await this.alertCtrl.create({
               header: 'Alert',
@@ -239,11 +241,5 @@ if(this.id_cliente ){
 
 
 
-
-
-
   }
-
-
-
 }

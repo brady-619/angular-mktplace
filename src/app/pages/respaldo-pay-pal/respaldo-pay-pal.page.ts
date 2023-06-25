@@ -81,7 +81,7 @@ export class RespaldoPayPalPage implements OnInit {
     this.payPalConfig = {
       currency: 'MXN',
       clientId:
-        'AYKLskE98e7tZ0_h6Mczp8iyyf7MitklAfv6Qbs0bM1hFN7CTrf0TAMVo2IsxAiDzkhh5wK7k3LUAPes',
+        'Ab5Eqrk-NOVRhy859YUX73ZSctz8CchQat0EjCPNZ0y6IIAMpvynYtUwskzSIjVKrrPHrH1KFvA1vG1K',
       createOrderOnClient: (data) =>
         <ICreateOrderRequest>{
           intent: 'CAPTURE',
@@ -138,7 +138,7 @@ export class RespaldoPayPalPage implements OnInit {
               buttons: ['OK'],
             });
             await alert.present();
-            this.router.navigate(['/home']);
+            // this.router.navigate(['/home']);
           } else {
             const alert = await this.alertCtrl.create({
               header: 'Alert',
