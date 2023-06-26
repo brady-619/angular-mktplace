@@ -5,15 +5,15 @@
 <ion-content>
   <ion-grid fixed>
     <ion-row>
-      <ion-col size="6">
+      <ion-col size="12">
         <ion-item lines="none">
           <ion-label text-wrap class="ion-text-center"
-            >Información de envío</ion-label
+            > <h1>Información de envío</h1> </ion-label
           >
         </ion-item>
       </ion-col>
 
-      <ion-col size="6">
+      <!-- <ion-col size="6">
         <ion-item-group>
           <ion-label text-wrap class="ion-text-center"
             >Ya tienes cuenta?</ion-label
@@ -23,7 +23,7 @@
             <a href="/login">Iniciar sesión</a>
           </ion-label>
         </ion-item-group>
-      </ion-col>
+      </ion-col> -->
 
       <!-- 
       <ion-col size="12">
@@ -61,7 +61,7 @@
               </ion-item>
             </ion-col>
 
-            <ion-col size="12">
+            <ion-col size="12" >
               <ion-grid fixed>
                 <ion-row>
                   <ion-col size="6">
@@ -103,6 +103,11 @@
             </ion-col>
 
 
+            <!-- <ion-button (click)="generaorden()" expand="block" fill="clear" shape="round">
+              Orden
+            </ion-button> -->
+
+
 
             <ion-col size="12">
               <ion-item class="lineacarrito" lines="none">
@@ -117,7 +122,7 @@
               </ion-item>
             </ion-col>
 
-            <ion-col size="12">
+            <ion-col size="12" *ngIf="!valido">
               <ion-grid fixed>
                 <ion-row>
 
@@ -229,7 +234,7 @@
               <ion-select-option value="Zacatecas ">Zacatecas </ion-select-option>
 
           
-          </ion-select>
+                    </ion-select>
                       </ion-item>
                     </ion-list>
                   </ion-col>
@@ -271,26 +276,178 @@
 
 
 
+            <ion-col size="12" *ngIf="valido">
+              <ion-grid fixed>
+                <ion-row>
 
-<ion-col size="12" >
-  
-    
-                  <ngx-paypal [config]="payPalConfig"></ngx-paypal>
-                  
-</ion-col>
-   
-
-
-
-
-
-
+                  <ion-col size="8">
+                    <ion-input  [(ngModel)]="calle"
+                      label="Calle"
+                      label-placement="floating"
+                      fill="outline"
+                      placeholder="Calle" disabled
+                    ></ion-input>
+                  </ion-col>
 
 
-            <ion-col size="12">
+                  <ion-col size="4">
+                    <ion-input   [(ngModel)]="numero"
+                      label="Número"
+                      label-placement="floating"
+                      fill="outline"
+                      placeholder="Número" disabled
+                    ></ion-input>
+                  </ion-col>
+
+
+
+
+                  <ion-col size="6">
+                    <ion-input   [(ngModel)]="colonia"
+                      label="Colonia"
+                      label-placement="floating"
+                      fill="outline"
+                      placeholder="Colonia" disabled
+                    ></ion-input>
+                  </ion-col>
+
+
+                  <ion-col size="6">
+                    <ion-input   [(ngModel)]="alcaldia"
+                      label="Municipio/Alcaldia"
+                      label-placement="floating"
+                      fill="outline"
+                      placeholder="Municipio" disabled
+                    ></ion-input>
+                  </ion-col>
+
+
+
+                  <ion-col size="6">
+                    <ion-input   [(ngModel)]="cp"
+                      label="CP"
+                      label-placement="floating"
+                      fill="outline"
+                      placeholder="CP" disabled
+                    ></ion-input>
+                  </ion-col>
+
+
+
+
+
+
+
+                  <ion-col size="6">
+                    
+                    <ion-list >
+                      
+                      <ion-item lines ="none" color="dark" >
+
+                        
+                        <ion-select   aria-label="estado"   [(ngModel)]="estado"  disabled placeholder="Selecciona tu estado">
+                          <ion-select-option value="Aguascalientes">Aguascalientes</ion-select-option>
+                          <ion-select-option value="Baja California">Baja California</ion-select-option>
+                          <ion-select-option value="Baja California Sur">Baja California Sur </ion-select-option>
+
+                       
+                        <ion-select-option value="Campeche">Campeche</ion-select-option>
+                   
+                   <ion-select-option value="Chiapas">Chiapas</ion-select-option>
+            
+                    <ion-select-option value="Chihuahua">Chihuahua</ion-select-option>
+              
+                  <ion-select-option value="CDMX">CDMX</ion-select-option>
+        
+                <ion-select-option value="Coahuila">Coahuila</ion-select-option>
+     
+              <ion-select-option value="Colima">Colima</ion-select-option>
+
+              <ion-select-option value="Durango">Durango </ion-select-option>
+              <ion-select-option value="Estado de México">Estado de México </ion-select-option>
+              <ion-select-option value="Guanajuato">Guanajuato </ion-select-option>
+              <ion-select-option value="Guerrero">Guerrero</ion-select-option>
+              <ion-select-option value="Hidalgo">Hidalgo</ion-select-option>
+              <ion-select-option value="Jalisco">Jalisco</ion-select-option>
+              <ion-select-option value="Michoacán">Michoacán </ion-select-option>
+              <ion-select-option value="Morelos">Morelos </ion-select-option>
+              <ion-select-option value="Nayarit">Nayarit  </ion-select-option>
+              <ion-select-option value="Nuevo León">Nuevo León </ion-select-option>
+              <ion-select-option value="Oaxaca">Oaxaca </ion-select-option>
+              <ion-select-option value="Puebla">Puebla</ion-select-option>
+              <ion-select-option value="Querétaro">Querétaro </ion-select-option>
+              <ion-select-option value="Quintana Roo">Quintana Roo</ion-select-option>
+              <ion-select-option value="San Luis Potosí">San Luis Potosí  </ion-select-option>
+              <ion-select-option value="Sinaloa">Sinaloa</ion-select-option>
+              <ion-select-option value="Sonora">Sonora</ion-select-option>
+              <ion-select-option value="Tabasco">Tabasco</ion-select-option>
+              <ion-select-option value="Tamaulipas">Tamaulipas</ion-select-option>
+              <ion-select-option value="Tlaxcala">Tlaxcala </ion-select-option>
+              <ion-select-option value="Veracruz">Veracruz</ion-select-option>
+              <ion-select-option value="Yucatán">Yucatán</ion-select-option>
+              <ion-select-option value="Zacatecas ">Zacatecas </ion-select-option>
+
+          
+                    </ion-select>
+                      </ion-item>
+                    </ion-list>
+                  </ion-col>
+
+
+
+
+                  <ion-col size="12">
+                    <ion-input  [(ngModel)]="instrucciones" disabled
+                      label="Instrucciones"
+                      label-placement="floating"
+                      fill="outline"
+                      placeholder="Ingresa tus referencias"
+                    ></ion-input>
+                  </ion-col>
+
+
+
+
+
+
+
+
+
+                  <ion-col size="8" >
+
+
+
+
+                   
+
+                    
+                  </ion-col>
+
+
+                </ion-row>
+              </ion-grid>
+            </ion-col>
+
+
+
+
+
+
+
+
+
+            <ion-col size="12" *ngIf="!valido">
 
               <ion-button (click)="pago(nombre,calle,numero, colonia,alcaldia, cp,estado,instrucciones )"  expand="block"color="orange" shape="round">
                 Continuar con pago
+              </ion-button>
+              
+            </ion-col>
+
+            <ion-col size="12" *ngIf="valido">
+
+              <ion-button (click)="editardireccion()"  expand="block"color="orange" shape="round">
+                Editar dirección
               </ion-button>
               
             </ion-col>
@@ -299,6 +456,12 @@
 
 
             
+            <ion-col size="12" *ngIf="valido" >
+  
+    
+              <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+              
+</ion-col>
 
 
 
