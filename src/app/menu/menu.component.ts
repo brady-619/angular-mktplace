@@ -80,6 +80,19 @@ export class MenuComponent  implements OnInit {
     this.router.navigate(['/perfil']);
     this.menu.close();
   }
+
+
+
+  mispedidos(){
+    this.router.navigate(['/mis-pedidos']);
+    this.menu.close();
+  }
+
+
+
+
+
+
   salir(){
 console.log("cierra sesion")
 window.localStorage.clear();

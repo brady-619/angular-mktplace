@@ -98,4 +98,8 @@ export const routes: Routes = [
     path: 'sims',
     loadComponent: () => import('./pages/sims/sims.page').then( m => m.SimsPage)
   },
+  {
+    path: 'mis-pedidos',
+    loadComponent: () => import('./pages/mis-pedidos/mis-pedidos.page').then( m => m.MisPedidosPage)
+  },
 ];

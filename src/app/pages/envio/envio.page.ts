@@ -64,12 +64,15 @@ export class EnvioPage implements OnInit {
   id_cliente: any;
 
   valido = false;
+  orden_paypal:any;
 
   orden: any;
 
   showSuccess: any;
   showCancel: any;
   showError: any;
+  req_orden:any;
+  req_orden_direccion:any;
 
   totales: any;
 
@@ -130,7 +133,7 @@ export class EnvioPage implements OnInit {
     this.payPalConfig = {
       currency: 'MXN',
       clientId:
-        'AcBq5wH2s9JU9CJliGrBUi4oR6zTV6EiMqw9h0shyCgxEZfI4IFP4yugiTxeHnpy3kXmp_cyDChUMEmI',
+        'Ab5Eqrk-NOVRhy859YUX73ZSctz8CchQat0EjCPNZ0y6IIAMpvynYtUwskzSIjVKrrPHrH1KFvA1vG1K',
       createOrderOnClient: (data) =>
         <ICreateOrderRequest>{
           intent: 'CAPTURE',
@@ -177,6 +180,13 @@ export class EnvioPage implements OnInit {
         actions.order.get().then(async (details: any) => {
           console.log('onApprove: ', details);
 
+          this.orden_paypal = details.id
+          console.log(this.orden_paypal)
+
+
+// id de transaccion paypal
+          // details.id
+
           console.log('onApprove: ', details.status);
           // APPROVED
           if (details.status === 'APPROVED') {
@@ -186,7 +196,7 @@ export class EnvioPage implements OnInit {
               // message: 'This is an alert!',
               buttons: ['OK'],
             });
-            await alert.present();
+         
 
             // se manda el update de carrito
 
@@ -205,15 +215,18 @@ export class EnvioPage implements OnInit {
 
 
 
-let req_orden = {
+this.req_orden = {
   data: [
     {
      orden: this.orden,
-      id_cliente: cliente
+      id_cliente: cliente,
+      orden_paypal: this.orden_paypal
     },
   ],
 };
-await this.updatePagadoCarrito.UpdatePagadoCarrito(req_orden)
+
+console.log(this.req_orden);
+await this.updatePagadoCarrito.UpdatePagadoCarrito(this.req_orden)
 .then(async (respuesta) => {
 
    console.log(respuesta);
@@ -255,17 +268,20 @@ console.log(localStorage.getItem('id_cliente'));
 
 
 
-            let req_orden_direccion = {
+             this.req_orden_direccion = {
               data: [
                 {
                  orden: this.orden,
                   id_cliente: localStorage.getItem('id_cliente'),
                   pago: totales,
-                  direccion: direccion
+                  direccion: direccion,
+                  orden_paypal: this.orden_paypal
                 },
               ],
             };
-            await this.insertLogVenta.InsertLogVenta(req_orden_direccion)
+console.log(this.req_orden_direccion)
+
+            await this.insertLogVenta.InsertLogVenta(this.req_orden_direccion)
             .then(async (respuesta) => {
             
                console.log(respuesta);
@@ -277,7 +293,7 @@ console.log(localStorage.getItem('id_cliente'));
 
 
 
-
+            await alert.present();
 
 
 

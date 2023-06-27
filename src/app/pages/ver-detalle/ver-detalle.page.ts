@@ -286,8 +286,114 @@ else{
 
 }
 
-comprar(cantidad:any,idmkt_productos:any){
-  console.log("carrito", cantidad, idmkt_productos)
+async comprar(cantidad:any,idmkt_productos:any,precio: any){
+  console.log("carrito", cantidad, idmkt_productos,precio)
+
+
+
+
+  this.id_cliente = localStorage.getItem('id_cliente');
+
+
+
+  if(this.id_cliente) {
+
+
+
+
+
+
+   
+   console.log('can', cantidad, idmkt_productos, precio);
+
+   let total = Number(precio) * Number(cantidad);
+
+
+
+
+
+   
+
+   if (cantidad >= 1) {
+     // armando params
+     let params = {
+       data: [
+         {
+           cliente: this.id_cliente,
+           idmkt_productos: idmkt_productos,
+           cantidad: cantidad,
+           precio: precio,
+           total: total,
+         },
+       ],
+     };
+
+     // agrega a carrito
+     await this.InsertVentaCarrito.InsertVentaCarrito(params).then(
+       async (respuesta) => {
+         console.log(respuesta);
+
+         if ((respuesta.status = '000')) {
+           const alert = await this.alertController.create({
+             header: 'Aviso',
+             subHeader: 'Agregado al carrito con éxito',
+             // message: 'This is an alert!',
+             buttons: ['OK'],
+           });
+
+           await alert.present();
+
+
+
+
+           setTimeout(() => {
+
+             this.router.navigate(['carrito'])
+             .then(() => {
+               window.location.reload();
+             });
+
+           }, 3000);
+
+
+           // this.router.navigate(['/home']);
+         } else {
+           const alert = await this.alertController.create({
+             header: 'Aviso',
+             subHeader: 'Error al agregar a carrito',
+             // message: 'This is an alert!',
+             buttons: ['OK'],
+           });
+
+           await alert.present();
+         }
+       }
+     );
+   } else {
+     const alert = await this.alertController.create({
+       header: 'Aviso',
+       subHeader: 'Favor de escoger cantidad',
+       // message: 'This is an alert!',
+       buttons: ['OK'],
+     });
+
+     await alert.present();
+   }
+ 
+
+ }
+
+else{
+ this.router.navigate(['/login'])
+}
+
+
+
+
+
+
+
+
 
 
 }

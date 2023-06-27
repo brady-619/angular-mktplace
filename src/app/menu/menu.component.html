@@ -64,6 +64,13 @@ Mi perfil
 </div>
 
 <div *ngIf="id_cliente">
+  <ion-button (click)="mispedidos()" color="dark" expand="block" fill="clear" shape="round"   >
+Mis pedidos
+    </ion-button>
+
+</div>
+
+<div *ngIf="id_cliente">
     <ion-button (click)="salir()"  color="danger" expand="block" shape="round" >
       Cerrar Sesión
       </ion-button>
