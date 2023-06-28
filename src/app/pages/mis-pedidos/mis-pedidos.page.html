@@ -31,13 +31,182 @@
         </ion-item>
 
 
-        <br>
+  
 
 
-        <ion-item>
-          <ion-label class="ion-text-center">Enviados</ion-label>
-          <ion-label class="ion-text-center">Entregados</ion-label>
-        </ion-item>
+<!-- 
+
+        <ion-row>
+          <ion-col size="10">
+            <ion-input 
+            label="Busqueda de pedido"
+            label-placement="floating"
+            placeholder="Ingresa tu numero de pedido"
+          ></ion-input>
+          </ion-col>
+          <ion-col size="2">
+            <ion-item lines="none">
+               <ion-buttons slot="end">
+              <ion-button (click)="abremenu()" >
+                <ion-icon color="dark" slot="icon-only" name="filter-outline"></ion-icon>
+              
+              </ion-button>
+            </ion-buttons>
+            </ion-item>
+
+
+
+
+
+
+
+
+
+           
+            
+          </ion-col>
+        </ion-row>
+
+
+
+
+        <ion-item *ngIf="estadomenu == true">
+          <div>
+            <ion-list  >
+              <ion-item lines="none">
+            <ion-button (click)="cierramenu()" expand="block" fill="clear" shape="round">
+              Cerrar
+            </ion-button>
+              </ion-item>
+
+              <ion-item lines="none">
+                <ion-label (click)="ordmenmay()" >EN RUTA</ion-label>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label (click)="ordmenmay()" >ENTREGADO</ion-label>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label (click)="ordmenmay()" >PREPARANDO ENVIO</ion-label>
+              </ion-item>
+        
+              <ion-item lines="none">
+                <ion-label (click)="ordmaymen()" >Pedidos MÁS ANTIGUOS-MÁS RECIENTES</ion-label>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label (click)="ordmenmay()" >Pedidos MÁS RECIENTES-MÁS ANTIGUOS</ion-label>
+              </ion-item>
+
+
+
+          
+            </ion-list>
+          </div>
+        </ion-item> -->
+
+
+
+        <ion-col size="12">
+          <ion-list>
+            <ion-item>
+              <ion-select (ionChange)="cambio()" [(ngModel)]="estatus" label="Filtro por estatus" placeholder="Selecciona">
+                <ion-select-option value="PREPARANDO ENVIO">PREPARANDO ENVIO</ion-select-option>
+                <ion-select-option value="EN RUTA">EN RUTA</ion-select-option>
+                <ion-select-option value="ENTREGADO">ENTREGADO</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+          
+        </ion-col>
+
+
+
+
+
+
+
+        <ion-col size="12" *ngIf="data">
+
+          <ion-grid fixed>
+            <ion-row *ngFor="let item of data" >
+              <ion-col size="12">
+
+                <ion-card>
+                  <ion-card-content>
+
+                    <ion-row>
+                    <ion-col size="8">
+  <b>Orden:</b>   <br>{{item.orden}}    <br>
+                  <ion-label><b>Estatus:</b><br> {{item.estatus_envio}}  </ion-label>   <br>
+                  <ion-label><b>Producto:</b><br> {{item.producto}}  </ion-label>   <br>
+</ion-col>
+
+<ion-col size="4">
+  <ion-img [src]=item.imagen></ion-img>
+  
+</ion-col>  
+                    </ion-row>
+
+
+
+               
+
+
+
+
+                  <ion-accordion-group>
+                    <ion-accordion value="first">
+                      <ion-item slot="header" color="light">
+                        <ion-label>Detalle de pedido</ion-label>
+                      </ion-item>
+                      <div class="ion-padding" slot="content">
+                        
+
+
+            
+                    
+          <ion-label> <b>Cantidad:</b> {{item.cantidad}} </ion-label>          <br>
+
+
+
+          <div *ngIf="guia">
+
+            <ion-label><b>Proveedor:</b> {{item.proveedor}}</ion-label> <br>
+            <ion-label><b>Guia:</b> {{item.guia}}</ion-label>
+           </div>
+           
+
+ <ion-label class="footer"><b>Dirección:</b> <br>{{item.direccion}} </ion-label> 
+ 
+
+
+
+
+</div>
+</ion-accordion>
+</ion-accordion-group>
+
+
+
+                  </ion-card-content>
+                </ion-card>
+
+
+              </ion-col>
+              
+            </ion-row>
+          </ion-grid>
+          
+        </ion-col>
+
+
+
+
+
+
+        
+
+
+
 
 
 
