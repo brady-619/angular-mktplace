@@ -34,6 +34,27 @@ export class RegistroPage implements OnInit {
   async save(nombre: any, apellido: any, email: any, celular:any,password: any) {
     console.log('params', nombre, apellido, email,celular, password);
 
+    nombre==undefined?nombre='':nombre;
+    apellido==undefined?apellido='':apellido;
+    email==undefined?email='':email;
+    celular==undefined?celular='':celular;
+    password==undefined?password='':password;
+
+
+
+    if(nombre.length>=3 &&
+      apellido.length>=3 &&
+      email.length>=7 &&
+      celular.length>=10 &&
+      password.length>=3
+      
+      ){
+
+    
+
+
+
+
 
 
 let params = {
@@ -98,8 +119,24 @@ let params = {
 
 
   }
+
+
+else{
+  const alert = await this.alertController.create({
+    header: 'Alert',
+    subHeader: 'Favor de ingresar valores válidos en tu registro',
+    // message: 'This is an alert!',
+    buttons: ['OK'],
+  });
+
+  await alert.present();
+
 }
 
+
+
+}
+}
 
 
 
