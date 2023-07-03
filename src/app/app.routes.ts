@@ -79,10 +79,6 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/ver-detalle/ver-detalle.page').then( m => m.VerDetallePage)
   },
   {
-    path: 'respaldo-pay-pal',
-    loadComponent: () => import('./pages/respaldo-pay-pal/respaldo-pay-pal.page').then( m => m.RespaldoPayPalPage)
-  },
-  {
     path: 'envio',
     loadComponent: () => import('./pages/envio/envio.page').then( m => m.EnvioPage)
   },

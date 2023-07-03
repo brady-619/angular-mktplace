@@ -132,8 +132,10 @@ export class EnvioPage implements OnInit {
   async initConfig(totales: any) {
     this.payPalConfig = {
       currency: 'MXN',
-      clientId:
-        'Ab5Eqrk-NOVRhy859YUX73ZSctz8CchQat0EjCPNZ0y6IIAMpvynYtUwskzSIjVKrrPHrH1KFvA1vG1K',
+      // dev
+      clientId: 'Ab5Eqrk-NOVRhy859YUX73ZSctz8CchQat0EjCPNZ0y6IIAMpvynYtUwskzSIjVKrrPHrH1KFvA1vG1K',
+      // prod
+  // clientId:'AbWn1eAqAWs24JTO6wOASkRDJVmAbGSWS8G6jueU_oJ8f52mfZXTEHabrz0D4MRQAV5PM7zCzfeB7SZt',
       createOrderOnClient: (data) =>
         <ICreateOrderRequest>{
           intent: 'CAPTURE',
