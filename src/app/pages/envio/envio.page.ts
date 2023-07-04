@@ -169,6 +169,7 @@ export class EnvioPage implements OnInit {
         commit: 'true',
       },
       style: {
+        
         label: 'paypal',
         layout: 'vertical',
         shape: 'pill',
@@ -176,6 +177,7 @@ export class EnvioPage implements OnInit {
         // layout: 'horizontal',
         // label: 'paypal',
         tagline: false,
+        // height: 25,
       },
       onApprove: (data, actions) => {
         // console.log('onApprove - transaction was approved, but not authorized', data, actions);
@@ -240,21 +242,21 @@ await this.updatePagadoCarrito.UpdatePagadoCarrito(this.req_orden)
 
 
 
-console.log(this.orden);
-console.log(localStorage.getItem('id_cliente'));
-            console.log('pago total', totales);
+// console.log(this.orden);
+// console.log(localStorage.getItem('id_cliente'));
+//             console.log('pago total', totales);
             
 
 
 
 
-            console.log(localStorage.getItem('calle'));
-            console.log(localStorage.getItem('numero'));
-            console.log(localStorage.getItem('colonia'));
-            console.log(localStorage.getItem('alcaldia'));
-            console.log(localStorage.getItem('cp'));
-            console.log(localStorage.getItem('estado'));
-            console.log(localStorage.getItem('instrucciones'));
+//             console.log(localStorage.getItem('calle'));
+//             console.log(localStorage.getItem('numero'));
+//             console.log(localStorage.getItem('colonia'));
+//             console.log(localStorage.getItem('alcaldia'));
+//             console.log(localStorage.getItem('cp'));
+//             console.log(localStorage.getItem('estado'));
+//             console.log(localStorage.getItem('instrucciones'));
 
 
 
