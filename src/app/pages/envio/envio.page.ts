@@ -315,10 +315,10 @@ console.log(this.req_orden_direccion)
           }
         });
       },
-      // onClientAuthorization: (data) => {
-      //     console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
-      //     this.showSuccess = true;
-      // },
+      onClientAuthorization: (data) => {
+          console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
+          this.showSuccess = true;
+      },
       onCancel: (data, actions) => {
         console.log('OnCancel', data, actions);
         this.showCancel = true;
