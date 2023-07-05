@@ -20,7 +20,7 @@ export class FooterComponent  implements OnInit {
   ngOnInit() {}
 
   pba(){
-    console.log("da")
+    // console.log("da")
     // this.router.navigate(["https://wa.me/" +this.countrycode+this.whatsappnumber+"?text=¡Hola! Podrías brindarme mayor información de los Planes de Previsión J. García López."])
     // // window.location.href=this.url;
 

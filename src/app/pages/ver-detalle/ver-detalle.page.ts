@@ -72,7 +72,7 @@ export class VerDetallePage implements OnInit {
     // traer servicio con su infodata
 
     await this.GetDetalleProducto.GetMktProductoDetalle(params).then(async respuesta => {
-      console.log(respuesta);
+      // console.log(respuesta);
 
       this.data = respuesta.data;
 
@@ -86,7 +86,7 @@ export class VerDetallePage implements OnInit {
     }
 
     await this.getMktProductos.GetMktProductosCategoria(request).then(async respuesta => {
-      console.log(respuesta);
+      // console.log(respuesta);
 
        this.productos_relacionados= respuesta.data;
 
@@ -104,7 +104,7 @@ export class VerDetallePage implements OnInit {
 
 
   subir(){
-    console.log("sube")
+    // console.log("sube")
  
     this.content.scrollToTop(400);
   }
@@ -112,7 +112,7 @@ export class VerDetallePage implements OnInit {
 
   detalle(idmkt_productos:any, categoria:any){
 
-    console.log(idmkt_productos)
+    // console.log(idmkt_productos)
 
 
 
@@ -153,7 +153,7 @@ export class VerDetallePage implements OnInit {
 
 
   menos(){
-    console.log("menos")
+    // console.log("menos")
 
     if(this.cantidad>1){
     this.cantidad= this.cantidad-1
@@ -162,7 +162,7 @@ export class VerDetallePage implements OnInit {
 
 
   mas(){
-    console.log("mas")
+    // console.log("mas")
 
 
     if(this.cantidad<9){
@@ -195,7 +195,7 @@ export class VerDetallePage implements OnInit {
 
 
     
-    console.log('can', cantidad, idmkt_productos, precio);
+    // console.log('can', cantidad, idmkt_productos, precio);
 
     let total = Number(precio) * Number(cantidad);
 
@@ -222,7 +222,7 @@ export class VerDetallePage implements OnInit {
       // agrega a carrito
       await this.InsertVentaCarrito.InsertVentaCarrito(params).then(
         async (respuesta) => {
-          console.log(respuesta);
+          // console.log(respuesta);
 
           if ((respuesta.status = '000')) {
             const alert = await this.alertController.create({
@@ -287,7 +287,7 @@ else{
 }
 
 async comprar(cantidad:any,idmkt_productos:any,precio: any){
-  console.log("carrito", cantidad, idmkt_productos,precio)
+  // console.log("carrito", cantidad, idmkt_productos,precio)
 
 
 
@@ -304,7 +304,7 @@ async comprar(cantidad:any,idmkt_productos:any,precio: any){
 
 
    
-   console.log('can', cantidad, idmkt_productos, precio);
+  //  console.log('can', cantidad, idmkt_productos, precio);
 
    let total = Number(precio) * Number(cantidad);
 
@@ -331,7 +331,7 @@ async comprar(cantidad:any,idmkt_productos:any,precio: any){
      // agrega a carrito
      await this.InsertVentaCarrito.InsertVentaCarrito(params).then(
        async (respuesta) => {
-         console.log(respuesta);
+        //  console.log(respuesta);
 
          if ((respuesta.status = '000')) {
            const alert = await this.alertController.create({

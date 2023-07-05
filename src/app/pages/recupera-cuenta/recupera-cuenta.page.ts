@@ -54,7 +54,7 @@ export class RecuperaCuentaPage implements OnInit {
       celular: celular
     };
 
-    console.log(params)
+    // console.log(params)
 
 
 
@@ -62,7 +62,7 @@ export class RecuperaCuentaPage implements OnInit {
 
 
     await this.LoginResetPassword.LoginResetPassword(params).then(async (respuesta) => {
-      console.log(respuesta);
+      // console.log(respuesta);
 
 
       //  this.idmkt_clientes= localStorage.getItem('id_cliente')
@@ -77,7 +77,7 @@ export class RecuperaCuentaPage implements OnInit {
 
 
       this.idmkt_clientes= respuesta.data[0].idmkt_clientes
-       console.log(this.idmkt_clientes)
+      //  console.log(this.idmkt_clientes)
 
 
         const alert = await this.alertController.create({

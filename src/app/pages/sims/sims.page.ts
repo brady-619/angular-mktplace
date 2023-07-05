@@ -35,7 +35,7 @@ export class SimsPage implements OnInit {
   
 
   swiperSlideChanged(e:any){
-    console.log('chan',e)
+    // console.log('chan',e)
   }
 
 
@@ -84,12 +84,12 @@ export class SimsPage implements OnInit {
     if(localStorage.getItem("ingresado")!='si'  ){
       this.cliente='';
       this.botones='0'
-      console.log("no")
+      // console.log("no")
     }
     else{
       this.cliente = localStorage.getItem("cliente")
       this.botones='1'
-      console.log("si")
+      // console.log("si")
     }
 
     // localStorage.getItem("idmkt_productos")
@@ -105,7 +105,7 @@ export class SimsPage implements OnInit {
     }
 
     await this.getMktProductos.GetMktProductosCategoria(params).then(async respuesta => {
-      console.log(respuesta);
+      // console.log(respuesta);
 
        this.data= respuesta.data;
 
@@ -119,7 +119,7 @@ export class SimsPage implements OnInit {
 
 
   subir(){
-    console.log("sube")
+    // console.log("sube")
  
     this.content.scrollToTop(400);
   }
@@ -128,14 +128,14 @@ export class SimsPage implements OnInit {
 
 
   abremenu(){
-    console.log("abre menu", this.estadomenu)
+    // console.log("abre menu", this.estadomenu)
 
     this.estadomenu=true;
 
   }
 
   cierramenu(){
-    console.log("cierra menu", this.estadomenu)
+    // console.log("cierra menu", this.estadomenu)
 
     this.estadomenu=false;
 
@@ -144,17 +144,17 @@ export class SimsPage implements OnInit {
 
 
   ordaz(){
-    console.log("az")
+    // console.log("az")
   }
 
   ordza(){
 
-    console.log("za")
+    // console.log("za")
   }
 
 
   async ordmaymen(){
-    console.log("maymen")
+    // console.log("maymen")
 
 
         //telefonia
@@ -163,7 +163,7 @@ export class SimsPage implements OnInit {
         }
 
   await this.getProductosMayMen.GetProductosMayorMenor(params).then(async respuesta => {
-      console.log(respuesta);
+      // console.log(respuesta);
 
        this.data= respuesta.data;
        this.estadomenu=false;
@@ -180,7 +180,7 @@ export class SimsPage implements OnInit {
 
 
   async ordmenmay(){
-    console.log("menmay")
+    // console.log("menmay")
 
 
         //telefonia
@@ -189,7 +189,7 @@ export class SimsPage implements OnInit {
         }
 
   await this.getProductosMenMay.GetProductosMenorMayor(params).then(async respuesta => {
-      console.log(respuesta);
+      // console.log(respuesta);
 
        this.data= respuesta.data;
        this.estadomenu=false;
@@ -206,7 +206,7 @@ export class SimsPage implements OnInit {
 
   detalle(idmkt_productos:any, categoria:any){
 
-    console.log(idmkt_productos)
+    // console.log(idmkt_productos)
 
 
 

@@ -45,7 +45,7 @@ ver=false
   
 
   tooglePassword(){
-    console.log("entra")
+    // console.log("entra")
 
 if(this.ver){
   this.ver=false
@@ -72,7 +72,7 @@ else{
     };
 
     await this.loginCliente.LoginCliente(params).then(async (respuesta) => {
-      console.log(respuesta);
+      // console.log(respuesta);
 
       if (respuesta.status === '000') {
         const alert = await this.alertController.create({

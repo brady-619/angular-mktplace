@@ -52,14 +52,14 @@ export class CheckoutPage implements OnInit {
   async ionViewWillEnter() {
     // traer data de direccion
     this.id_cliente = localStorage.getItem('id_cliente');
-    console.log(this.id_cliente);
+    // console.log(this.id_cliente);
 
     let request = {
       idmkt_clientes: this.id_cliente
     };
 
     await this.getInfoCliente.GetInfoCliente(request).then(async (resp) => {
-      console.log(resp);
+      // console.log(resp);
 
       this.data_cliente = resp.data;
 
@@ -81,14 +81,14 @@ export class CheckoutPage implements OnInit {
     if (localStorage.getItem('ingresado') != 'si') {
       this.cliente = '';
       this.botones = '0';
-      console.log('no');
+      // console.log('no');
     } else {
       this.cliente = localStorage.getItem('cliente');
       this.botones = '1';
-      console.log('si');
+      // console.log('si');
     }
 
-    console.log('cnte', this.cliente);
+    // console.log('cnte', this.cliente);
 
     //telefonia
     let params = {
@@ -99,7 +99,7 @@ export class CheckoutPage implements OnInit {
 
     await this.GetDetalleProducto.GetMktProductoDetalle(params).then(
       async (respuesta) => {
-        console.log(respuesta);
+        // console.log(respuesta);
 
         this.data = respuesta.data;
         this.cantidad = localStorage.getItem('cantidad');

@@ -48,7 +48,7 @@ export class AudifonosBtPage implements OnInit {
 
 
   swiperSlideChanged(e:any){
-    console.log('chan',e)
+    // console.log('chan',e)
   }
 
 
@@ -108,7 +108,7 @@ export class AudifonosBtPage implements OnInit {
     }
 
     await this.getMktProductos.GetMktProductosCategoria(params).then(async respuesta => {
-      console.log(respuesta);
+      // console.log(respuesta);
 
        this.data= respuesta.data;
 
@@ -122,7 +122,7 @@ export class AudifonosBtPage implements OnInit {
 
 
   subir(){
-    console.log("sube")
+    // console.log("sube")
  
     this.content.scrollToTop(400);
   }
@@ -131,14 +131,14 @@ export class AudifonosBtPage implements OnInit {
 
 
   abremenu(){
-    console.log("abre menu", this.estadomenu)
+    // console.log("abre menu", this.estadomenu)
 
     this.estadomenu=true;
 
   }
 
   cierramenu(){
-    console.log("cierra menu", this.estadomenu)
+    // console.log("cierra menu", this.estadomenu)
 
     this.estadomenu=false;
 
@@ -147,17 +147,17 @@ export class AudifonosBtPage implements OnInit {
 
 
   ordaz(){
-    console.log("az")
+    // console.log("az")
   }
 
   ordza(){
 
-    console.log("za")
+    // console.log("za")
   }
 
 
   async ordmaymen(){
-    console.log("maymen")
+    // console.log("maymen")
 
 
         //telefonia
@@ -166,7 +166,7 @@ export class AudifonosBtPage implements OnInit {
         }
 
   await this.getProductosMayMen.GetProductosMayorMenor(params).then(async respuesta => {
-      console.log(respuesta);
+      // console.log(respuesta);
 
        this.data= respuesta.data;
        this.estadomenu=false;
@@ -183,7 +183,7 @@ export class AudifonosBtPage implements OnInit {
 
 
   async ordmenmay(){
-    console.log("menmay")
+    // console.log("menmay")
 
 
         //telefonia
@@ -192,7 +192,7 @@ export class AudifonosBtPage implements OnInit {
         }
 
   await this.getProductosMenMay.GetProductosMenorMayor(params).then(async respuesta => {
-      console.log(respuesta);
+      // console.log(respuesta);
 
        this.data= respuesta.data;
        this.estadomenu=false;
@@ -209,7 +209,7 @@ export class AudifonosBtPage implements OnInit {
 
   detalle(idmkt_productos:any, categoria:any){
 
-    console.log(idmkt_productos)
+    // console.log(idmkt_productos)
 
 
 

@@ -94,7 +94,7 @@ export class MenuComponent  implements OnInit {
 
 
   salir(){
-console.log("cierra sesion")
+// console.log("cierra sesion")
 window.localStorage.clear();
     this.menu.close();
 

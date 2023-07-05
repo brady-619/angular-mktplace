@@ -69,12 +69,12 @@ export class TelefoniaPage implements OnInit {
     if(localStorage.getItem("ingresado")!='si'  ){
       this.cliente='';
       this.botones='0'
-      console.log("no")
+      // console.log("no")
     }
     else{
       this.cliente = localStorage.getItem("cliente")
       this.botones='1'
-      console.log("si")
+      // console.log("si")
     }
 
     // localStorage.getItem("idmkt_productos")
@@ -90,7 +90,7 @@ export class TelefoniaPage implements OnInit {
     }
 
     await this.getMktProductos.GetMktProductosCategoria(params).then(async respuesta => {
-      console.log(respuesta);
+      // console.log(respuesta);
 
        this.data= respuesta.data;
 

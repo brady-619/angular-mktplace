@@ -78,16 +78,16 @@ cantidad:any;
     if(localStorage.getItem("ingresado")!='si'  ){
       this.cliente='';
       this.botones='0'
-      console.log("no")
+      // console.log("no")
     }
     else{
       this.cliente = localStorage.getItem("cliente")
       this.botones='1'
-      console.log("si")
+      // console.log("si")
     }
 
 
-    console.log("cnte", this.cliente)
+    // console.log("cnte", this.cliente)
 
 
     //telefonia
@@ -98,7 +98,7 @@ cantidad:any;
     // console.log(params)
 
     await this.GetDetalleProducto.GetMktProductoDetalle(params).then(async respuesta => {
-      console.log(respuesta);
+      // console.log(respuesta);
 
       this.data = respuesta.data;
 
@@ -171,7 +171,7 @@ cantidad:any;
 
 
    async agregar(cantidad:any, idmkt_productos:any, precio:any){
-    console.log("can", cantidad, idmkt_productos, precio)
+    // console.log("can", cantidad, idmkt_productos, precio)
 
 
     let total= Number(precio)* Number(cantidad)
@@ -192,7 +192,7 @@ cantidad:any;
 
 // agrega a carrito
 await this.InsertVentaCarrito.InsertVentaCarrito(params).then(async respuesta => {
-  console.log(respuesta);
+  // console.log(respuesta);
 
   if (respuesta.status = "000") {
     const alert = await this.alertController.create({
@@ -271,7 +271,7 @@ this.router.navigate(['/telefonia'])
    }
 
    async comprar(cantidad:any, idmkt_productos:any,precio:any ){
-    console.log("can", cantidad, idmkt_productos, precio)
+    // console.log("can", cantidad, idmkt_productos, precio)
 
 
     let total= Number(precio)* Number(cantidad)
@@ -292,7 +292,7 @@ this.router.navigate(['/telefonia'])
 
 // agrega a carrito
 await this.InsertVentaCarrito.InsertVentaCarrito(params).then(async respuesta => {
-  console.log(respuesta);
+  // console.log(respuesta);
 
   if (respuesta.status = "000") {
     const alert = await this.alertController.create({

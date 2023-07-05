@@ -51,13 +51,13 @@ export class HeaderComponent  implements OnInit {
       cliente: this.cliente
     }
 
-    console.log(this.cliente)
+    // console.log(this.cliente)
 
     if(this.cliente){
 
 
   this.getCountCarrito.GetCountCarrito(params).then(async respuesta => {
-      console.log(respuesta);
+      // console.log(respuesta);
 
        this.contador= respuesta.data[0].contador;
 
@@ -119,7 +119,7 @@ export class HeaderComponent  implements OnInit {
 
 
  buscar(){
-  console.log("abre")
+  // console.log("abre")
   this.open=true
 
 
@@ -128,17 +128,17 @@ export class HeaderComponent  implements OnInit {
  }
 
  async cerrar(){
-  console.log("cierra")
+  // console.log("cierra")
   this.open=false
   this.data_header==undefined
 
   this.filterValue=undefined
 
-console.log(this.data_header)
+// console.log(this.data_header)
 
 
 
-console.log(this.data_header)
+// console.log(this.data_header)
 
  }
 
@@ -149,7 +149,7 @@ console.log(this.data_header)
  async applyFilter(event: Event) {
 
 
-  console.log(event)
+  // console.log(event)
 
   this.filterValue = (event.target as HTMLInputElement).value;
 
@@ -157,7 +157,7 @@ console.log(this.data_header)
 
 
     this.filterValue = this.filterValue.trim().toLowerCase();
-  console.log(this.filterValue);
+  // console.log(this.filterValue);
 
   // localStorage.setItem(this.filterValue,'busqueda')
 
@@ -171,12 +171,12 @@ console.log(this.data_header)
 if(this.filterValue.length > 0){
 
         await this.getProductosHeader.GetProductosHeader(params).then(async respuesta => {
-        console.log(respuesta);
+        // console.log(respuesta);
          this.data_header= respuesta.data;    
       });
 }
 else{
-  console.log("nada")
+  // console.log("nada")
 }
 
 
@@ -197,10 +197,10 @@ home(){
 
 
 productobuscado(productobuscado:any, categoria:any){
-  console.log("diste click en", productobuscado, categoria)
+  // console.log("diste click en", productobuscado, categoria)
 
 
-  console.log("cierra")
+  // console.log("cierra")
   this.open=false
   this.data_header==undefined
 

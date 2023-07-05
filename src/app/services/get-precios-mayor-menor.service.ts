@@ -20,7 +20,7 @@ export class GetPreciosMayorMenorService {
 
       },
       error: err =>{
-        console.log(err.error)
+        // console.log(err.error)
         reject(err)
       }
     });

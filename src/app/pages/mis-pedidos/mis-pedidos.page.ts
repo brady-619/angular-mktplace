@@ -62,7 +62,7 @@ export class MisPedidosPage implements OnInit {
 
 
   await this.getEstatusPedidos.GetEstatusPedido(params).then(async respuesta => {
-      console.log(respuesta);
+      // console.log(respuesta);
 
        this.data= respuesta.data;
        this.guia=false
@@ -76,14 +76,14 @@ export class MisPedidosPage implements OnInit {
 
 
   abremenu(){
-    console.log("abre menu", this.estadomenu)
+    // console.log("abre menu", this.estadomenu)
 
     this.estadomenu=true;
 
   }
 
   cierramenu(){
-    console.log("cierra menu", this.estadomenu)
+    // console.log("cierra menu", this.estadomenu)
 
     this.estadomenu=false;
 
@@ -91,7 +91,7 @@ export class MisPedidosPage implements OnInit {
   }
 
   async ordmaymen(){
-    console.log("maymen")
+    // console.log("maymen")
 
 
         //telefonia
@@ -117,7 +117,7 @@ export class MisPedidosPage implements OnInit {
 
 
   async ordmenmay(){
-    console.log("menmay")
+    // console.log("menmay")
 
 
         //telefonia
@@ -141,7 +141,7 @@ export class MisPedidosPage implements OnInit {
 
 
   async cambio(){
-    console.log("cambia",this.estatus)
+    // console.log("cambia",this.estatus)
 
 
 
@@ -161,7 +161,7 @@ export class MisPedidosPage implements OnInit {
 
 
 await this.getEstatusPedidos.GetEstatusPedido(params).then(async respuesta => {
-    console.log(respuesta);
+    // console.log(respuesta);
 
      this.data= respuesta.data;
      this.guia=true
@@ -181,7 +181,7 @@ await this.getEstatusPedidos.GetEstatusPedido(params).then(async respuesta => {
 
 
 await this.getEstatusPedidos.GetEstatusPedido(params).then(async respuesta => {
-    console.log(respuesta);
+    // console.log(respuesta);
 
      this.data= respuesta.data;
      this.guia=true

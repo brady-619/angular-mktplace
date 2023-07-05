@@ -98,7 +98,7 @@ localStorage.removeItem('totales_final')
 
         this.data = respuesta.data;
 
-        console.log(this.data);
+        // console.log(this.data);
 
         this.cantidad=this.data.cantidad
 
@@ -128,8 +128,8 @@ localStorage.removeItem('totales_final')
 
 
  async  menos(idmkt_carrito:any,cantidad:any,precio:any){
-    console.log("menos",cantidad)
-    console.log("idmkt_carrito",idmkt_carrito)
+    // console.log("menos",cantidad)
+    // console.log("idmkt_carrito",idmkt_carrito)
 
 
 let contador=cantidad;
@@ -140,7 +140,7 @@ let contador=cantidad;
 
       let total= ( contador * precio)
   
-      console.log(total)
+      // console.log(total)
           let params = {
             data: [{ cantidad: contador, total:total, idmkt_carrito: idmkt_carrito }],
           };
@@ -148,7 +148,7 @@ let contador=cantidad;
   
   
       await this.updateCantidadCarrito.UpdateCantidadTotal(params).then(async (resp) => {
-          console.log(resp);
+          // console.log(resp);
 
           this.ionViewWillEnter();
   
@@ -168,8 +168,8 @@ let contador=cantidad;
 
 
   async mas(idmkt_carrito:any,cantidad:number,precio:any){
-    console.log("mas",cantidad)
-    console.log("idmkt_carrito",idmkt_carrito)
+    // console.log("mas",cantidad)
+    // console.log("idmkt_carrito",idmkt_carrito)
 
 
 let contador=cantidad;
@@ -180,7 +180,7 @@ let contador=cantidad;
 
       let total= ( contador * precio)
   
-      console.log(total)
+      // console.log(total)
           let params = {
             data: [{ cantidad: contador, total:total, idmkt_carrito: idmkt_carrito }],
           };
@@ -188,7 +188,7 @@ let contador=cantidad;
   
   
       await this.updateCantidadCarrito.UpdateCantidadTotal(params).then(async (resp) => {
-          console.log(resp);
+          // console.log(resp);
 
           this.ionViewWillEnter();
 
@@ -232,7 +232,7 @@ async applyFilter(event: Event) {
 
 
   if(this.filterValue=='junio202340'){
-    console.log("aplica descuento")
+    // console.log("aplica descuento")
 
 
 
@@ -266,7 +266,7 @@ async applyFilter(event: Event) {
 
 
 async borrar(idmkt_carrito: any, producto: any) {
-  console.log('id a borrar', idmkt_carrito, producto);
+  // console.log('id a borrar', idmkt_carrito, producto);
 
   const alert = await this.alertCtrl.create({
     header: 'AVISO, seguro que deseas eliminar el producto: ' + producto,
@@ -278,7 +278,7 @@ async borrar(idmkt_carrito: any, producto: any) {
         role: 'cancel',
         cssClass: 'secondary',
         handler: () => {
-          console.log('Confirm Cancel');
+          // console.log('Confirm Cancel');
         },
       },
       {
@@ -287,7 +287,7 @@ async borrar(idmkt_carrito: any, producto: any) {
         //     console.log(alertData.name1);
         // }
         handler: async (alertData) => {
-          console.log('Se manda asigna la venta');
+          // console.log('Se manda asigna la venta');
 
           // console.log("Sim:", ICCI);
 
@@ -296,7 +296,7 @@ async borrar(idmkt_carrito: any, producto: any) {
           };
 
           await this.deleteProductoCarrito.DeleteProductoCarrito(params).then(async (resp) => {
-              console.log(resp);
+              // console.log(resp);
 
               const alert = await this.alertCtrl.create({
                 header: 'Producto eliminado con éxito.',
@@ -323,7 +323,7 @@ async borrar(idmkt_carrito: any, producto: any) {
             })
             .catch(async (error) => {
               /* Código a realizar cuando se rechaza la promesa */
-              console.log('NO paso chido', error);
+              // console.log('NO paso chido', error);
 
               const alert = await this.alertCtrl.create({
                 header: 'Error en red.',
@@ -347,7 +347,7 @@ async borrar(idmkt_carrito: any, producto: any) {
 envio(){
 
   
-console.log(localStorage.getItem('totales_final'))
+// console.log(localStorage.getItem('totales_final'))
   
    this.router.navigate(['/envio']);
 
@@ -359,7 +359,7 @@ console.log(localStorage.getItem('totales_final'))
 
 
 subir(){
-  console.log("sube")
+  // console.log("sube")
 
   this.content.scrollToTop(400);
 }

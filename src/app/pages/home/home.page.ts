@@ -106,7 +106,7 @@ export class HomePage {
 
 
  await this.getCountCarrito.GetCountCarrito(params).then(async respuesta => {
-      console.log(respuesta);
+      // console.log(respuesta);
 
        this.contador= respuesta.data[0].contador;
 
@@ -256,7 +256,7 @@ export class HomePage {
 
 
  home(){
-  console.log("home")
+  // console.log("home")
  }
 
 
@@ -285,7 +285,7 @@ export class HomePage {
 
  detalle(idmkt_productos:any, categoria:any){
 
-  console.log(idmkt_productos)
+  // console.log(idmkt_productos)
 
 
 
@@ -300,7 +300,7 @@ export class HomePage {
 
 
  audifonosbt(){
-  console.log("audifonosbt")
+  // console.log("audifonosbt")
 
 
   this.router.navigate(['/audifonos-bt']);
@@ -310,7 +310,7 @@ export class HomePage {
 
  
 manoslibres(){
-  console.log("manoslibres")
+  // console.log("manoslibres")
 
 
   this.router.navigate(['/manos-libres']);
@@ -319,7 +319,7 @@ manoslibres(){
 
  
 cargadores(){
-  console.log("cargadores")
+  // console.log("cargadores")
 
 
   this.router.navigate(['/cargadores']);
@@ -328,7 +328,7 @@ cargadores(){
 
  
 bocinas(){
-  console.log("bocinas")
+  // console.log("bocinas")
 
 
   this.router.navigate(['/bocinas']);
@@ -337,7 +337,7 @@ bocinas(){
 
  
 smartwatch(){
-  console.log("smartwatch")
+  // console.log("smartwatch")
 
 
   this.router.navigate(['/smart-watch']);
@@ -347,7 +347,7 @@ smartwatch(){
  
  
 hogar(){
-  console.log("hogar")
+  // console.log("hogar")
 
 
   this.router.navigate(['/hogar']);
@@ -355,7 +355,7 @@ hogar(){
 
  
 cables(){
-  console.log("cables")
+  // console.log("cables")
 
 
   this.router.navigate(['/cables']);
@@ -363,14 +363,14 @@ cables(){
 
  
 plugin(){
-  console.log("plugin")
+  // console.log("plugin")
 
 
   this.router.navigate(['/plug-in']);
 }
 
 powerbank(){
-  console.log("power-bank")
+  // console.log("power-bank")
 
 
   this.router.navigate(['/power-bank']);
@@ -378,7 +378,7 @@ powerbank(){
 
  
 belleza(){
-  console.log("belleza")
+  // console.log("belleza")
 
 
   this.router.navigate(['/belleza']);

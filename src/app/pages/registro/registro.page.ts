@@ -32,7 +32,7 @@ export class RegistroPage implements OnInit {
   ngOnInit() {}
 
   async save(nombre: any, apellido: any, email: any, celular:any,password: any) {
-    console.log('params', nombre, apellido, email,celular, password);
+    // console.log('params', nombre, apellido, email,celular, password);
 
     nombre==undefined?nombre='':nombre;
     apellido==undefined?apellido='':apellido;
@@ -61,11 +61,11 @@ let params = {
       data: [{nombre: nombre, apellido: apellido, email: email, celular:celular, password:password }]
     }
 
-    console.log("params", params)
+    // console.log("params", params)
 
 
     await this.insertCliente.InsertCliente(params).then(async respuesta => {
-      console.log(respuesta);
+      // console.log(respuesta);
 
       if (respuesta.status = "000") {
         const alert = await this.alertController.create({

@@ -83,18 +83,18 @@ export class EnvioPage implements OnInit {
 
     this.totales = localStorage.getItem('totales_final');
 
-    console.log(this.totales);
+    // console.log(this.totales);
 
     this.initConfig(this.totales);
 
-    console.log(this.id_cliente);
+    // console.log(this.id_cliente);
 
     //telefonia
     let params = {
       idmkt_clientes: this.id_cliente,
     };
 
-    console.log(params);
+    // console.log(params);
 
     if (this.id_cliente) {
       await this.getInfoCliente
@@ -122,7 +122,7 @@ export class EnvioPage implements OnInit {
           this.instrucciones = this.data[0].instrucciones;
           this.estado = this.data[0].estado;
 
-          console.log(this.data);
+          // console.log(this.data);
         });
     } else {
       this.router.navigate(['/login']);
@@ -133,9 +133,9 @@ export class EnvioPage implements OnInit {
     this.payPalConfig = {
       currency: 'MXN',
       // dev
-      clientId: 'Ab5Eqrk-NOVRhy859YUX73ZSctz8CchQat0EjCPNZ0y6IIAMpvynYtUwskzSIjVKrrPHrH1KFvA1vG1K',
+      // clientId: 'Ab5Eqrk-NOVRhy859YUX73ZSctz8CchQat0EjCPNZ0y6IIAMpvynYtUwskzSIjVKrrPHrH1KFvA1vG1K',
       // prod
-  // clientId:'AbWn1eAqAWs24JTO6wOASkRDJVmAbGSWS8G6jueU_oJ8f52mfZXTEHabrz0D4MRQAV5PM7zCzfeB7SZt',
+clientId:'AaHigufqZigAFEhX-2ovqXef5qGcKZ37TkNSVgtwIPvY1j7C898N3lhD-07eA4vwaoOvnkFjrUp9hCge',
       createOrderOnClient: (data) =>
         <ICreateOrderRequest>{
           intent: 'CAPTURE',
@@ -182,16 +182,16 @@ export class EnvioPage implements OnInit {
       onApprove: (data, actions) => {
         // console.log('onApprove - transaction was approved, but not authorized', data, actions);
         actions.order.get().then(async (details: any) => {
-          console.log('onApprove: ', details);
+          // console.log('onApprove: ', details);
 
           this.orden_paypal = details.id
-          console.log(this.orden_paypal)
+          // console.log(this.orden_paypal)
 
 
 // id de transaccion paypal
           // details.id
 
-          console.log('onApprove: ', details.status);
+          // console.log('onApprove: ', details.status);
           // APPROVED
           if (details.status === 'APPROVED') {
             const alert = await this.alertCtrl.create({
@@ -204,16 +204,16 @@ export class EnvioPage implements OnInit {
 
             // se manda el update de carrito
 
-            console.log('orde');
+            // console.log('orde');
             const date = new Date();
-            console.log(date.getTime());
+            // console.log(date.getTime());
 
             let fecha = date.getTime();
             let cliente = localStorage.getItem('id_cliente');
 
             this.orden = cliente + '-' + fecha;
 
-            console.log(this.orden);
+            // console.log(this.orden);
 
 
 
@@ -229,11 +229,11 @@ this.req_orden = {
   ],
 };
 
-console.log(this.req_orden);
+// console.log(this.req_orden);
 await this.updatePagadoCarrito.UpdatePagadoCarrito(this.req_orden)
 .then(async (respuesta) => {
 
-   console.log(respuesta);
+  //  console.log(respuesta);
 });
 
 
@@ -283,12 +283,12 @@ await this.updatePagadoCarrito.UpdatePagadoCarrito(this.req_orden)
                 },
               ],
             };
-console.log(this.req_orden_direccion)
+// console.log(this.req_orden_direccion)
 
             await this.insertLogVenta.InsertLogVenta(this.req_orden_direccion)
             .then(async (respuesta) => {
             
-               console.log(respuesta);
+              //  console.log(respuesta);
             });
 
 
@@ -302,6 +302,12 @@ console.log(this.req_orden_direccion)
 
 
 
+            setTimeout(() => {
+
+              this.router.navigate(['mis-pedidos'])
+        
+            }, 3000);
+        
 
 
             // this.router.navigate(['/home']);
@@ -318,20 +324,20 @@ console.log(this.req_orden_direccion)
         });
       },
       onClientAuthorization: (data) => {
-          console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
+          // console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
           this.showSuccess = true;
       },
       onCancel: (data, actions) => {
-        console.log('OnCancel', data, actions);
+        // console.log('OnCancel', data, actions);
         this.showCancel = true;
       },
       onError: (err) => {
-        console.log('OnError', err);
+        // console.log('OnError', err);
         this.showError = true;
       },
       onClick: (data, actions) => {
-        console.log('onClick', data, actions);
-        console.log('on click');
+        // console.log('onClick', data, actions);
+        // console.log('on click');
       },
     };
   }
@@ -350,16 +356,16 @@ console.log(this.req_orden_direccion)
     estado: any,
     instrucciones: any
   ) {
-    console.log(
-      nombre,
-      calle,
-      numero,
-      colonia,
-      alcaldia,
-      cp,
-      estado,
-      instrucciones
-    );
+    // console.log(
+    //   nombre,
+    //   calle,
+    //   numero,
+    //   colonia,
+    //   alcaldia,
+    //   cp,
+    //   estado,
+    //   instrucciones
+    // );
 
     if (
       calle == null ||
@@ -369,7 +375,7 @@ console.log(this.req_orden_direccion)
       cp == null ||
       estado == null
     ) {
-      console.log('no pasa');
+      // console.log('no pasa');
 
       const alert = await this.alertCtrl.create({
         header: 'Alert',
@@ -436,17 +442,7 @@ console.log(this.req_orden_direccion)
     }
   }
 
-  //   generaorden(){
-  //     console.log("orde")
-  //     const date = new Date();
-  //     console.log(date.getTime());
 
-  //     let fecha= date.getTime()
-  //     let cliente= localStorage.getItem('id_cliente')
 
-  //  this.orden= cliente+'-'+fecha
-
-  //  console.log(this.orden)
-
-  //   }
+ 
 }

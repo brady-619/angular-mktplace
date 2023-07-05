@@ -16,11 +16,11 @@ export class GetEditClienteService {
         )
         .subscribe({
           next: (resp) => {
-            console.log(resp);
+            // console.log(resp);
             resolve(resp);
           },
           error: (err) => {
-            console.log(err.error);
+            // console.log(err.error);
             reject(err);
           },
         });
