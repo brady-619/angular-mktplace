@@ -16,6 +16,12 @@ import { GetMktProductosCategoriaService } from 'src/app/services/get-mkt-produc
 import { GetPreciosMayorMenorService } from 'src/app/services/get-precios-mayor-menor.service';
 import { GetPreciosMenorMayorService } from 'src/app/services/get-precios-menor-mayor.service';
 
+
+import { register } from 'swiper/element/bundle';
+
+
+register();
+
 @Component({
   selector: 'app-sims',
   templateUrl: './sims.page.html',

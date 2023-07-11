@@ -88,6 +88,12 @@ export class MenuComponent  implements OnInit {
     this.menu.close();
   }
 
+  sims(){
+    this.router.navigate(['/sims']);
+    this.menu.close();
+
+  }
+
 
 
 
