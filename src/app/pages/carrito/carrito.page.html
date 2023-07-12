@@ -290,12 +290,67 @@
            </ion-button>
         </ion-item>
 
+
+
+
+
+   <!-- inicio totales -->
+
+
+
+   <ion-item lines="none" *ngIf="!totales_final && totales>=500">
+    <ion-label class="ion-text-left" text-wrap>Costo envío</ion-label>
+    <ion-button color="gris-boton-cantidad" expand="block"  shape="round">
+      $ {{c_envio}} MXN
+     </ion-button>
+  </ion-item>
+
+
+  <ion-item lines="none" *ngIf="!totales_final && totales<=499">
+    <ion-label class="ion-text-left" text-wrap>Costo envío</ion-label>
+    <ion-button color="gris-boton-cantidad" expand="block"  shape="round">
+      $ {{c_envio}} MXN
+     </ion-button>
+  </ion-item>
+
+
+
+
+
+
         <ion-item lines="none" *ngIf="!totales_final">
           <ion-label class="ion-text-left" text-wrap>Total</ion-label>
           <ion-button color="gris-boton-cantidad" expand="block"  shape="round">
-            $ {{totales}} MXN
+            $ {{totales+c_envio}} MXN
            </ion-button>
         </ion-item>
+
+
+
+
+
+
+        <!-- inicio totales final -->
+
+
+        <ion-item lines="none" *ngIf="totales_final && totales>=500">
+          <ion-label class="ion-text-left" text-wrap>Costo envío</ion-label>
+          <ion-button color="gris-boton-cantidad" expand="block"  shape="round">
+            $ {{c_envio}} MXN
+           </ion-button>
+        </ion-item>
+      
+      
+        <ion-item lines="none" *ngIf="totales_final && totales<=499">
+          <ion-label class="ion-text-left" text-wrap>Costo envío</ion-label>
+          <ion-button color="gris-boton-cantidad" expand="block"  shape="round">
+            $ {{c_envio}} MXN
+           </ion-button>
+        </ion-item>
+
+
+
+
 
         <ion-item lines="none" *ngIf="totales_final">
           <ion-label  text-wrap>Total</ion-label>

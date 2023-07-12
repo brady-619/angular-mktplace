@@ -51,7 +51,7 @@ export class CarritoPage implements OnInit {
   totales_descuento=0;
 
   totales_final:any;
-
+  c_envio=0
 
 
   @ViewChild(IonContent)
@@ -121,6 +121,9 @@ localStorage.removeItem('totales_final')
 
 
       });}
+
+
+      this.totales>=500? this.c_envio=0:this.c_envio=80
 
 
       
@@ -232,7 +235,7 @@ async applyFilter(event: Event) {
 
 
   if(this.filterValue=='junio202340'){
-    // console.log("aplica descuento")
+    //  console.log("aplica descuento")
 
 
 
@@ -242,17 +245,31 @@ async applyFilter(event: Event) {
 
 
     this.totales_final= this.totales-this.totales_descuento;
+    // console.log(this.totales_final)
+    this.totales_final>=500? this.c_envio=0:this.c_envio=80
+
+
+this.totales_final=this.totales_final+this.c_envio
+
 
     localStorage.setItem('totales_final',this.totales_final)
-
 
   }
   else{
-
+    // console.log("no aplica descuento")
 
     this.totales_final= this.totales;
     this.totales_descuento=0;
+    // console.log(this.totales_final)
+    this.totales_final>=500? this.c_envio=0:this.c_envio=80
+
+    
+
+    this.totales_final=this.totales_final+this.c_envio
+
+
     localStorage.setItem('totales_final',this.totales_final)
+
   }
 
 

@@ -83,7 +83,7 @@ export class EnvioPage implements OnInit {
 
     this.totales = localStorage.getItem('totales_final');
 
-    // console.log(this.totales);
+    console.log(this.totales);
 
     this.initConfig(this.totales);
 
