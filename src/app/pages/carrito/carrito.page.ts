@@ -52,6 +52,7 @@ export class CarritoPage implements OnInit {
 
   totales_final:any;
   c_envio=0
+  puntos:any;
 
 
   @ViewChild(IonContent)
@@ -74,6 +75,8 @@ localStorage.removeItem('totales_final')
 
 
    this.id_cliente= localStorage.getItem('id_cliente')
+   this.puntos= localStorage.getItem('puntos')
+   console.log(this.puntos)
 
     //telefonia
     let params = {

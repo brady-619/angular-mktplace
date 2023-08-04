@@ -88,6 +88,7 @@ else{
         // console.log(respuesta.data[0].nombre);
         localStorage.setItem('cliente', respuesta.data[0].nombre);
         localStorage.setItem('id_cliente', respuesta.data[0].idmkt_clientes);
+        localStorage.setItem('puntos', respuesta.data[0].puntos);
 
         localStorage.setItem('ingresado', 'si');
 
