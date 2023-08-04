@@ -230,12 +230,12 @@ async applyFilter(event: Event) {
   this.filterValue = this.filterValue.trim().toLowerCase();
 // console.log(this.filterValue);
 
-  // console.log(this.filterValue)
+   console.log(this.filterValue)
 
 
 
-  if(this.filterValue=='junio202340'){
-    //  console.log("aplica descuento")
+  if(this.filterValue=='promosim40'){
+      console.log("aplica descuento")
 
 
 
@@ -255,6 +255,35 @@ this.totales_final=this.totales_final+this.c_envio
     localStorage.setItem('totales_final',this.totales_final)
 
   }
+
+
+  else if(this.filterValue=='apertura25'){
+    //  console.log("aplica descuento")
+
+
+
+    this.totales_descuento= Number((this.totales*.25).toFixed(2))
+
+
+
+
+    this.totales_final= this.totales-this.totales_descuento;
+    // console.log(this.totales_final)
+    this.totales_final>=500? this.c_envio=0:this.c_envio=80
+
+
+this.totales_final=this.totales_final+this.c_envio
+
+
+    localStorage.setItem('totales_final',this.totales_final)
+
+  }
+
+
+
+
+
+
   else{
     // console.log("no aplica descuento")
 
