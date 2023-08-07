@@ -123,7 +123,7 @@
         <ion-textarea></ion-textarea>
       </ion-col>
 
-      <ion-col size="4">
+      <!-- <ion-col size="4">
         <ion-item lines="none">
           <ion-label text-wrap>Agregar codigo de promoción</ion-label>
         </ion-item>
@@ -133,9 +133,9 @@
           aria-label="Custom input"
           placeholder="Codigo"
         ></ion-input>
-      </ion-col>
+      </ion-col> -->
 
-      <ion-col size="8">
+      <ion-col size="12">
         <ion-card>
           <ion-item lines="none">
             <ion-label class="ion-text-left" text-wrap>Subtotal</ion-label>
@@ -148,7 +148,46 @@
             </ion-button>
           </ion-item>
 
+
+          <ion-item lines="none" *ngIf="!totales_final">
+            <ion-label class="ion-text-left" text-wrap>Mis puntos disponibles</ion-label>
+           
+            <ion-button
+              color="gris-boton-cantidad"
+              expand="block"
+              shape="round"
+            >
+              $ {{puntos}} MXN
+            </ion-button>
+          </ion-item>
           <ion-item lines="none">
+            <ion-label class="ion-text-left" text-wrap>Usar mis puntos</ion-label>
+            <ion-checkbox (ionChange)="checkboxClick($event)"></ion-checkbox>
+          </ion-item>
+         
+     
+
+
+
+
+          <ion-item lines="none" *ngIf="totales_final">
+            <ion-label class="ion-text-left" text-wrap>Mis puntos</ion-label>
+            <ion-checkbox (ionChange)="checkboxClick($event)"></ion-checkbox>
+            <ion-button
+              color="gris-boton-cantidad"
+              expand="block"
+              shape="round"
+            >
+              $ {{puntos}} MXN
+            </ion-button>
+          </ion-item>
+
+
+
+
+
+
+          <!-- <ion-item lines="none">
             <ion-label class="ion-text-left" text-wrap>Descuento</ion-label>
             <ion-button
               color="verde-boton-descuento"
@@ -157,9 +196,9 @@
             >
               $ {{totales_descuento}} MXN
             </ion-button>
-          </ion-item>
+          </ion-item> -->
 
-          <ion-item lines="none" *ngIf="!totales_final && totales>=500">
+          <!-- <ion-item lines="none" *ngIf="!totales_final && totales>=500">
             <ion-label class="ion-text-left" text-wrap>Costo envío</ion-label>
             <ion-button
               color="gris-boton-cantidad"
@@ -179,32 +218,31 @@
             >
               $ {{c_envio}} MXN
             </ion-button>
-          </ion-item>
+          </ion-item> -->
 
 
 
-          <ion-item lines="none" *ngIf="!totales_final">
-            <ion-label class="ion-text-left" text-wrap>Puntos</ion-label>
-            <ion-button
-              color="gris-boton-cantidad"
-              expand="block"
-              shape="round"
-            >
-              $ {{puntos}} MXN
-            </ion-button>
-          </ion-item>
+        
           
 
           <ion-item lines="none" *ngIf="!totales_final">
-            <ion-label class="ion-text-left" text-wrap>Total</ion-label>
+            <ion-label class="ion-text-left" text-wrap>Total de productos</ion-label>
             <ion-button
               color="gris-boton-cantidad"
               expand="block"
               shape="round"
+              
             >
-              $ {{totales+c_envio}} MXN
+              $ {{totales}} MXN
             </ion-button>
+            
           </ion-item>
+
+          
+
+
+
+
 
           <ion-item lines="none" *ngIf="totales_final && totales>=500">
             <ion-label class="ion-text-left" text-wrap>Costo envío</ion-label>
@@ -230,16 +268,7 @@
 
 
 
-          <ion-item lines="none" *ngIf="totales_final">
-            <ion-label class="ion-text-left" text-wrap>Puntos</ion-label>
-            <ion-button
-              color="gris-boton-cantidad"
-              expand="block"
-              shape="round"
-            >
-              $ {{puntos}} MXN
-            </ion-button>
-          </ion-item>
+
 
 
           <ion-item lines="none" *ngIf="totales_final">
@@ -250,7 +279,7 @@
               expand="block"
               shape="round"
             >
-              $ {{totales_final}} MXN
+              $ {{totales}} MXN
             </ion-button>
           </ion-item>
 
@@ -266,12 +295,12 @@
 
           <ion-button
             *ngIf="data"
-            (click)="envio()"
+            (click)="resumen()"
             color="orange"
             expand="block"
             shape="round"
           >
-            Comprar ahora
+            Continuar con la compra
           </ion-button>
         </ion-card>
       </ion-col>

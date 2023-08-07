@@ -55,6 +55,7 @@ export class PerfilPage implements OnInit {
   cp: any;
   instrucciones: any;
   estado: any;
+  puntos:any;
   // estado='CDMX';
 
 
@@ -98,7 +99,7 @@ else{
       };
 
       await this.getInfoCliente.InfoCliente(params).then(async (respuesta) => {
-        // console.log(respuesta);
+         console.log(respuesta);
 
         this.data = respuesta.data;
 
@@ -115,6 +116,9 @@ else{
         this.cp = this.data[0].cp;
         this.estado = this.data[0].estado;
         this.instrucciones = this.data[0].instrucciones;
+        this.puntos = this.data[0].puntos.toLocaleString('es-MX');
+
+        
       });
     }
   }

@@ -19,6 +19,7 @@ import {
   ICreateOrderRequest,
 } from 'ngx-paypal';
 
+import { UpdateSaldoPuntosService } from 'src/app/services/update-saldo-puntos.service';
 @Component({
   selector: 'app-envio',
   templateUrl: './envio.page.html',
@@ -46,7 +47,7 @@ export class EnvioPage implements OnInit {
     public alertController: AlertController,
     public alertCtrl: AlertController,
     public updatePagadoCarrito: UpdatePagadoCarritoService,
-    public insertLogVenta: InsertLogVentaService,
+    public insertLogVenta: InsertLogVentaService, public updateSaldo: UpdateSaldoPuntosService
   ) {}
   data: any;
 
@@ -64,26 +65,43 @@ export class EnvioPage implements OnInit {
   id_cliente: any;
 
   valido = false;
-  orden_paypal:any;
+  orden_paypal: any;
 
   orden: any;
 
   showSuccess: any;
   showCancel: any;
   showError: any;
-  req_orden:any;
-  req_orden_direccion:any;
-
+  req_orden: any;
+  req_orden_direccion: any;
+  req_saldo:any;
+  puntos_actualizar:any;
   totales: any;
+  puntos_actuales: any;
 
   ngOnInit() {}
 
   async ionViewWillEnter() {
     this.id_cliente = localStorage.getItem('id_cliente');
 
-    this.totales = localStorage.getItem('totales_final');
+    //total a pagar final
+    this.totales = localStorage.getItem('total_pagar');
+    //  console.log("nuev",localStorage.getItem('totales_final_nuevo'))
+    console.log('Total a cobra', this.totales);
 
-    console.log(this.totales);
+    //total de puntos a actualizar antes de t
+    // console.log("puntos fn",localStorage.getItem('puntos_finales'))
+    this.puntos_actuales = localStorage.getItem('puntos_finales');
+
+    //calculando puntos finales a cliente %1
+
+    let nuevos_puntos = Math.floor(this.totales * 0.01);
+    console.log(nuevos_puntos);
+
+    this.puntos_actualizar =
+      Number(nuevos_puntos) + Number(this.puntos_actuales);
+
+    console.log('puntos a actualizar', this.puntos_actualizar);
 
     this.initConfig(this.totales);
 
@@ -133,9 +151,10 @@ export class EnvioPage implements OnInit {
     this.payPalConfig = {
       currency: 'MXN',
       // dev
-      // clientId: 'Ab5Eqrk-NOVRhy859YUX73ZSctz8CchQat0EjCPNZ0y6IIAMpvynYtUwskzSIjVKrrPHrH1KFvA1vG1K',
+      clientId: 'Ab5Eqrk-NOVRhy859YUX73ZSctz8CchQat0EjCPNZ0y6IIAMpvynYtUwskzSIjVKrrPHrH1KFvA1vG1K',
       // prod
-clientId:'AaHigufqZigAFEhX-2ovqXef5qGcKZ37TkNSVgtwIPvY1j7C898N3lhD-07eA4vwaoOvnkFjrUp9hCge',
+      // clientId:
+      //   'AaHigufqZigAFEhX-2ovqXef5qGcKZ37TkNSVgtwIPvY1j7C898N3lhD-07eA4vwaoOvnkFjrUp9hCge',
       createOrderOnClient: (data) =>
         <ICreateOrderRequest>{
           intent: 'CAPTURE',
@@ -169,7 +188,6 @@ clientId:'AaHigufqZigAFEhX-2ovqXef5qGcKZ37TkNSVgtwIPvY1j7C898N3lhD-07eA4vwaoOvnk
         commit: 'true',
       },
       style: {
-        
         label: 'paypal',
         layout: 'vertical',
         shape: 'pill',
@@ -184,11 +202,10 @@ clientId:'AaHigufqZigAFEhX-2ovqXef5qGcKZ37TkNSVgtwIPvY1j7C898N3lhD-07eA4vwaoOvnk
         actions.order.get().then(async (details: any) => {
           // console.log('onApprove: ', details);
 
-          this.orden_paypal = details.id
+          this.orden_paypal = details.id;
           // console.log(this.orden_paypal)
 
-
-// id de transaccion paypal
+          // id de transaccion paypal
           // details.id
 
           // console.log('onApprove: ', details.status);
@@ -200,7 +217,6 @@ clientId:'AaHigufqZigAFEhX-2ovqXef5qGcKZ37TkNSVgtwIPvY1j7C898N3lhD-07eA4vwaoOvnk
               // message: 'This is an alert!',
               buttons: ['OK'],
             });
-         
 
             // se manda el update de carrito
 
@@ -215,100 +231,106 @@ clientId:'AaHigufqZigAFEhX-2ovqXef5qGcKZ37TkNSVgtwIPvY1j7C898N3lhD-07eA4vwaoOvnk
 
             // console.log(this.orden);
 
-
-
-
-
-this.req_orden = {
-  data: [
-    {
-     orden: this.orden,
-      id_cliente: cliente,
-      orden_paypal: this.orden_paypal
-    },
-  ],
-};
-
-// console.log(this.req_orden);
-await this.updatePagadoCarrito.UpdatePagadoCarrito(this.req_orden)
-.then(async (respuesta) => {
-
-  //  console.log(respuesta);
-});
-
-
-
-
-
-
-
-// console.log(this.orden);
-// console.log(localStorage.getItem('id_cliente'));
-//             console.log('pago total', totales);
-            
-
-
-
-
-//             console.log(localStorage.getItem('calle'));
-//             console.log(localStorage.getItem('numero'));
-//             console.log(localStorage.getItem('colonia'));
-//             console.log(localStorage.getItem('alcaldia'));
-//             console.log(localStorage.getItem('cp'));
-//             console.log(localStorage.getItem('estado'));
-//             console.log(localStorage.getItem('instrucciones'));
-
-
-
-            // log de pagos
-            let direccion =  'Calle: '+localStorage.getItem('calle') 
-            + ' Numero: ' + localStorage.getItem('numero')
-            + ' Colonia: ' + localStorage.getItem('colonia')
-            + ' Municipio/Alcaldia: ' + localStorage.getItem('alcaldia')
-            + ' CP: ' + localStorage.getItem('cp')
-            + ' Estado: ' + localStorage.getItem('estado')
-            + ' Instrucciones: ' + localStorage.getItem('instrucciones');
-
-
-
-
-             this.req_orden_direccion = {
+            this.req_orden = {
               data: [
                 {
-                 orden: this.orden,
-                  id_cliente: localStorage.getItem('id_cliente'),
-                  pago: totales,
-                  direccion: direccion,
-                  orden_paypal: this.orden_paypal
+                  orden: this.orden,
+                  id_cliente: cliente,
+                  orden_paypal: this.orden_paypal,
                 },
               ],
             };
-// console.log(this.req_orden_direccion)
 
-            await this.insertLogVenta.InsertLogVenta(this.req_orden_direccion)
-            .then(async (respuesta) => {
-            
-              //  console.log(respuesta);
-            });
-
-
+            // console.log(this.req_orden);
+            await this.updatePagadoCarrito
+              .UpdatePagadoCarrito(this.req_orden)
+              .then(async (respuesta) => {
+                //  console.log(respuesta);
+              });
 
 
+console.log("dots",this.puntos_actualizar)
 
 
+
+
+
+
+              this.req_saldo = {
+                data: [
+                  {
+                    puntos: this.puntos_actualizar,
+                    id_cliente: cliente
+                  },
+                ],
+              };
+              // act puntos
+              await this.updateSaldo.UpdateSaldoPuntos
+              (this.req_saldo)
+              .then(async (respuesta) => {
+                //  console.log(respuesta);
+
+                localStorage.setItem('puntos_finales', this.puntos_actualizar)
+                localStorage.setItem('puntos', this.puntos_actualizar)
+
+
+              });
+
+            // console.log(this.orden);
+            // console.log(localStorage.getItem('id_cliente'));
+            //             console.log('pago total', totales);
+
+            //             console.log(localStorage.getItem('calle'));
+            //             console.log(localStorage.getItem('numero'));
+            //             console.log(localStorage.getItem('colonia'));
+            //             console.log(localStorage.getItem('alcaldia'));
+            //             console.log(localStorage.getItem('cp'));
+            //             console.log(localStorage.getItem('estado'));
+            //             console.log(localStorage.getItem('instrucciones'));
+
+            // log de pagos
+            let direccion =
+              'Calle: ' +
+              localStorage.getItem('calle') +
+              ' Numero: ' +
+              localStorage.getItem('numero') +
+              ' Colonia: ' +
+              localStorage.getItem('colonia') +
+              ' Municipio/Alcaldia: ' +
+              localStorage.getItem('alcaldia') +
+              ' CP: ' +
+              localStorage.getItem('cp') +
+              ' Estado: ' +
+              localStorage.getItem('estado') +
+              ' Instrucciones: ' +
+              localStorage.getItem('instrucciones');
+
+            this.req_orden_direccion = {
+              data: [
+                {
+                  orden: this.orden,
+                  id_cliente: localStorage.getItem('id_cliente'),
+                  pago: totales,
+                  direccion: direccion,
+                  orden_paypal: this.orden_paypal,
+                },
+              ],
+            };
+            // console.log(this.req_orden_direccion)
+
+            await this.insertLogVenta
+              .InsertLogVenta(this.req_orden_direccion)
+              .then(async (respuesta) => {
+                //  console.log(respuesta);
+              });
 
             await alert.present();
 
-
-
-
             setTimeout(() => {
-
-              this.router.navigate(['mis-pedidos'])
-        
+              this.router.navigate(['home']).then(() => {
+                window.location.reload();
+              })
             }, 3000);
-        
-
 
             // this.router.navigate(['/home']);
           } else {
@@ -324,8 +346,8 @@ await this.updatePagadoCarrito.UpdatePagadoCarrito(this.req_orden)
         });
       },
       onClientAuthorization: (data) => {
-          // console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
-          this.showSuccess = true;
+        // console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
+        this.showSuccess = true;
       },
       onCancel: (data, actions) => {
         // console.log('OnCancel', data, actions);
@@ -441,8 +463,4 @@ await this.updatePagadoCarrito.UpdatePagadoCarrito(this.req_orden)
       await alert.present();
     }
   }
-
-
-
- 
 }
