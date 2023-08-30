@@ -15,6 +15,7 @@ export class FooterComponent  implements OnInit {
   url:string= "https://wa.me/message/4SJ5QOKAXRHSC1";
   urlinsta:string="https://instagram.com/cellularplanet_app?igshid=OGQ5ZDc2ODk2ZA==";
   urlface:string="https://www.facebook.com/cellularplanetmexico";
+  urllocal:string="https://www.google.com.mx/maps/place/CELLULAR+PLANET/@19.4275382,-99.1446357,17z/data=!3m1!4b1!4m6!3m5!1s0x85d1ff0e39dc976d:0x65dcfcbb5dee5582!8m2!3d19.4275332!4d-99.1420608!16s%2Fg%2F11ghpn3z5r?entry=ttu";
 
 
   constructor(private router: Router) { }
@@ -57,6 +58,11 @@ export class FooterComponent  implements OnInit {
 
      window.open(this.urlface, '_blank');
 
+  }
+
+
+  local(){
+    window.open(this.urllocal, '_blank');
   }
 
 }

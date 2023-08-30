@@ -151,10 +151,10 @@ export class EnvioPage implements OnInit {
     this.payPalConfig = {
       currency: 'MXN',
       // dev
-      clientId: 'Ab5Eqrk-NOVRhy859YUX73ZSctz8CchQat0EjCPNZ0y6IIAMpvynYtUwskzSIjVKrrPHrH1KFvA1vG1K',
+      // clientId: 'Ab5Eqrk-NOVRhy859YUX73ZSctz8CchQat0EjCPNZ0y6IIAMpvynYtUwskzSIjVKrrPHrH1KFvA1vG1K',
       // prod
-      // clientId:
-      //   'AaHigufqZigAFEhX-2ovqXef5qGcKZ37TkNSVgtwIPvY1j7C898N3lhD-07eA4vwaoOvnkFjrUp9hCge',
+      clientId:
+        'AaHigufqZigAFEhX-2ovqXef5qGcKZ37TkNSVgtwIPvY1j7C898N3lhD-07eA4vwaoOvnkFjrUp9hCge',
       createOrderOnClient: (data) =>
         <ICreateOrderRequest>{
           intent: 'CAPTURE',
