@@ -208,7 +208,8 @@ export class EnvioPage implements OnInit {
           // id de transaccion paypal
           // details.id
 
-          // console.log('onApprove: ', details.status);
+          console.log('onApprove1: ', details);
+           console.log('onApprove2: ', details.status);
           // APPROVED
           if (details.status === 'APPROVED') {
             const alert = await this.alertCtrl.create({
@@ -326,11 +327,11 @@ console.log("dots",this.puntos_actualizar)
 
             await alert.present();
 
-            setTimeout(() => {
-              this.router.navigate(['home']).then(() => {
-                window.location.reload();
-              })
-            }, 3000);
+            // setTimeout(() => {
+            //   this.router.navigate(['home']).then(() => {
+            //     window.location.reload();
+            //   })
+            // }, 3000);
 
             // this.router.navigate(['/home']);
           } else {
@@ -348,6 +349,21 @@ console.log("dots",this.puntos_actualizar)
       onClientAuthorization: (data) => {
         // console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
         this.showSuccess = true;
+        console.log("aut",data)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       },
       onCancel: (data, actions) => {
         // console.log('OnCancel', data, actions);
